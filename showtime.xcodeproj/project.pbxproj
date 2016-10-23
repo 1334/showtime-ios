@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1154AF36871128223D6D9E1 /* Pods_showtime.framework */; };
 		76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76935F741D96CF17004CFDF0 /* AppDelegate.swift */; };
 		76935F771D96CF17004CFDF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76935F761D96CF17004CFDF0 /* ViewController.swift */; };
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
+		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		76935F711D96CF17004CFDF0 /* showtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76935F741D96CF17004CFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76935F761D96CF17004CFDF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +37,11 @@
 		76935F801D96CF17004CFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showtime/Pods-showtime.debug.xcconfig"; sourceTree = "<group>"; };
+		EF57E3336F719AF6A2AC501E /* Pods-showtimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5013ECD646BC81522390CF2 /* Pods-showtime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtime.release.xcconfig"; path = "Pods/Target Support Files/Pods-showtime/Pods-showtime.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,18 +57,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462CAEA85E83BE23FB83E4C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */,
+				F5013ECD646BC81522390CF2 /* Pods-showtime.release.xcconfig */,
+				EF57E3336F719AF6A2AC501E /* Pods-showtimeTests.debug.xcconfig */,
+				4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		52AA6185F994ABA8F3C52496 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1154AF36871128223D6D9E1 /* Pods_showtime.framework */,
+				D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		76935F681D96CF17004CFDF0 = {
 			isa = PBXGroup;
 			children = (
 				76935F731D96CF17004CFDF0 /* showtime */,
 				76D354051D98545F00723A61 /* showtimeTests */,
 				76935F721D96CF17004CFDF0 /* Products */,
+				462CAEA85E83BE23FB83E4C5 /* Pods */,
+				52AA6185F994ABA8F3C52496 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76935F831D96CF17004CFDF0 /* Build configuration list for PBXNativeTarget "showtime" */;
 			buildPhases = (
+				F58152B23BF42626473B11F3 /* [CP] Check Pods Manifest.lock */,
 				76935F6D1D96CF17004CFDF0 /* Sources */,
 				76935F6E1D96CF17004CFDF0 /* Frameworks */,
 				76935F6F1D96CF17004CFDF0 /* Resources */,
+				0183D4A539EDE2ABE655FD69 /* [CP] Embed Pods Frameworks */,
+				90894E8746317C0FE3E30233 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D3540D1D98545F00723A61 /* Build configuration list for PBXNativeTarget "showtimeTests" */;
 			buildPhases = (
+				D6559D99795A02EF8DB3A774 /* [CP] Check Pods Manifest.lock */,
 				76D354001D98545F00723A61 /* Sources */,
 				76D354011D98545F00723A61 /* Frameworks */,
 				76D354021D98545F00723A61 /* Resources */,
+				2AB75C1CA9A36EF96D57052C /* [CP] Embed Pods Frameworks */,
+				8C32C6AF1D22A2E1C42E2677 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +187,7 @@
 					76D354031D98545F00723A61 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = G5L772F28R;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 76935F701D96CF17004CFDF0;
 					};
@@ -192,6 +231,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0183D4A539EDE2ABE655FD69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-showtime/Pods-showtime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AB75C1CA9A36EF96D57052C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C32C6AF1D22A2E1C42E2677 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90894E8746317C0FE3E30233 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-showtime/Pods-showtime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6559D99795A02EF8DB3A774 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F58152B23BF42626473B11F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76935F6D1D96CF17004CFDF0 /* Sources */ = {
@@ -333,6 +465,7 @@
 		};
 		76935F841D96CF17004CFDF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G5L772F28R;
@@ -346,6 +479,7 @@
 		};
 		76935F851D96CF17004CFDF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5013ECD646BC81522390CF2 /* Pods-showtime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G5L772F28R;
@@ -359,13 +493,17 @@
 		};
 		76D3540B1D98545F00723A61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF57E3336F719AF6A2AC501E /* Pods-showtimeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
 				INFOPLIST_FILE = showtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "showtimeTests/showtimeTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/showtime.app/showtime";
 			};
@@ -373,13 +511,16 @@
 		};
 		76D3540C1D98545F00723A61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
 				INFOPLIST_FILE = showtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "showtimeTests/showtimeTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/showtime.app/showtime";
 			};
@@ -413,6 +554,7 @@
 				76D3540C1D98545F00723A61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
