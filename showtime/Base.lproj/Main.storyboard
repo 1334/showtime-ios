@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" title="Concerts" id="CfH-b8-Xv6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NAK-3z-MkR">
                             <connections>
-                                <segue destination="hZx-Eq-RcQ" kind="show" identifier="AddConcert" action="showDetailViewController:sender:" id="QFX-ZB-WlE"/>
+                                <segue destination="hZx-Eq-RcQ" kind="show" identifier="AddConcert" id="geh-fQ-VtW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -88,8 +88,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="select artist's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-le-f8w">
-                                                    <rect key="frame" x="96" y="6" width="271" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="select artist's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-le-f8w">
+                                                    <rect key="frame" x="96" y="12.5" width="271" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -120,8 +120,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="pick a date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-5T-TtR">
-                                                    <rect key="frame" x="96" y="6" width="271" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="pick a date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-5T-TtR">
+                                                    <rect key="frame" x="96" y="12.5" width="271" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -143,7 +143,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ber-cG-EC4">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ber-cG-EC4">
                                                     <rect key="frame" x="27.5" y="-1" width="320" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="499941172.50006503">
                                                         <!--2016-11-04 08:32:52 +0000-->
@@ -172,8 +172,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="select venue's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blP-EO-G7J">
-                                                    <rect key="frame" x="96" y="6" width="271" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="select venue's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blP-EO-G7J">
+                                                    <rect key="frame" x="96" y="12.5" width="271" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
