@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1154AF36871128223D6D9E1 /* Pods_showtime.framework */; };
 		7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */; };
+		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
 		76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76935F741D96CF17004CFDF0 /* AppDelegate.swift */; };
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
+		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
 		76935F711D96CF17004CFDF0 /* showtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76935F741D96CF17004CFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +113,10 @@
 			children = (
 				765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */,
 				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
-				76935F781D96CF17004CFDF0 /* Main.storyboard */,
+				7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */,
 				7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */,
 				76935F7B1D96CF17004CFDF0 /* Assets.xcassets */,
+				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
 				76935F801D96CF17004CFDF0 /* Info.plist */,
 			);
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */,
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
