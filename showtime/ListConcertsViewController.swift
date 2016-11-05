@@ -124,6 +124,15 @@ class ListConcertsViewController: UITableViewController {
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowConcert" {
+            guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
+            if let vc = segue.destination as? ShowConcertViewController {
+                vc.concert = concerts[indexPath.row]
+            }
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
