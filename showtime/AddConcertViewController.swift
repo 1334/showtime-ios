@@ -15,17 +15,15 @@ class AddConcertViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var venueTextField: UITextField!
 
-    private let df = DateFormatter()
+    private let dateFormatter = DateFormatters.longFormatDate
 
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        dateTextField.text = df.string(from: datePicker.date)
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        df.dateStyle = .long
-
-        dateTextField.text = df.string(from: datePicker.date)
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
     }
 }
