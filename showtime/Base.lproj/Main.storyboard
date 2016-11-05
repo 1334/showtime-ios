@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AcU-t9-46D" kind="show" identifier="ShowConcert" id="a1R-yV-Xf9"/>
+                                    <segue destination="AcU-t9-46D" kind="show" identifier="showConcert" id="a1R-yV-Xf9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +55,7 @@
                     <navigationItem key="navigationItem" title="Concerts" id="CfH-b8-Xv6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NAK-3z-MkR">
                             <connections>
-                                <segue destination="hZx-Eq-RcQ" kind="show" identifier="AddConcert" id="geh-fQ-VtW"/>
+                                <segue destination="hZx-Eq-RcQ" kind="show" identifier="addConcert" id="geh-fQ-VtW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

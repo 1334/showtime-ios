@@ -125,7 +125,7 @@ class ListConcertsViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowConcert" {
+        if segue.identifier == "showConcert" {
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
             if let vc = segue.destination as? ShowConcertViewController {
                 vc.concert = concerts[indexPath.row]
