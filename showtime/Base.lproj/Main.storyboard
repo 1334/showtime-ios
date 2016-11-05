@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1426.4000000000001" y="179.46026986506749"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Concert View Controller-->
         <scene sceneID="2Cg-DP-F1h">
             <objects>
-                <tableViewController id="hZx-Eq-RcQ" sceneMemberID="viewController">
+                <tableViewController id="hZx-Eq-RcQ" customClass="AddConcertViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tAq-IU-kzw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +76,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ors-tn-mpI" id="4aD-XI-lkJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVG-ad-MJ7">
@@ -108,7 +108,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVe-QP-gEn" id="5nM-Au-LjS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-PL-Z9l">
@@ -140,14 +140,17 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aFz-0w-edb" id="S8k-5I-wUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ber-cG-EC4">
-                                                    <rect key="frame" x="27.5" y="-1" width="320" height="216"/>
+                                                    <rect key="frame" x="27.5" y="0.0" width="320" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="499941172.50006503">
                                                         <!--2016-11-04 08:32:52 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="hZx-Eq-RcQ" eventType="valueChanged" id="cpN-km-c79"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -160,7 +163,7 @@
                                         <rect key="frame" x="0.0" y="304" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eIX-72-7kO" id="vFB-QU-wtK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-3I-qgH">
@@ -196,6 +199,12 @@
                             <outlet property="delegate" destination="hZx-Eq-RcQ" id="HUL-uY-eQu"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="artistTextField" destination="3qd-le-f8w" id="Kpd-Nv-K9J"/>
+                        <outlet property="datePicker" destination="ber-cG-EC4" id="L7H-mc-Eef"/>
+                        <outlet property="dateTextField" destination="UCN-5T-TtR" id="AQw-Ez-xSr"/>
+                        <outlet property="venueTextField" destination="blP-EO-G7J" id="rHK-dy-3vx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57Q-J5-rsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
