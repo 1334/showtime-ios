@@ -88,9 +88,9 @@ class ListConcertsViewController: UITableViewController {
         //    Concert(artist: db, date: Date.init(timeIntervalSinceNow: -553450002), venue: zeleste)
         //]
         concerts = [
-            Concert(artist: "Sisters of Mervy", date: "23/9/1993", venue: "Sala Apolo"),
+            Concert(artist: "Sisters of Mercy", date: "23/9/1993", venue: "Sala Apolo"),
             Concert(artist: "Bauhaus", date: "18/5/1983", venue: "Studio 54"),
-            Concert(artist: "Sisters of Mervy", date: "11/9/2016", venue: "Palau Sant Jordi"),
+            Concert(artist: "Sisters of Mercy", date: "11/9/2016", venue: "Palau Sant Jordi"),
             Concert(artist: "David Bowie", date: "8/1/2016", venue: "La Cova del Drac")
 
         ]
