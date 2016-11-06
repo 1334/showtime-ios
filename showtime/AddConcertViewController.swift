@@ -18,12 +18,16 @@ class AddConcertViewController: UITableViewController {
     private let dateFormatter = DateFormatters.longFormatDate
 
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        dateTextField.text = dateFormatter.string(from: datePicker.date)
+        syncDatePickerWithLabel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        syncDatePickerWithLabel()
+    }
+
+    private func syncDatePickerWithLabel() {
         dateTextField.text = dateFormatter.string(from: datePicker.date)
     }
 }
