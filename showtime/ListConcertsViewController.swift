@@ -110,7 +110,8 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
             Concert(artist: "Sisters of Mercy", date: "23/9/1993", venue: "Sala Apolo"),
             Concert(artist: "Bauhaus", date: "18/5/1983", venue: "Studio 54"),
             Concert(artist: "Sisters of Mercy", date: "11/9/2016", venue: "Palau Sant Jordi"),
-            Concert(artist: "David Bowie", date: "8/1/2016", venue: "La Cova del Drac")
+            Concert(artist: "David Bowie", date: "8/1/2016", venue: "La Cova del Drac"),
+            Concert(artist: "Iggy & the Stooges", date: "4/8/1973", venue: "Wiskey A Go Go")
 
         ]
 
