@@ -66,7 +66,31 @@ class DateFormatters {
     }
 }
 
-class ListConcertsViewController: UITableViewController {
+public protocol SegueHandlerType {
+    associatedtype SegueIdentifier : RawRepresentable
+}
+
+extension SegueHandlerType where Self: UIViewController, SegueIdentifier.RawValue == String {
+
+    public func segueIdentifier(for segue: UIStoryboardSegue) -> SegueIdentifier {
+        guard let identifier = segue.identifier,
+            let segueIdentifier = SegueIdentifier(rawValue: identifier)
+            else { fatalError("Unknown segue: \(segue))") }
+        return segueIdentifier
+    }
+
+//    public func performSegue(segueIdentifier: SegueIdentifier) {
+//        performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
+//    }
+
+}
+
+class ListConcertsViewController: UITableViewController, SegueHandlerType {
+
+    enum SegueIdentifier: String {
+        case showConcert = "showConcert"
+        case addConcert = "addConcert"
+    }
 
     var concerts = [Concert]()
 
@@ -125,11 +149,13 @@ class ListConcertsViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showConcert" {
+        switch segueIdentifier(for: segue) {
+        case .showConcert:
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
             if let vc = segue.destination as? ShowConcertViewController {
                 vc.concert = concerts[indexPath.row]
             }
+        case .addConcert: break
         }
     }
 
