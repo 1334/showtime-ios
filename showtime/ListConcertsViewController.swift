@@ -25,12 +25,9 @@ extension Concert {
     }
 }
 extension Concert {
-    init(artist: String, date: String, venue: String) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-
+    init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
         self.artist = Artist(name: artist)
-        self.date = dateFormatter.date(from: date)!
+        self.date = dateParser.date(from: date)!
         self.venue = Venue(name: venue)
     }
 }
@@ -79,9 +76,7 @@ extension SegueHandlerType where Self: UIViewController, SegueIdentifier.RawValu
         return segueIdentifier
     }
 
-//    public func performSegue(segueIdentifier: SegueIdentifier) {
-//        performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
-//    }
+ 
 
 }
 
