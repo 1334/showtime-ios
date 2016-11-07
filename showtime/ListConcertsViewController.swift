@@ -8,78 +8,6 @@
 
 import UIKit
 
-
-struct Concert: CustomStringConvertible {
-    let artist: Artist
-    let date: Date
-    let venue: Venue
-
-    var description: String { return "\(artist) live at \(venue) on \(formattedDate))" }
-}
-
-extension Concert {
-    var formattedDate: String  {
-        let df = DateFormatter()
-        df.dateStyle = .medium
-        return df.string(from: date)
-    }
-}
-extension Concert {
-    init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
-        self.artist = Artist(name: artist)
-        self.date = dateParser.date(from: date)!
-        self.venue = Venue(name: venue)
-    }
-}
-
-struct Artist: CustomStringConvertible {
-    let name: String
-
-    var description: String { return name }
-}
-
-struct Venue: CustomStringConvertible {
-    let name: String
-
-    var description: String { return name }
-}
-
-class DateFormatters {
-    static var dateParser: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        return df
-    }
-    static var mediumFormatDate: DateFormatter {
-        let df = DateFormatter()
-        df.dateStyle = .medium
-        return df
-    }
-
-    static var longFormatDate: DateFormatter {
-        let df = DateFormatter()
-        df.dateStyle = .long
-        return df
-    }
-}
-
-public protocol SegueHandlerType {
-    associatedtype SegueIdentifier : RawRepresentable
-}
-
-extension SegueHandlerType where Self: UIViewController, SegueIdentifier.RawValue == String {
-
-    public func segueIdentifier(for segue: UIStoryboardSegue) -> SegueIdentifier {
-        guard let identifier = segue.identifier,
-            let segueIdentifier = SegueIdentifier(rawValue: identifier)
-            else { fatalError("Unknown segue: \(segue))") }
-        return segueIdentifier
-    }
-
- 
-
-}
-
 class ListConcertsViewController: UITableViewController, SegueHandlerType {
 
     enum SegueIdentifier: String {
@@ -92,20 +20,7 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //let som = Artist(name: "The Sisters of Mercy")
-        //let bauhaus = Artist(name: "Bauhaus")
-        //let db = Artist(name: "David Bowie")
-
-        //let apolo = Venue(name: "Sala Apolo")
-        //let s54 = Venue(name: "Studio 54")
-        //let zeleste = Venue(name: "Zeleste")
-
-        // concerts = [
-        //    Concert(artist: som, date: Date.init(timeIntervalSinceNow: -3453436), venue: apolo),
-        //    Concert(artist: bauhaus, date: Date.init(timeIntervalSinceNow: -8574436), venue: s54),
-        //    Concert(artist: som, date: Date.init(timeIntervalSinceNow: -453452), venue: s54),
-        //    Concert(artist: db, date: Date.init(timeIntervalSinceNow: -553450002), venue: zeleste)
-        //]
+        // create sample data
         concerts = [
             Concert(artist: "Sisters of Mercy", date: "23/9/1993", venue: "Sala Apolo"),
             Concert(artist: "Bauhaus", date: "18/5/1983", venue: "Studio 54"),
