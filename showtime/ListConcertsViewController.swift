@@ -63,22 +63,12 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredConcerts.count
-        } else {
-            return concerts.count
-        }
+        return isInTheMiddleOfASearch() ? filteredConcerts.count : concerts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell", for: indexPath)
-        let concert: Concert
-
-        if searchController.isActive && searchController.searchBar.text != "" {
-            concert = filteredConcerts[indexPath.row]
-        } else {
-            concert = concerts[indexPath.row]
-        }
+        let concert = isInTheMiddleOfASearch() ? filteredConcerts[indexPath.row] : concerts[indexPath.row]
 
         cell.textLabel?.text = "\(concert.artist)"
         cell.detailTextLabel?.text = "\(concert.venue) - \(concert.formattedDate)"
@@ -91,17 +81,17 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         case .showConcert:
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
             if let vc = segue.destination as? ShowConcertViewController {
-                if searchController.isActive && searchController.searchBar.text != "" {
-                    vc.concert = filteredConcerts[indexPath.row]
-                } else {
-                    vc.concert = concerts[indexPath.row]
-                }
+                vc.concert = isInTheMiddleOfASearch() ? filteredConcerts[indexPath.row] : concerts[indexPath.row]
             }
         case .addConcert:
             if let vc = segue.destination as? AddConcertViewController {
                 vc.delegate = self
             }
         }
+    }
+
+    private func isInTheMiddleOfASearch() -> Bool {
+        return searchController.isActive && searchController.searchBar.text != ""
     }
 
     /*
