@@ -97,7 +97,10 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
                     vc.concert = concerts[indexPath.row]
                 }
             }
-        case .addConcert: break
+        case .addConcert:
+            if let vc = segue.destination as? AddConcertViewController {
+                vc.delegate = self
+            }
         }
     }
 
@@ -151,5 +154,13 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
 extension ListConcertsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContent(for: searchController.searchBar.text!)
+    }
+}
+
+extension ListConcertsViewController: ConcertCreatorDelegate {
+    func createdConcert(_ concert: Concert) {
+        concerts.append(concert)
+
+        tableView.reloadData()
     }
 }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ConcertCreatorDelegate {
+    func createdConcert(_ concert: Concert)
+}
+
 class AddConcertViewController: UITableViewController {
     // MARK: Outlets
     @IBOutlet weak var artistTextField: UITextField!
@@ -15,10 +19,20 @@ class AddConcertViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var venueTextField: UITextField!
 
-    private let dateFormatter = DateFormatters.longFormatDate
+    var delegate: ConcertCreatorDelegate?
+
+    private let dateFormatter = DateFormatters.dateParser
 
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         syncDatePickerWithLabel()
+    }
+
+    @IBAction func addConcert(_ sender: UIButton) {
+        guard let artist = artistTextField.text, let venue = venueTextField.text else { return }
+
+        let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
+        delegate?.createdConcert(concert)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
