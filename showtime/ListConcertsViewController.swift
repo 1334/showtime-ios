@@ -16,6 +16,8 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     }
 
     var concerts = [Concert]()
+    var filteredConcerts = [Concert]()
+    let searchController  = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
 
         ]
 
+        setupSearchController()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,15 +41,44 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    // MARK: - Search Controller
+
+    func filterContent(for searchText: String) {
+        filteredConcerts = concerts.filter { concert in
+            return concert.artist.name.lowercased().contains(searchText.lowercased()) ||
+                concert.venue.name.lowercased().contains(searchText.lowercased())
+
+        }
+
+        tableView.reloadData()
+    }
+
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+    }
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return concerts.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredConcerts.count
+        } else {
+            return concerts.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell", for: indexPath)
-        let concert = concerts[indexPath.row]
+        let concert: Concert
+
+        if searchController.isActive && searchController.searchBar.text != "" {
+            concert = filteredConcerts[indexPath.row]
+        } else {
+            concert = concerts[indexPath.row]
+        }
 
         cell.textLabel?.text = "\(concert.artist)"
         cell.detailTextLabel?.text = "\(concert.venue) - \(concert.formattedDate)"
@@ -58,7 +91,11 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         case .showConcert:
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
             if let vc = segue.destination as? ShowConcertViewController {
-                vc.concert = concerts[indexPath.row]
+                if searchController.isActive && searchController.searchBar.text != "" {
+                    vc.concert = filteredConcerts[indexPath.row]
+                } else {
+                    vc.concert = concerts[indexPath.row]
+                }
             }
         case .addConcert: break
         }
@@ -109,4 +146,10 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     }
     */
 
+}
+
+extension ListConcertsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContent(for: searchController.searchBar.text!)
+    }
 }
