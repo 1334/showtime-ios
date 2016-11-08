@@ -264,6 +264,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rs-uH-lvi">
+                                <rect key="frame" x="138" y="318" width="99" height="30"/>
+                                <state key="normal" title="Tweet concert"/>
+                                <connections>
+                                    <action selector="tweetConcert:" destination="AcU-t9-46D" eventType="touchUpInside" id="psG-Ui-aLr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -271,9 +278,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Jdl-EH-FPy" secondAttribute="trailing" id="M9y-R0-bhm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R4N-F2-9gi" secondAttribute="trailing" id="TU8-eR-lhs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Jdl-EH-FPy" secondAttribute="leading" id="UrJ-Ug-2Zc"/>
+                            <constraint firstItem="0Rs-uH-lvi" firstAttribute="top" secondItem="Jdl-EH-FPy" secondAttribute="bottom" constant="101" id="ciB-1q-FPC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8qc-ks-98a" secondAttribute="trailing" id="fWF-nw-uas"/>
                             <constraint firstItem="Jdl-EH-FPy" firstAttribute="top" secondItem="R4N-F2-9gi" secondAttribute="bottom" constant="7.5" id="fbR-J5-3xH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="R4N-F2-9gi" secondAttribute="leading" id="h8j-97-4W9"/>
+                            <constraint firstItem="0Rs-uH-lvi" firstAttribute="centerX" secondItem="CYe-fX-dUk" secondAttribute="centerX" id="mU2-kj-GHO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="8qc-ks-98a" secondAttribute="leading" id="qyM-I1-EqR"/>
                             <constraint firstItem="8qc-ks-98a" firstAttribute="top" secondItem="Mna-g2-KWo" secondAttribute="bottom" constant="50" id="ztA-cl-Ib6"/>
                         </constraints>

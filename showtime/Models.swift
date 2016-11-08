@@ -14,7 +14,7 @@ struct Concert: CustomStringConvertible {
     let date: Date
     let venue: Venue
 
-    var description: String { return "\(artist) live at \(venue) on \(formattedDate))" }
+    var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
 }
 
 extension Concert {

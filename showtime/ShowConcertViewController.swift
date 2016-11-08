@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ShowConcertViewController: UIViewController {
 
@@ -14,6 +15,17 @@ class ShowConcertViewController: UIViewController {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+
+    // MARK: Actions
+    @IBAction func tweetConcert(_ sender: Any) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+            let tweetVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
+            self.present(tweetVC!, animated: true, completion: nil)
+        } else {
+            NSLog("Can't send tweet")
+        }
+    }
 
     // MARK: Model
     var concert: Concert!
