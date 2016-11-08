@@ -18,6 +18,7 @@
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
+		76F74B221DD24F32005CEA32 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F74B211DD24F32005CEA32 /* DVR.framework */; };
 		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		76935F801D96CF17004CFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
 		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showtime/Pods-showtime.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */,
+				76F74B221DD24F32005CEA32 /* DVR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +91,7 @@
 		52AA6185F994ABA8F3C52496 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76F74B211DD24F32005CEA32 /* DVR.framework */,
 				B1154AF36871128223D6D9E1 /* Pods_showtime.framework */,
 				D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */,
 			);
@@ -518,6 +522,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = showtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtimeTests;
@@ -536,6 +544,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = showtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtimeTests;
