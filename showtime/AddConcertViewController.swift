@@ -30,9 +30,13 @@ class AddConcertViewController: UITableViewController {
     @IBAction func addConcert(_ sender: UIButton) {
         guard let artist = artistTextField.text, let venue = venueTextField.text else { return }
 
-        let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
-        delegate?.createdConcert(concert)
-        _ = self.navigationController?.popViewController(animated: true)
+        if !(artist.isEmpty || venue.isEmpty) {
+            let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
+            delegate?.createdConcert(concert)
+            _ = self.navigationController?.popViewController(animated: true)
+        } else {
+            alertFieldsEmpty()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,5 +47,12 @@ class AddConcertViewController: UITableViewController {
 
     private func syncDatePickerWithLabel() {
         dateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+
+    private func alertFieldsEmpty() {
+        let alert = UIAlertController(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
