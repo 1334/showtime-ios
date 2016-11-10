@@ -13,8 +13,8 @@
 		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
 		7672B8671DD0DBF2004238EF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8661DD0DBF2004238EF /* Models.swift */; };
-		7672B8691DD0DC46004238EF /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8681DD0DC46004238EF /* Protocols.swift */; };
-		7672B86B1DD0DCA0004238EF /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* Support.swift */; };
+		7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8681DD0DC46004238EF /* SegueHandlerType.swift */; };
+		7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* DataFormatters.swift */; };
 		76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76935F741D96CF17004CFDF0 /* AppDelegate.swift */; };
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
@@ -40,8 +40,8 @@
 		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
 		7672B8661DD0DBF2004238EF /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		7672B8681DD0DC46004238EF /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		7672B86A1DD0DCA0004238EF /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		7672B8681DD0DC46004238EF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		7672B86A1DD0DCA0004238EF /* DataFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatters.swift; sourceTree = "<group>"; };
 		76935F711D96CF17004CFDF0 /* showtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76935F741D96CF17004CFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76935F791D96CF17004CFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +100,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7606828A1DD4EDE400696589 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				7672B86A1DD0DCA0004238EF /* DataFormatters.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		7606828B1DD4EDF900696589 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7672B8681DD0DC46004238EF /* SegueHandlerType.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		7606828C1DD4EE0B00696589 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */,
+				765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */,
+				760682881DD4D63F00696589 /* SelectArtistViewController.swift */,
+				7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		76935F681D96CF17004CFDF0 = {
 			isa = PBXGroup;
 			children = (
@@ -123,14 +150,11 @@
 		76935F731D96CF17004CFDF0 /* showtime */ = {
 			isa = PBXGroup;
 			children = (
-				7672B86A1DD0DCA0004238EF /* Support.swift */,
-				7672B8681DD0DC46004238EF /* Protocols.swift */,
+				7606828B1DD4EDF900696589 /* Protocols */,
+				7606828A1DD4EDE400696589 /* Support */,
+				7606828C1DD4EE0B00696589 /* ViewControllers */,
 				7672B8661DD0DBF2004238EF /* Models.swift */,
 				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
-				7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */,
-				765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */,
-				760682881DD4D63F00696589 /* SelectArtistViewController.swift */,
-				7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */,
 				76935F7B1D96CF17004CFDF0 /* Assets.xcassets */,
 				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
@@ -352,12 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7672B86B1DD0DCA0004238EF /* Support.swift in Sources */,
+				7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */,
 				7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */,
 				760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */,
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
-				7672B8691DD0DC46004238EF /* Protocols.swift in Sources */,
+				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
 				7672B8671DD0DBF2004238EF /* Models.swift in Sources */,
 			);
