@@ -12,7 +12,11 @@ protocol ConcertCreatorDelegate {
     func createdConcert(_ concert: Concert)
 }
 
-class AddConcertViewController: UITableViewController {
+class AddConcertViewController: UITableViewController, SegueHandlerType {
+    enum SegueIdentifier: String {
+        case selectArtist = "selectArtist"
+    }
+    
     // MARK: Outlets
     @IBOutlet weak var artistTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -43,6 +47,15 @@ class AddConcertViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         syncDatePickerWithLabel()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segueIdentifier(for: segue) {
+        case .selectArtist:
+            if let vc = segue.destination as? SelectArtistViewController {
+                vc.artists = [Artist(name: "Peter Murphy"),Artist(name: "Bauhaus")]
+            }
+        }
     }
 
     private func syncDatePickerWithLabel() {
