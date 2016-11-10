@@ -18,7 +18,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
     }
     
     // MARK: Outlets
-    @IBOutlet weak var artistTextField: UITextField!
+    @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var venueTextField: UITextField!
@@ -32,7 +32,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
-        guard let artist = artistTextField.text, let venue = venueTextField.text else { return }
+        guard let artist = artistLabel.text, let venue = venueTextField.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
             let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)

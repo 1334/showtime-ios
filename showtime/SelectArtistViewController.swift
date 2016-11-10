@@ -32,7 +32,7 @@ class SelectArtistViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         for pvc in presentingViewController!.childViewControllers {
             if let vc = pvc as? AddConcertViewController {
-                vc.artistTextField.text = artists[indexPath.row].name
+                vc.artistLabel.text = artists[indexPath.row].name
                 vc.presentedViewController?.dismiss(animated: true, completion: nil)
             }
         }
