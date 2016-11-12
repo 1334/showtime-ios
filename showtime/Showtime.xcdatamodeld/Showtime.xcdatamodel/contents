@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="concerts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="artist" inverseEntity="Concert" syncable="YES"/>
+    </entity>
+    <entity name="Concert" representedClassName="Concert" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="artist" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="concerts" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="venue" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="concerts" inverseEntity="Venue" syncable="YES"/>
+    </entity>
+    <entity name="Venue" representedClassName="Venue" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="concerts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="venue" inverseEntity="Concert" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Concert" positionX="-360" positionY="-144" width="128" height="88"/>
+        <element name="Artist" positionX="-36" positionY="-207" width="128" height="73"/>
+        <element name="Venue" positionX="-36" positionY="-48" width="128" height="73"/>
+    </elements>
+</model>

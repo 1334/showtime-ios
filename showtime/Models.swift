@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 // MARK: Concert
-struct Concert: CustomStringConvertible {
-    let artist: Artist
-    let date: Date
-    let venue: Venue
+@objc(Concert)
+class Concert: NSManagedObject {
+    
+    @NSManaged var artist: Artist
+    @NSManaged var date: Date
+    @NSManaged var venue: Venue
 
-    var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
+    override var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
 }
 
 extension Concert {
@@ -24,24 +27,26 @@ extension Concert {
         return df.string(from: date)
     }
 }
-extension Concert {
-    init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
-        self.artist = Artist(name: artist)
-        self.date = dateParser.date(from: date)!
-        self.venue = Venue(name: venue)
-    }
-}
+//extension Concert {
+//    convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
+//        self.artist = Artist(name: artist)
+//        self.date = dateParser.date(from: date)!
+//        self.venue = Venue(name: venue)
+//    }
+//}
 
 // MARK: Artist
-struct Artist: CustomStringConvertible {
-    let name: String
+@objc(Artist)
+class Artist: NSManagedObject {
+    @NSManaged var name: String
 
-    var description: String { return name }
+    override var description: String { return name }
 }
 
 // MARK: Venue
-struct Venue: CustomStringConvertible {
-    let name: String
+@objc(Venue)
+class Venue: NSManagedObject {
+    @NSManaged var name: String
 
-    var description: String { return name }
+    override var description: String { return name }
 }

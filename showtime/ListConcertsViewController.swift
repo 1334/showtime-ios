@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListConcertsViewController: UITableViewController, SegueHandlerType {
 
@@ -15,6 +16,7 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         case addConcert = "addConcert"
     }
 
+    let context = CoreDataHelpers.viewContext
     var concerts = [Concert]()
     var filteredConcerts = [Concert]()
     let searchController  = UISearchController(searchResultsController: nil)
@@ -23,14 +25,25 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         super.viewDidLoad()
 
         // create sample data
-        concerts = [
-            Concert(artist: "Sisters of Mercy", date: "23/9/1993", venue: "Sala Apolo"),
-            Concert(artist: "Bauhaus", date: "18/5/1983", venue: "Studio 54"),
-            Concert(artist: "Sisters of Mercy", date: "11/9/2016", venue: "Palau Sant Jordi"),
-            Concert(artist: "David Bowie", date: "8/1/2016", venue: "La Cova del Drac"),
-            Concert(artist: "Iggy & the Stooges", date: "4/8/1973", venue: "Wiskey A Go Go")
+        let concert = Concert(context: context)
+        let artist = Artist(context: context)
+        let venue = Venue(context: context)
 
-        ]
+        artist.name = "David Bowie"
+        venue.name = "La Cova del Drac"
+        concert.date = Date(timeIntervalSinceNow: 0)
+        concert.artist = artist
+        concert.venue = venue
+        try? context.save()
+        concerts = [concert]
+//        concerts = [
+//            Concert(artist: "Sisters of Mercy", date: "23/9/1993", venue: "Sala Apolo"),
+//            Concert(artist: "Bauhaus", date: "18/5/1983", venue: "Studio 54"),
+//            Concert(artist: "Sisters of Mercy", date: "11/9/2016", venue: "Palau Sant Jordi"),
+//            Concert(artist: "David Bowie", date: "8/1/2016", venue: "La Cova del Drac"),
+//            Concert(artist: "Iggy & the Stooges", date: "4/8/1973", venue: "Wiskey A Go Go")
+//
+//        ]
 
         setupSearchController()
 

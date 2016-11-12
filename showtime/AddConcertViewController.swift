@@ -35,8 +35,8 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
         guard let artist = artistLabel.text, let venue = venueTextField.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
-            let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
-            delegate?.createdConcert(concert)
+            //let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
+            //delegate?.createdConcert(concert)
             _ = self.navigationController?.popViewController(animated: true)
         } else {
             alertFieldsEmpty()
@@ -53,7 +53,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
         switch segueIdentifier(for: segue) {
         case .selectArtist:
             if let vc = segue.destination as? SelectArtistViewController {
-                vc.artists = [Artist(name: "Peter Murphy"),Artist(name: "Bauhaus")]
+                //vc.artists = [Artist(name: "Peter Murphy"),Artist(name: "Bauhaus")]
             }
         }
     }
