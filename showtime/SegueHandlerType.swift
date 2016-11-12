@@ -1,5 +1,5 @@
 //
-//  Protocols.swift
+//  SegueHandlerType.swift
 //  showtime
 //
 //  Created by Iñigo Solano Pàez on 07/11/2016.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: SegueHandlerType
 public protocol SegueHandlerType {
     associatedtype SegueIdentifier : RawRepresentable
 }
