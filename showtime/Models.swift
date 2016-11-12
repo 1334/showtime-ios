@@ -20,6 +20,16 @@ class Concert: NSManagedObject {
     override var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
 }
 
+extension Concert: ManagedObjectType {
+    static var entityName: String {
+        return "Concert"
+    }
+
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "date", ascending: false)]
+    }
+}
+
 extension Concert {
     var formattedDate: String  {
         let df = DateFormatter()

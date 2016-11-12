@@ -10,8 +10,8 @@
 		6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1154AF36871128223D6D9E1 /* Pods_showtime.framework */; };
 		760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682881DD4D63F00696589 /* SelectArtistViewController.swift */; };
 		760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */; };
-		760682921DD502C600696589 /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682911DD502C600696589 /* ManagedObjectContextSettable.swift */; };
 		760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C21DD71F2400696589 /* CoreDataHelpers.swift */; };
+		760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* CoreDataProtocols.swift */; };
 		7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */; };
 		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
@@ -40,8 +40,8 @@
 		4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		760682881DD4D63F00696589 /* SelectArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectArtistViewController.swift; sourceTree = "<group>"; };
 		7606828F1DD4F89F00696589 /* Showtime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Showtime.xcdatamodel; sourceTree = "<group>"; };
-		760682911DD502C600696589 /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
 		760682C21DD71F2400696589 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		760682C41DD72E1A00696589 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
 		7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
 		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				7672B8681DD0DC46004238EF /* SegueHandlerType.swift */,
-				760682911DD502C600696589 /* ManagedObjectContextSettable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 			children = (
 				760682C21DD71F2400696589 /* CoreDataHelpers.swift */,
 				7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */,
+				760682C41DD72E1A00696589 /* CoreDataProtocols.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -399,8 +399,8 @@
 				760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */,
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
+				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
-				760682921DD502C600696589 /* ManagedObjectContextSettable.swift in Sources */,
 				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
 				7672B8671DD0DBF2004238EF /* Models.swift in Sources */,
