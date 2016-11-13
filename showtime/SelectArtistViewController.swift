@@ -12,6 +12,11 @@ class SelectArtistViewController : UITableViewController {
 
     var artists: [Artist]!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        artists = Artist.all()
+    }
+
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artists.count

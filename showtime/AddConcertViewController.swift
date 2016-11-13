@@ -52,9 +52,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
         case .selectArtist:
-            if let vc = segue.destination as? SelectArtistViewController {
-                //vc.artists = [Artist(name: "Peter Murphy"),Artist(name: "Bauhaus")]
-            }
+            break
         }
     }
 

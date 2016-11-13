@@ -36,8 +36,7 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
 //        concert.venue = venue
 //        try? context.save()
 
-        let request = Concert.sortedFetchRequest
-        concerts = try! context.fetch(request)
+        concerts = Concert.all()
 
         setupSearchController()
 
