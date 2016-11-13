@@ -155,6 +155,8 @@ extension ListConcertsViewController: UISearchResultsUpdating {
 
 extension ListConcertsViewController: ConcertCreatorDelegate {
     func createdConcert(_ concert: Concert) {
+        context.insert(concert)
+        try! context.save()
         concerts.append(concert)
 
         tableView.reloadData()

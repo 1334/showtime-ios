@@ -35,8 +35,11 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
         guard let artist = artistLabel.text, let venue = venueTextField.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
-            //let concert = Concert(artist: artist, date: dateTextField.text!, venue: venue)
-            //delegate?.createdConcert(concert)
+            let concert = Concert(context: CoreDataHelpers.viewContext)
+            concert.artist = Artist.named(artist)
+            concert.date = DateFormatters.dateParser.date(from: dateTextField.text!)!
+            concert.venue = Venue.named(venue)
+            delegate?.createdConcert(concert)
             _ = self.navigationController?.popViewController(animated: true)
         } else {
             alertFieldsEmpty()

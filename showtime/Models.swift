@@ -53,7 +53,7 @@ class Artist: NSManagedObject {
     override var description: String { return name }
 }
 
-extension Artist: ManagedObjectType {
+extension Artist: NamedManagedObjectType {
     static var entityName: String {
         return "Artist"
     }
@@ -72,7 +72,7 @@ class Venue: NSManagedObject {
     override var description: String { return name }
 }
 
-extension Venue: ManagedObjectType {
+extension Venue: NamedManagedObjectType {
     static var entityName: String {
         return "Venue"
     }
