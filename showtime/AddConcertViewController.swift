@@ -15,13 +15,14 @@ protocol ConcertCreatorDelegate {
 class AddConcertViewController: UITableViewController, SegueHandlerType {
     enum SegueIdentifier: String {
         case selectArtist = "selectArtist"
+        case selectVenue = "selectVenue"
     }
     
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var venueTextField: UITextField!
 
     var delegate: ConcertCreatorDelegate?
 
@@ -32,7 +33,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
-        guard let artist = artistLabel.text, let venue = venueTextField.text else { return }
+        guard let artist = artistLabel.text, let venue = venueLabel.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
             let concert = Concert(context: CoreDataHelpers.viewContext)
@@ -55,8 +56,8 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
-        case .selectArtist:
-            break
+        case .selectArtist: break
+        case .selectVenue: break
         }
     }
 

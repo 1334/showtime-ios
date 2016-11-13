@@ -22,6 +22,7 @@
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
+		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76F74B221DD24F32005CEA32 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F74B211DD24F32005CEA32 /* DVR.framework */; };
 		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		76935F7B1D96CF17004CFDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76935F7E1D96CF17004CFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76935F801D96CF17004CFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */,
 				765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */,
 				760682881DD4D63F00696589 /* SelectArtistViewController.swift */,
+				76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */,
 				7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */,
 			);
 			name = ViewControllers;
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */,
 				7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */,
 				7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */,
 				760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */,
