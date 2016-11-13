@@ -53,10 +53,31 @@ class Artist: NSManagedObject {
     override var description: String { return name }
 }
 
+extension Artist: ManagedObjectType {
+    static var entityName: String {
+        return "Artist"
+    }
+
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "name", ascending: true)]
+    }
+}
+
+
 // MARK: Venue
 @objc(Venue)
 class Venue: NSManagedObject {
     @NSManaged var name: String
 
     override var description: String { return name }
+}
+
+extension Venue: ManagedObjectType {
+    static var entityName: String {
+        return "Venue"
+    }
+
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "name", ascending: true)]
+    }
 }
