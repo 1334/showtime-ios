@@ -33,6 +33,8 @@ class ShowConcertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Concert details"
+
         artistLabel.text = "\(concert.artist)"
         venueLabel.text = "\(concert.venue)"
         dateLabel.text = concert.formattedDate

@@ -47,6 +47,7 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
         super.viewWillAppear(animated)
 
         syncDatePickerWithLabel()
+        self.title = "Add New Concert"
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
