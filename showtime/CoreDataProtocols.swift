@@ -11,6 +11,7 @@ import CoreData
 protocol ManagedObjectType {
     static var entityName: String { get }
     static var defaultSortDescriptors: [NSSortDescriptor] { get }
+    static var defaultPredicate: NSPredicate { get }
 }
 
 extension ManagedObjectType where Self: NSManagedObject {
@@ -18,9 +19,19 @@ extension ManagedObjectType where Self: NSManagedObject {
         return []
     }
 
+    static var defaultPredicate: NSPredicate {
+        return NSPredicate(value: true)
+    }
+
     static var sortedFetchRequest: NSFetchRequest<Self> {
         let request = NSFetchRequest<Self>(entityName: entityName)
         request.sortDescriptors = defaultSortDescriptors
+        request.predicate = defaultPredicate
         return request
+    }
+
+    static func all() -> [Self] {
+        let request = Self.sortedFetchRequest
+        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
     }
 }
