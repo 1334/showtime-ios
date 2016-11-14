@@ -8,23 +8,15 @@
 
 import UIKit
 
-protocol ConcertCreatorDelegate {
-    func createdConcert(_ concert: Concert)
-}
+class AddConcertViewController: UITableViewController {
 
-class AddConcertViewController: UITableViewController, SegueHandlerType {
-    enum SegueIdentifier: String {
-        case selectArtist = "selectArtist"
-        case selectVenue = "selectVenue"
-    }
+    var didCreateConcert: () -> () = { }
     
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-
-    var delegate: ConcertCreatorDelegate?
 
     private let dateFormatter = DateFormatters.dateParser
 
@@ -33,15 +25,12 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
-        guard let artist = artistLabel.text, let venue = venueLabel.text else { return }
+        guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateTextField.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
-            let concert = Concert(context: CoreDataHelpers.viewContext)
-            concert.artist = Artist.named(artist)
-            concert.date = DateFormatters.dateParser.date(from: dateTextField.text!)!
-            concert.venue = Venue.named(venue)
-            delegate?.createdConcert(concert)
-            _ = self.navigationController?.popViewController(animated: true)
+            _ = Concert(artist: artist, date: date, venue: venue)
+            try? CoreDataHelpers.viewContext.save()
+            didCreateConcert()
         } else {
             alertFieldsEmpty()
         }
@@ -52,13 +41,6 @@ class AddConcertViewController: UITableViewController, SegueHandlerType {
 
         syncDatePickerWithLabel()
         self.title = "Add New Concert"
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segueIdentifier(for: segue) {
-        case .selectArtist: break
-        case .selectVenue: break
-        }
     }
 
     private func syncDatePickerWithLabel() {

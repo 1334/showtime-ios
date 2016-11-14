@@ -11,17 +11,35 @@ import UIKit
 class App {
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let navigationController: UINavigationController
+    let rootVC: UITabBarController
+    let concertsNC: UINavigationController
+    let addConcertVC: AddConcertViewController
 
     init(window: UIWindow) {
-        navigationController = window.rootViewController as! UINavigationController
-        let concertsVC = navigationController.viewControllers.first as! ListConcertsViewController
-        concertsVC.didSelect = showConcert
+        rootVC = window.rootViewController as! UITabBarController
+        concertsNC = storyboard.instantiateViewController(withIdentifier: "ConcertsNC") as! UINavigationController
+        addConcertVC = storyboard.instantiateViewController(withIdentifier: "AddConcert") as! AddConcertViewController
+
+        setupTabBar()
+
+        let listConcertsVC = concertsNC.viewControllers.first as! ListConcertsViewController
+        listConcertsVC.didSelect = showConcert
+        addConcertVC.didCreateConcert = concertCreated
     }
 
     func showConcert(concert: Concert) {
         let concertVC = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
         concertVC.concert = concert
-        navigationController.pushViewController(concertVC, animated: true)
+        concertsNC.pushViewController(concertVC, animated: true)
+    }
+
+    func concertCreated() {
+        rootVC.selectedIndex = 0
+    }
+
+    private func setupTabBar() {
+        concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: nil, tag: 1)
+        addConcertVC.tabBarItem = UITabBarItem(title: "Add Concert", image: nil, tag: 2)
+        rootVC.setViewControllers([concertsNC, addConcertVC], animated: true)
     }
 }

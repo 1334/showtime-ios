@@ -123,12 +123,3 @@ extension ListConcertsViewController: UISearchResultsUpdating {
         reloadData(keyword: searchController.searchBar.text!)
     }
 }
-
-extension ListConcertsViewController: ConcertCreatorDelegate {
-    func createdConcert(_ concert: Concert) {
-        context.insert(concert)
-        try! context.save()
-
-        reloadData()
-    }
-}
