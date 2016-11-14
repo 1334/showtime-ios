@@ -17,47 +17,35 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     }
 
     let context = CoreDataHelpers.viewContext
-    var concerts = [Concert]()
-    var filteredConcerts = [Concert]()
-    let searchController  = UISearchController(searchResultsController: nil)
+    var fetchedResultController: NSFetchedResultsController<Concert>!
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // create sample data
-//        let concert = Concert(context: context)
-//        let artist = Artist(context: context)
-//        let venue = Venue(context: context)
-//
-//        artist.name = "Iggy Pop"
-//        venue.name = "Studio 54"
-//        concert.date = Date(timeIntervalSinceNow: 0)
-//        concert.artist = artist
-//        concert.venue = venue
-//        try? context.save()
-
-        concerts = Concert.all()
+        fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
 
         setupSearchController()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    // MARK: - Search Controller
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadData()
+    }
 
-    func filterContent(for searchText: String) {
-        filteredConcerts = concerts.filter { concert in
-            return concert.artist.name.lowercased().contains(searchText.lowercased()) ||
-                concert.venue.name.lowercased().contains(searchText.lowercased())
-
+    func reloadData(keyword: String = "") {
+        if !keyword.isEmpty {
+            let predicate = NSPredicate(format: "artist.name CONTAINS[c] %@ OR venue.name CONTAINS[c] %@", keyword, keyword)
+            fetchedResultController.fetchRequest.predicate = predicate
+        } else {
+            fetchedResultController.fetchRequest.predicate = Concert.defaultPredicate
         }
+        try? fetchedResultController.performFetch()
 
         tableView.reloadData()
     }
+
+    // MARK: - Search Controller
 
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -69,12 +57,12 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isInTheMiddleOfASearch() ? filteredConcerts.count : concerts.count
+        return fetchedResultController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell", for: indexPath)
-        let concert = isInTheMiddleOfASearch() ? filteredConcerts[indexPath.row] : concerts[indexPath.row]
+        let concert = fetchedResultController.object(at: indexPath)
 
         cell.textLabel?.text = "\(concert.artist)"
         cell.detailTextLabel?.text = "\(concert.venue) - \(concert.formattedDate)"
@@ -87,17 +75,12 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         case .showConcert:
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
             if let vc = segue.destination as? ShowConcertViewController {
-                vc.concert = isInTheMiddleOfASearch() ? filteredConcerts[indexPath.row] : concerts[indexPath.row]
-            }
+                vc.concert = fetchedResultController.object(at: indexPath)            }
         case .addConcert:
             if let vc = segue.destination as? AddConcertViewController {
                 vc.delegate = self
             }
         }
-    }
-
-    private func isInTheMiddleOfASearch() -> Bool {
-        return searchController.isActive && searchController.searchBar.text != ""
     }
 
     /*
@@ -149,7 +132,7 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
 
 extension ListConcertsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContent(for: searchController.searchBar.text!)
+        reloadData(keyword: searchController.searchBar.text!)
     }
 }
 
@@ -157,8 +140,7 @@ extension ListConcertsViewController: ConcertCreatorDelegate {
     func createdConcert(_ concert: Concert) {
         context.insert(concert)
         try! context.save()
-        concerts.append(concert)
 
-        tableView.reloadData()
+        reloadData()
     }
 }
