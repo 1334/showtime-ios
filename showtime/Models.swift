@@ -37,13 +37,15 @@ extension Concert {
         return df.string(from: date)
     }
 }
-//extension Concert {
-//    convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
-//        self.artist = Artist(name: artist)
-//        self.date = dateParser.date(from: date)!
-//        self.venue = Venue(name: venue)
-//    }
-//}
+extension Concert {
+    convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
+        self.init(context: CoreDataHelpers.viewContext)
+        
+        self.artist = Artist.named(artist)
+        self.date = dateParser.date(from: date)!
+        self.venue = Venue.named(venue)
+    }
+}
 
 // MARK: Artist
 @objc(Artist)
