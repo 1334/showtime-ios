@@ -9,16 +9,12 @@
 import UIKit
 import CoreData
 
-class ListConcertsViewController: UITableViewController, SegueHandlerType {
-
-    enum SegueIdentifier: String {
-        case showConcert = "showConcert"
-        case addConcert = "addConcert"
-    }
+class ListConcertsViewController: UITableViewController {
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
     let searchController = UISearchController(searchResultsController: nil)
+    var didSelect: (Concert) -> () = { _ in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,17 +66,9 @@ class ListConcertsViewController: UITableViewController, SegueHandlerType {
         return cell
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segueIdentifier(for: segue) {
-        case .showConcert:
-            guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
-            if let vc = segue.destination as? ShowConcertViewController {
-                vc.concert = fetchedResultController.object(at: indexPath)            }
-        case .addConcert:
-            if let vc = segue.destination as? AddConcertViewController {
-                vc.delegate = self
-            }
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let concert = fetchedResultController.object(at: indexPath)
+        didSelect(concert)
     }
 
     /*

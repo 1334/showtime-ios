@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var app: App?
     lazy var container: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "Showtime")
@@ -28,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if try! container.viewContext.count(for: Concert.sortedFetchRequest) > 0 {
             addTestData()
+        }
+
+        if let window = window {
+            app = App(window: window)
         }
 
         return true
