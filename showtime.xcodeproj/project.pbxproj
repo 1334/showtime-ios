@@ -23,6 +23,7 @@
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
+		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E4467E1DDA48B2003D258C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4467D1DDA48B2003D258C /* App.swift */; };
 		76F74B221DD24F32005CEA32 /* DVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F74B211DD24F32005CEA32 /* DVR.framework */; };
 		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
@@ -59,6 +60,7 @@
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmAPI.swift; sourceTree = "<group>"; };
 		76E4467D1DDA48B2003D258C /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
 		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
 				76935F801D96CF17004CFDF0 /* Info.plist */,
+				76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */,
 			);
 			path = showtime;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
 				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
+				76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */,
 				7672B8671DD0DBF2004238EF /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
