@@ -19,10 +19,11 @@ struct SetlistFmAPI {
     }
 
     // MARK: private section
-    private static let baseURL = "https://api.setlist.fm/rest/0.1"
+    private static let baseURL = "https://api.setlist.fm/rest/0.1/"
 
     private static func setlistFmURL(method: Method, params: [String:String]?) -> URL {
         var components = URLComponents(string: baseURL)!
+        components.path += method.rawValue
         var queryItems = [URLQueryItem]()
 
         if let params = params {
