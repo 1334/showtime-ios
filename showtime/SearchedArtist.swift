@@ -1,5 +1,5 @@
 //
-//  ArtistSearchResult.swift
+//  SearchedArtist.swift
 //  showtime
 //
 //  Created by Iñigo Solano Pàez on 17/11/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ArtistSearchResult {
+struct SearchedArtist {
     let mbid: String
     let name: String
     let sortName: String?

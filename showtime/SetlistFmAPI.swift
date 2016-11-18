@@ -13,7 +13,7 @@ enum Method: String {
 }
 
 enum SearchArtistsResult {
-    case success([ArtistSearchResult])
+    case success([SearchedArtist])
     case failure(Error)
 }
 
@@ -35,7 +35,7 @@ struct SetlistFmAPI {
                 let artistsArray = artistsDict["artist"] as? [[String:String]]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
-            var artists = [ArtistSearchResult]()
+            var artists = [SearchedArtist]()
             for artist in artistsArray {
                 if let artist = artistFrom(json: artist) {
                     artists.append(artist)
@@ -70,10 +70,10 @@ struct SetlistFmAPI {
         return components.url!
     }
 
-    private static func artistFrom(json: [String:String]) -> ArtistSearchResult? {
+    private static func artistFrom(json: [String:String]) -> SearchedArtist? {
         guard let mbid = json["@mbid"],
             let name = json["@name"]
             else { return nil }
-        return ArtistSearchResult(mbid: mbid, name: name, sortName: json["@sortName"], disambiguation: json["@disambiguation"])
+        return SearchedArtist(mbid: mbid, name: name, sortName: json["@sortName"], disambiguation: json["@disambiguation"])
     }
 }

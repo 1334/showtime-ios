@@ -26,7 +26,7 @@
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E16F071DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F061DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift */; };
 		76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */; };
-		76E16F0D1DDE24B100EC7ACE /* ArtistSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F0C1DDE24B100EC7ACE /* ArtistSearchResult.swift */; };
+		76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */; };
 		76E4467E1DDA48B2003D258C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4467D1DDA48B2003D258C /* App.swift */; };
 		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,7 @@
 		76E16F061DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmAPISpecs.swift; sourceTree = "<group>"; };
 		76E16F081DDE1B2C00EC7ACE /* showtimeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "showtimeTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmStore.swift; sourceTree = "<group>"; };
-		76E16F0C1DDE24B100EC7ACE /* ArtistSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistSearchResult.swift; sourceTree = "<group>"; };
+		76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedArtist.swift; sourceTree = "<group>"; };
 		76E4467D1DDA48B2003D258C /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
 		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +209,7 @@
 			children = (
 				76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */,
 				76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */,
-				76E16F0C1DDE24B100EC7ACE /* ArtistSearchResult.swift */,
+				76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -434,7 +434,7 @@
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
 				76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */,
 				7672B8671DD0DBF2004238EF /* Models.swift in Sources */,
-				76E16F0D1DDE24B100EC7ACE /* ArtistSearchResult.swift in Sources */,
+				76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
