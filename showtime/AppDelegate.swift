@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        if try! container.viewContext.count(for: Concert.sortedFetchRequest) > 0 {
+        if try! container.viewContext.count(for: Concert.sortedFetchRequest) == 0 {
             addTestData()
         }
 
