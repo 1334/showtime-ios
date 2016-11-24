@@ -9,12 +9,18 @@
 import UIKit
 import Social
 
+enum SegmentedControlSegment: Int {
+    case notes
+    case setlist
+}
+
 class ShowConcertViewController: UIViewController {
 
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     // MARK: Actions
     @IBAction func tweetConcert(_ sender: Any) {
@@ -23,8 +29,11 @@ class ShowConcertViewController: UIViewController {
             tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
             self.present(tweetVC!, animated: true, completion: nil)
         } else {
-            NSLog("Can't send tweet")
+            print("Can't send tweet")
         }
+    }
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        setupSegmentedControlView(segmentedControl: sender)
     }
 
     // MARK: Model
@@ -38,6 +47,22 @@ class ShowConcertViewController: UIViewController {
         artistLabel.text = "\(concert.artist)"
         venueLabel.text = "\(concert.venue)"
         dateLabel.text = concert.formattedDate
+
+        setupSegmentedControlView(segmentedControl: segmentedControl)
+    }
+
+    private func setupSegmentedControlView(segmentedControl: UISegmentedControl) {
+        let segment = SegmentedControlSegment(rawValue: segmentedControl.selectedSegmentIndex)!
+        updateSegmentedView(for: segment)
+    }
+
+    private func updateSegmentedView(for segment: SegmentedControlSegment) {
+        switch segment {
+        case .notes:
+            print("notes selected")
+        case .setlist:
+            print("setlist selected")
+        }
     }
 
 }
