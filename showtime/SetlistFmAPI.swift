@@ -32,7 +32,7 @@ struct SetlistFmAPI {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             guard let jsonDict = jsonObject as? [String:Any],
                 let artistsDict = jsonDict["artists"] as? [String:Any],
-                let artistsArray = artistsDict["artist"] as? [[String:String]]
+                let artistsArray = (artistsDict["artist"] as? [[String:String]])
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
             var artists = [SearchedArtist]()

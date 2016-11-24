@@ -14,17 +14,20 @@ class App {
     let rootVC: UITabBarController
     let concertsNC: UINavigationController
     let addConcertVC: AddConcertViewController
+    let listConcertsVC: ListConcertsViewController
+    let searchArtistsVC: SearchArtistsViewController
 
     init(window: UIWindow) {
         rootVC = window.rootViewController as! UITabBarController
         concertsNC = storyboard.instantiateViewController(withIdentifier: "ConcertsNC") as! UINavigationController
         addConcertVC = storyboard.instantiateViewController(withIdentifier: "AddConcert") as! AddConcertViewController
+        listConcertsVC = concertsNC.viewControllers.first as! ListConcertsViewController
+        searchArtistsVC = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
 
-        setupTabBar()
-
-        let listConcertsVC = concertsNC.viewControllers.first as! ListConcertsViewController
         listConcertsVC.didSelect = showConcert
         addConcertVC.didCreateConcert = concertCreated
+
+        setupTabBar()
     }
 
     func showConcert(concert: Concert) {
@@ -40,6 +43,7 @@ class App {
     private func setupTabBar() {
         concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: nil, tag: 1)
         addConcertVC.tabBarItem = UITabBarItem(title: "Add Concert", image: nil, tag: 2)
-        rootVC.setViewControllers([concertsNC, addConcertVC], animated: true)
+        searchArtistsVC.tabBarItem = UITabBarItem(title: "Search Artists", image: nil, tag: 3)
+        rootVC.setViewControllers([concertsNC, addConcertVC, searchArtistsVC], animated: true)
     }
 }
