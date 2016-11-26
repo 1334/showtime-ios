@@ -31,15 +31,23 @@ struct SetlistFmAPI {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             guard let jsonDict = jsonObject as? [String:Any],
-                let artistsDict = jsonDict["artists"] as? [String:Any],
-                let artistsArray = (artistsDict["artist"] as? [[String:String]])
+                let artistsDict = jsonDict["artists"] as? [String:Any]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
-            var artists = [SearchedArtist]()
-            for artist in artistsArray {
-                if let artist = artistFrom(json: artist) {
-                    artists.append(artist)
+            // API returns an array with multiple results or a single element without an array
+            var artistsArray = [[String:String]]()
+            if let artists = artistsDict["artist"] as? [[String:String]] {
+                artistsArray.append(contentsOf: artists)
+            }
+            if let artist = artistsDict["artist"] as? [String:String] {
+                artistsArray.append(artist)
+            }
+
+            let artists:[SearchedArtist] = artistsArray.flatMap { artist in
+                if let result = artistFrom(json: artist) {
+                    return result
                 }
+                return nil
             }
 
             if artists.count == 0 && artistsArray.count > 0 {

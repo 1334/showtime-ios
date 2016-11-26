@@ -23,8 +23,10 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
             switch result {
             case let .success(foundArtists):
                 print(foundArtists)
-                self.artists = foundArtists
-                self.tableView.reloadData()
+                DispatchQueue.main.sync {
+                    self.artists = foundArtists
+                    self.tableView.reloadData()
+                }
             case let .failure(error):
                 print(error)
                 break
