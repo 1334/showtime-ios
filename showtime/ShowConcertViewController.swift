@@ -21,6 +21,7 @@ class ShowConcertViewController: UIViewController {
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var detailView: UIView!
 
     // MARK: Actions
     @IBAction func tweetConcert(_ sender: Any) {
@@ -59,9 +60,22 @@ class ShowConcertViewController: UIViewController {
     private func updateSegmentedView(for segment: SegmentedControlSegment) {
         switch segment {
         case .notes:
-            print("notes selected")
+            detailView.subviews.forEach { $0.removeFromSuperview() }
+            let subview = ConcertNotesView(concert: concert)
+            subview.translatesAutoresizingMaskIntoConstraints = false
+            detailView.addSubview(subview)
+            subview.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
+            subview.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
+            subview.widthAnchor.constraint(equalTo: detailView.widthAnchor).isActive = true
+            subview.heightAnchor.constraint(equalTo: detailView.heightAnchor).isActive = true
         case .setlist:
-            print("setlist selected")
+            detailView.subviews.forEach { $0.removeFromSuperview() }
+            let label = UILabel()
+            label.text = "SETLIST"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            detailView.addSubview(label)
+            label.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
+            label.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
         }
     }
 
