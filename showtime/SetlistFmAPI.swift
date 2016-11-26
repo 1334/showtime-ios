@@ -60,6 +60,22 @@ struct SetlistFmAPI {
         }
     }
 
+    static func mbidFor(artist: String) {
+        SetlistFmStore().searchArtists(keyword: artist) { result in
+            switch result {
+            case let .success(artists):
+                let matchingArtists = artists.filter { return artist.lowercased() == $0.name.lowercased() }
+                if matchingArtists.count == 1 {
+                    print("mbid found for \(matchingArtists.first!.name): \(matchingArtists.first!.mbid)")
+                } else {
+                    print("ambiguous result for \(matchingArtists.first!.name), more than one match found")
+                }
+            case .failure:
+                print("no mbid found")
+            }
+        }
+    }
+
     // MARK: private section
     private static let baseURL = "https://api.setlist.fm/rest/0.1/"
 
