@@ -16,6 +16,7 @@ class Concert: NSManagedObject {
     @NSManaged var artist: Artist
     @NSManaged var date: Date
     @NSManaged var venue: Venue
+    @NSManaged var notes: String?
 
     override var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
 }
