@@ -1,18 +1,16 @@
 //
-//  Models.swift
+//  Concert.swift
 //  showtime
 //
-//  Created by Iñigo Solano Pàez on 07/11/2016.
+//  Created by Iñigo Solano Pàez on 27/11/2016.
 //  Copyright © 2016 UOC. All rights reserved.
 //
 
-import UIKit
 import CoreData
 
-// MARK: Concert
 @objc(Concert)
 class Concert: NSManagedObject {
-    
+
     @NSManaged var artist: Artist
     @NSManaged var date: Date
     @NSManaged var venue: Venue
@@ -38,49 +36,13 @@ extension Concert {
         return df.string(from: date)
     }
 }
+
 extension Concert {
     convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
         self.init(context: CoreDataHelpers.viewContext)
-        
+
         self.artist = Artist.named(artist)
         self.date = dateParser.date(from: date)!
         self.venue = Venue.named(venue)
-    }
-}
-
-// MARK: Artist
-@objc(Artist)
-class Artist: NSManagedObject {
-    @NSManaged var name: String
-
-    override var description: String { return name }
-}
-
-extension Artist: NamedManagedObjectType {
-    static var entityName: String {
-        return "Artist"
-    }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
-    }
-}
-
-
-// MARK: Venue
-@objc(Venue)
-class Venue: NSManagedObject {
-    @NSManaged var name: String
-
-    override var description: String { return name }
-}
-
-extension Venue: NamedManagedObjectType {
-    static var entityName: String {
-        return "Venue"
-    }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
     }
 }
