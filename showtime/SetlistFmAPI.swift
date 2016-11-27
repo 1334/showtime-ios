@@ -10,6 +10,7 @@ import Foundation
 
 enum Method: String {
     case searchArtists = "search/artists.json"
+    case searchSetlist = "search/setlists.json"
 }
 
 enum SearchArtistsResult {
@@ -23,6 +24,7 @@ enum SetlistFmError: Error {
 
 struct SetlistFmAPI {
 
+    // MARK: Searching artists
     static func searchArtistsURL(keyword: String) -> URL {
         return setlistFmURL(method: .searchArtists, params: ["artistName": keyword])
     }
@@ -74,6 +76,11 @@ struct SetlistFmAPI {
                 print("no mbid found")
             }
         }
+    }
+
+    // MARK: searching setlists
+    static func searchSetlistURL(artist: String, venue: String, date: String) -> URL {
+        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "venueName": venue, "date": date])
     }
 
     // MARK: private section
