@@ -9,7 +9,8 @@
 import UIKit
 
 class ConcertNotesView : UIView {
-    var concert: Concert?
+    var concert: Concert!
+    var textView: UITextView!
 
     convenience init(concert: Concert) {
         self.init(frame: CGRect.zero)
@@ -26,26 +27,39 @@ class ConcertNotesView : UIView {
     }
 
     private func setupSubviews() {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 10
-        stack.alignment = .center
-        addSubview(stack)
-        stack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        stack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        stack.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        textView = setupTextView()
+        textView.text = concert.notes
+        addSubview(textView)
 
-        if concert == nil {
-            stack.addArrangedSubview(label(title: "No concert selected"))
+        textView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        textView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        textView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+    }
+
+    func saveNotes() {
+        if textView.text.isEmpty {
+            concert?.notes = nil
+        } else {
+            concert.notes = textView.text
         }
+        try! CoreDataHelpers.viewContext.save()
     }
 
-    private func label(title: String) -> UILabel {
-        let label = UILabel()
-        label.text = title
+    private func setupTextView() -> UITextView {
+        let textView = UITextView()
+        textView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        textView.text = concert?.notes
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.delegate = self
 
-        return label
+        return textView
     }
 
+}
+
+extension ConcertNotesView : UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        saveNotes()
+    }
 }
