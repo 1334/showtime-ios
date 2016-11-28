@@ -10,40 +10,79 @@ import UIKit
 
 class App {
 
+    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let rootVC: UITabBarController
-    let concertsNC: UINavigationController
-    let addConcertVC: AddConcertViewController
-    let listConcertsVC: ListConcertsViewController
-    let searchArtistsVC: SearchArtistsViewController
 
     init(window: UIWindow) {
         rootVC = window.rootViewController as! UITabBarController
-        concertsNC = storyboard.instantiateViewController(withIdentifier: "ConcertsNC") as! UINavigationController
-        addConcertVC = storyboard.instantiateViewController(withIdentifier: "AddConcert") as! AddConcertViewController
-        listConcertsVC = concertsNC.viewControllers.first as! ListConcertsViewController
-        searchArtistsVC = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
-
-        listConcertsVC.didSelect = showConcert
-        addConcertVC.didCreateConcert = concertCreated
 
         setupTabBar()
     }
 
+    lazy var addConcertVC: AddConcertViewController = {
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddConcert") as! AddConcertViewController
+        vc.didCreateConcert = self.concertCreated
+        vc.pickArtist = self.pickArtist
+        vc.pickVenue = self.pickVenue
+        return vc
+    }()
+
+    lazy var listConcertsVC: ListConcertsViewController = {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ListConcerts") as! ListConcertsViewController
+        vc.didSelect = self.showConcert
+        return vc
+    }()
+
+    lazy var searchArtistsVC: SearchArtistsViewController = {
+        let vc = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
+        return vc
+    }()
+
     func showConcert(concert: Concert) {
         let concertVC = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
         concertVC.concert = concert
-        concertsNC.pushViewController(concertVC, animated: true)
+
+        listConcertsVC.navigationController?.pushViewController(concertVC, animated: true)
     }
 
     func concertCreated() {
         rootVC.selectedIndex = 0
     }
 
+    func pickArtist() {
+        let selectArtistVC = storyboard.instantiateViewController(withIdentifier: "SelectArtist") as! SelectArtistViewController
+        selectArtistVC.didSelectArtist = artistSelected
+
+        addConcertVC.navigationController?.pushViewController(selectArtistVC, animated: true)
+    }
+
+    func artistSelected(artist: Artist) {
+        self.addConcertVC.artistLabel.text = artist.name
+        _ = addConcertVC.navigationController?.popViewController(animated: true)
+    }
+
+    func pickVenue() {
+        let selectVenueVC = storyboard.instantiateViewController(withIdentifier: "SelectVenue") as! SelectVenueViewController
+        selectVenueVC.didSelectVenue = venueSelected
+
+        addConcertVC.navigationController?.pushViewController(selectVenueVC, animated: true)
+    }
+
+    func venueSelected(venue: Venue) {
+        self.addConcertVC.venueLabel.text = venue.name
+        _ = addConcertVC.navigationController?.popViewController(animated: true)
+    }
+
+
     private func setupTabBar() {
-        concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: nil, tag: 1)
-        addConcertVC.tabBarItem = UITabBarItem(title: "Add Concert", image: nil, tag: 2)
+        let listNC = UINavigationController(rootViewController: listConcertsVC)
+        let addNC = UINavigationController(rootViewController: addConcertVC)
+
+        listNC.tabBarItem = UITabBarItem(title: "Concerts", image: nil, tag: 1)
+        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: nil, tag: 2)
         searchArtistsVC.tabBarItem = UITabBarItem(title: "Search Artists", image: nil, tag: 3)
-        rootVC.setViewControllers([concertsNC, addConcertVC, searchArtistsVC], animated: true)
+
+        rootVC.setViewControllers([listNC, addNC, searchArtistsVC], animated: true)
     }
 }

@@ -19,6 +19,7 @@ import UIKit
 class SelectVenueViewController : UITableViewController {
 
     var venues: [Venue]!
+    var didSelectVenue: (Venue) -> () = { _ in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +44,8 @@ class SelectVenueViewController : UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for pvc in presentingViewController!.childViewControllers {
-            if let vc = pvc as? AddConcertViewController {
-                vc.venueLabel.text = venues[indexPath.row].name
-                vc.presentedViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
-        
-        
+        let venue = venues[indexPath.row]
+        didSelectVenue(venue)
     }
     
 }

@@ -8,9 +8,18 @@
 
 import UIKit
 
+enum FormCell: Int {
+    case artist
+    case dateLabel
+    case datePicker
+    case venue
+}
+
 class AddConcertViewController: UITableViewController {
 
     var didCreateConcert: () -> () = { }
+    var pickArtist: () -> () = { }
+    var pickVenue: () -> () = { }
     
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
@@ -22,6 +31,17 @@ class AddConcertViewController: UITableViewController {
 
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         syncDatePickerWithLabel()
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch FormCell(rawValue: indexPath.row)! {
+        case .artist:
+            pickArtist()
+        case .venue:
+            pickVenue()
+        default:
+            break
+        }
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
@@ -38,9 +58,7 @@ class AddConcertViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         syncDatePickerWithLabel()
-        self.title = "Add New Concert"
     }
 
     private func syncDatePickerWithLabel() {

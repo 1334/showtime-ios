@@ -149,9 +149,6 @@
                                                 <constraint firstItem="CVG-ad-MJ7" firstAttribute="leading" secondItem="4aD-XI-lkJ" secondAttribute="leadingMargin" id="pIP-9P-od8"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="0lN-wv-1Q1" kind="presentation" identifier="selectArtist" id="lVb-QN-46o"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CVe-QP-gEn">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -240,9 +237,6 @@
                                                 <constraint firstItem="FxH-UQ-vdd" firstAttribute="top" secondItem="vFB-QU-wtK" secondAttribute="topMargin" constant="4" id="zdC-kG-jnQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="4gf-iu-aTw" kind="presentation" identifier="selectVenue" id="BUd-mT-XKq"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jbA-GB-w1y">
                                         <rect key="frame" x="0.0" y="348" width="375" height="44"/>
@@ -287,7 +281,7 @@
         <!--Select Artist View Controller-->
         <scene sceneID="2J3-Gi-oRr">
             <objects>
-                <tableViewController id="0lN-wv-1Q1" customClass="SelectArtistViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectArtist" id="0lN-wv-1Q1" customClass="SelectArtistViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XiJ-hC-693">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,28 +442,10 @@
             </objects>
             <point key="canvasLocation" x="-415" y="179"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Za8-nh-oxX">
-            <objects>
-                <navigationController storyboardIdentifier="ConcertsNC" automaticallyAdjustsScrollViewInsets="NO" id="5Ml-SH-jOl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZy-Nb-Cfb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="x2G-hX-sSL" kind="relationship" relationship="rootViewController" id="ptr-je-LG0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HYz-ao-ial" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="487.19999999999999" y="179.46026986506749"/>
-        </scene>
         <!--Select Venue View Controller-->
         <scene sceneID="niw-LW-YPX">
             <objects>
-                <tableViewController id="4gf-iu-aTw" customClass="SelectVenueViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectVenue" id="4gf-iu-aTw" customClass="SelectVenueViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9n2-kS-N9Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -526,24 +502,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsY-bb-Ha5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3396" y="179"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="89S-33-9pw">
-            <objects>
-                <navigationController storyboardIdentifier="ConcertDetailsNC" automaticallyAdjustsScrollViewInsets="NO" id="Fns-cy-7X7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kvi-aO-ago">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AcU-t9-46D" kind="relationship" relationship="rootViewController" id="FXE-Ns-xye"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mJt-C4-pVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2813.5999999999999" y="895.50224887556226"/>
         </scene>
     </scenes>
 </document>

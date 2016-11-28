@@ -11,6 +11,7 @@ import UIKit
 class SelectArtistViewController : UITableViewController {
 
     var artists: [Artist]!
+    var didSelectArtist: (Artist) -> () = { _ in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +36,8 @@ class SelectArtistViewController : UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for pvc in presentingViewController!.childViewControllers {
-            if let vc = pvc as? AddConcertViewController {
-                vc.artistLabel.text = artists[indexPath.row].name
-                vc.presentedViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
-
-
+        let artist = artists[indexPath.row]
+        didSelectArtist(artist)
     }
     
 }
