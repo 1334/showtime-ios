@@ -66,9 +66,7 @@ class AddConcertViewController: UITableViewController {
     }
 
     private func alertFieldsEmpty() {
-        let alert = UIAlertController(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-        alert.addAction(action)
+        let alert = UIElements.errorAlert(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty")
         self.present(alert, animated: true, completion: nil)
     }
 }

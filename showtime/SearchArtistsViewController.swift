@@ -27,9 +27,11 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
                     self.artists = foundArtists
                     self.tableView.reloadData()
                 }
-            case let .failure(error):
-                print(error)
-                break
+            case .failure:
+                DispatchQueue.main.sync {
+                    let alert = UIElements.errorAlert(title: "No results", message: "Your search didn't find any results")
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
 
         }

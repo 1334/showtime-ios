@@ -26,6 +26,7 @@
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
+		76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BDB6DB1DEDF4BB007B7461 /* UIElements.swift */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E16F071DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F061DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift */; };
@@ -67,6 +68,7 @@
 		76935F7B1D96CF17004CFDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76935F7E1D96CF17004CFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76935F801D96CF17004CFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76BDB6DB1DEDF4BB007B7461 /* UIElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7672B86A1DD0DCA0004238EF /* DataFormatters.swift */,
+				76BDB6DB1DEDF4BB007B7461 /* UIElements.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				7688B1831DE9D81300C9B1B8 /* ConcertNotesView.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
+				76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */,
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
 				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
