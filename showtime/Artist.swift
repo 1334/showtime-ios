@@ -11,16 +11,16 @@ import CoreData
 @objc(Artist)
 class Artist: NSManagedObject {
     @NSManaged var name: String
-    @NSManaged var mbidb: String?
+    @NSManaged var mbid: String?
 
     override var description: String { return name }
 }
 
 extension Artist {
     convenience init(from searchedArtist: SearchedArtist) {
-        self.init()
+        self.init(context: CoreDataHelpers.viewContext)
         self.name = searchedArtist.name
-        self.mbidb = searchedArtist.mbid
+        self.mbid = searchedArtist.mbid
     }
 }
 
