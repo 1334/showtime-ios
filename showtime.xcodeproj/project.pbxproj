@@ -22,6 +22,9 @@
 		7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* DataFormatters.swift */; };
 		7688B17D1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */; };
 		7688B1831DE9D81300C9B1B8 /* ConcertNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B1821DE9D81300C9B1B8 /* ConcertNotesView.swift */; };
+		768E9E7F1DEDFBBA00FA95B0 /* SearchedVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */; };
+		768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E801DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift */; };
+		768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E821DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift */; };
 		76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76935F741D96CF17004CFDF0 /* AppDelegate.swift */; };
 		76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F781D96CF17004CFDF0 /* Main.storyboard */; };
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
@@ -62,6 +65,9 @@
 		7672B86A1DD0DCA0004238EF /* DataFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatters.swift; sourceTree = "<group>"; };
 		7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchArtistsViewController.swift; sourceTree = "<group>"; };
 		7688B1821DE9D81300C9B1B8 /* ConcertNotesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertNotesView.swift; sourceTree = "<group>"; };
+		768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVenue.swift; sourceTree = "<group>"; };
+		768E9E801DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetlistFMAPI+searchArtists.swift"; sourceTree = "<group>"; };
+		768E9E821DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetlistFMAPI+searchSetlists.swift"; sourceTree = "<group>"; };
 		76935F711D96CF17004CFDF0 /* showtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76935F741D96CF17004CFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76935F791D96CF17004CFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -239,8 +245,11 @@
 			isa = PBXGroup;
 			children = (
 				76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */,
+				768E9E801DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift */,
+				768E9E821DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift */,
 				76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */,
 				76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */,
+				768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -464,8 +473,11 @@
 				7688B1831DE9D81300C9B1B8 /* ConcertNotesView.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
 				76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */,
+				768E9E7F1DEDFBBA00FA95B0 /* SearchedVenue.swift in Sources */,
+				768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */,
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
 				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
+				768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
 				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
