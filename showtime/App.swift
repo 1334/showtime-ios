@@ -24,8 +24,8 @@ class App {
         let listNC = UINavigationController(rootViewController: listConcertsVC)
         let addNC = UINavigationController(rootViewController: addConcertVC)
 
-        listNC.tabBarItem = UITabBarItem(title: "Concerts", image: nil, tag: 1)
-        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: nil, tag: 2)
+        listNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
+        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 2)
 
         rootVC.setViewControllers([listNC, addNC], animated: true)
     }
