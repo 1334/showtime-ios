@@ -84,6 +84,11 @@ struct SetlistFmAPI {
         }
     }
 
+    // MARK: searching setlists
+    static func searchSetlistURL(artist: String, venue: String, date: String) -> URL {
+        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "venueName": venue, "date": date])
+    }
+
     static func searchSetlist(data: Data) -> SearchSetlistResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
@@ -105,11 +110,6 @@ struct SetlistFmAPI {
         } catch let error {
             return .failure(error)
         }
-    }
-
-    // MARK: searching setlists
-    static func searchSetlistURL(artist: String, venue: String, date: String) -> URL {
-        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "venueName": venue, "date": date])
     }
 
     // MARK: private section
