@@ -70,12 +70,27 @@ class ShowConcertViewController: UIViewController {
             subview.heightAnchor.constraint(equalTo: detailView.heightAnchor).isActive = true
         case .setlist:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let label = UILabel()
-            label.text = "SETLIST"
-            label.translatesAutoresizingMaskIntoConstraints = false
-            detailView.addSubview(label)
-            label.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
-            label.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
+            let textView = UITextView()
+            textView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
+//            SetlistFmStore().searchSetlist(artist: "and one", venue: "bikini", date: "30-09-2019", completion: { result in
+//                switch result {
+//                case let .success(setlist):
+//                    DispatchQueue.main.sync {
+//                        textView.text = setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
+//                    }
+//                default:
+//                    DispatchQueue.main.sync {
+//                        textView.text = "setlist not found"
+//                    }
+//                }
+//            })
+            textView.textAlignment = .center
+            textView.translatesAutoresizingMaskIntoConstraints = false
+            detailView.addSubview(textView)
+            textView.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
+            textView.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
+            textView.widthAnchor.constraint(equalTo: detailView.widthAnchor).isActive = true
+            textView.heightAnchor.constraint(equalTo: detailView.heightAnchor).isActive = true
         }
     }
 

@@ -11,14 +11,14 @@ import UIKit
 class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     var artists = [SearchedArtist]()
+    var didSelectArtist: (SearchedArtist) -> () = { _ in }
 
     override func viewDidLoad() {
         searchBar.delegate = self
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text , !searchText.isEmpty && searchText.characters.count > 2 else { return }
-        print(searchText)
+        guard let searchText = searchBar.text , !searchText.isEmpty else { return }
         SetlistFmStore().searchArtists(keyword: searchText) { result in
             switch result {
             case let .success(foundArtists):
@@ -46,5 +46,10 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
         cell.detailTextLabel?.text = artist.disambiguation
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let searchedArtist = artists[indexPath.row]
+        didSelectArtist(searchedArtist)
     }
 }
