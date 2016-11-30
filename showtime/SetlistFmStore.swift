@@ -45,4 +45,16 @@ class SetlistFmStore {
         }
         task.resume()
     }
+
+    func searchVenue(name: String, completion: @escaping (SearchVenuesResult) -> Void) {
+        let url = SetlistFmAPI.searchVenuesURL(keyword: name)
+        let request = URLRequest(url: url)
+        let task = session.dataTask(with: request) { data, response, error in
+            guard let jsonData = data else { return }
+
+            let result = SetlistFmAPI.venuesFromJSON(data: jsonData)
+            completion(result)
+        }
+        task.resume()
+    }
 }
