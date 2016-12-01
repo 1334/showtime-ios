@@ -72,18 +72,18 @@ class ShowConcertViewController: UIViewController {
             detailView.subviews.forEach { $0.removeFromSuperview() }
             let textView = UITextView()
             textView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
-//            SetlistFmStore().searchSetlist(artist: "and one", venue: "bikini", date: "30-09-2019", completion: { result in
-//                switch result {
-//                case let .success(setlist):
-//                    DispatchQueue.main.sync {
-//                        textView.text = setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
-//                    }
-//                default:
-//                    DispatchQueue.main.sync {
-//                        textView.text = "setlist not found"
-//                    }
-//                }
-//            })
+            SetlistFmStore().searchSetlist(artist: concert.artist.name, venue: concert.venue.name, date: concert.date) { result in
+                switch result {
+                case let .success(setlist):
+                    DispatchQueue.main.sync {
+                        textView.text = setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
+                    }
+                default:
+                    DispatchQueue.main.sync {
+                        textView.text = "setlist not found"
+                    }
+                }
+            }
             textView.textAlignment = .center
             textView.translatesAutoresizingMaskIntoConstraints = false
             detailView.addSubview(textView)
