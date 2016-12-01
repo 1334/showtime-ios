@@ -15,7 +15,7 @@ class Country: NSManagedObject {
     @NSManaged var cities: [City]
 }
 
-extension Country: ManagedObjectType {
+extension Country: NamedManagedObjectType {
     static var entityName: String {
         return "Country"
     }

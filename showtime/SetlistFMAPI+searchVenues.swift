@@ -47,7 +47,7 @@ extension SetlistFmAPI {
     }
 
     private static func venueFrom(json: [String:Any]) -> SearchedVenue? {
-        guard let setlistId = json["@id"] as? String,
+        guard let id = json["@id"] as? String,
             let name = json["@name"] as? String,
             let city = json["city"] as? [String:Any],
             let country = city["country"] as? [String:String],
@@ -60,6 +60,6 @@ extension SetlistFmAPI {
             let countryCode = country["@code"]
         else { return nil }
 
-        return SearchedVenue(setlistId: setlistId, name: name, cityId: cityId, cityName: cityName, countryName: countryName, countryCode: countryCode, latitude: Double(latitude)!, longitude: Double(longitude)!)
+        return SearchedVenue(id: id, name: name, cityId: cityId, cityName: cityName, countryName: countryName, countryCode: countryCode, latitude: Double(latitude)!, longitude: Double(longitude)!)
     }
 }

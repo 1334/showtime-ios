@@ -14,6 +14,7 @@ class Venue: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
+    @NSManaged var city: City
     @NSManaged var concerts: [Concert]
 
     override var description: String { return name }
@@ -22,6 +23,16 @@ class Venue: NSManagedObject {
 extension Venue {
     convenience init(from searchedVenue: SearchedVenue) {
         self.init(context: CoreDataHelpers.viewContext)
+        self.id = searchedVenue.id
+        self.name = searchedVenue.name
+        self.latitude = searchedVenue.latitude
+        self.longitude = searchedVenue.longitude
+        let country = Country.named(searchedVenue.name)
+        country.code = searchedVenue.countryCode
+        let city = City.named(searchedVenue.cityName)
+        city.id = searchedVenue.cityId
+        city.country = country
+        self.city = city
     }
 }
 

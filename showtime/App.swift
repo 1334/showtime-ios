@@ -27,7 +27,7 @@ class App {
         listNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
         addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 2)
 
-        rootVC.setViewControllers([listNC, addNC], animated: true)
+        rootVC.setViewControllers([listNC, addNC, searchVenuesVC], animated: true)
     }
 
     // MARK: Actions
@@ -57,11 +57,22 @@ class App {
         selectArtistVC.navigationController?.pushViewController(searchArtistsVC, animated: true)
     }
 
+    @objc func pushSearchVenues() {
+        selectVenueVC.navigationController?.pushViewController(searchVenuesVC, animated: true)
+    }
+
     func selectSearchedArtist(searchedArtist: SearchedArtist) {
         let artist = Artist(from: searchedArtist)
         try? CoreDataHelpers.viewContext.save()
         artistSelected(artist: artist)
         _ = searchArtistsVC.navigationController?.popToRootViewController(animated: true)
+    }
+
+    func selectSearchedVenue(searchedVenue: SearchedVenue) {
+        let venue = Venue(from: searchedVenue)
+        try? CoreDataHelpers.viewContext.save()
+        venueSelected(venue: venue)
+        _ = searchVenuesVC.navigationController?.popToRootViewController(animated: true)
     }
 
     func showConcert(concert: Concert) {
@@ -98,6 +109,12 @@ class App {
         return vc
     }()
 
+    lazy var searchVenuesVC: SearchVenuesViewController = {
+        let vc = storyboard.instantiateViewController(withIdentifier: "SearchVenues") as! SearchVenuesViewController
+        vc.didSelectVenue = self.selectSearchedVenue
+        return vc
+    }()
+
     lazy var selectArtistVC: SelectArtistViewController = {
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectArtist") as! SelectArtistViewController
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchArtists))
@@ -105,6 +122,8 @@ class App {
     }()
 
     lazy var selectVenueVC: SelectVenueViewController = {
-        return storyboard.instantiateViewController(withIdentifier: "SelectVenue") as! SelectVenueViewController
+        let vc =  storyboard.instantiateViewController(withIdentifier: "SelectVenue") as! SelectVenueViewController
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchVenues))
+        return vc
     }()
 }

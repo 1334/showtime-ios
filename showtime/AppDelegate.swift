@@ -61,17 +61,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func addTestData() {
-        let artists = ["Iggy Pop", "Iggy and the Stooges", "Bauhaus", "David Bowie", "Leonard Cohen", "The Sound"]
-        let venues = ["Wiskey A Go Go", "La Cova del Drac", "Zeleste", "O2 Arena", "Sala Apolo"]
-        let years = Array(1985...2016)
-        let months = Array(1...12)
-        let days = Array(1...28)
-        for _ in 1...100 {
-            _ = Concert(artist: artists.random(),
-                    date: "\(days.random())/\(months.random())/\(years.random())",
-                venue: venues.random())
-        }
-        try! container.viewContext.save()
+//        let artists = ["Iggy Pop", "Iggy and the Stooges", "Bauhaus", "David Bowie", "Leonard Cohen", "The Sound"]
+//        let venues = ["Wiskey A Go Go", "La Cova del Drac", "Zeleste", "O2 Arena", "Sala Apolo"]
+//        let years = Array(1985...2016)
+//        let months = Array(1...12)
+//        let days = Array(1...28)
+//        for _ in 1...100 {
+//            _ = Concert(artist: artists.random(),
+//                    date: "\(days.random())/\(months.random())/\(years.random())",
+//                venue: venues.random())
+//        }
+//        try? container.viewContext.save()
     }
 
 }

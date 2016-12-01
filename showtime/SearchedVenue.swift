@@ -9,7 +9,7 @@
 import Foundation
 
 struct SearchedVenue {
-    let setlistId: String
+    let id: String
     let name: String
     let cityId: String
     let cityName: String
