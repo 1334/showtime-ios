@@ -24,7 +24,7 @@ class AddConcertViewController: UITableViewController {
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
 
     private let dateFormatter = DateFormatters.dateParser
@@ -45,7 +45,7 @@ class AddConcertViewController: UITableViewController {
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
-        guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateTextField.text else { return }
+        guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateLabel.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
             _ = Concert(artist: artist, date: date, venue: venue)
@@ -62,7 +62,7 @@ class AddConcertViewController: UITableViewController {
     }
 
     private func syncDatePickerWithLabel() {
-        dateTextField.text = dateFormatter.string(from: datePicker.date)
+        dateLabel.text = dateFormatter.string(from: datePicker.date)
     }
 
     private func alertFieldsEmpty() {

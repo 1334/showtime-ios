@@ -13,11 +13,8 @@ class SelectArtistViewController : UITableViewController {
     var artists: [Artist]!
     var didSelectArtist: (Artist) -> () = { _ in }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         artists = Artist.all()
         tableView.reloadData()
     }

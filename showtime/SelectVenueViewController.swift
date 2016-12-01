@@ -21,11 +21,12 @@ class SelectVenueViewController : UITableViewController {
     var venues: [Venue]!
     var didSelectVenue: (Venue) -> () = { _ in }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         venues = Venue.all()
+        tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return venues.count
