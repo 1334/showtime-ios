@@ -10,9 +10,19 @@ import CoreData
 
 @objc(Venue)
 class Venue: NSManagedObject {
+    @NSManaged var id: String
     @NSManaged var name: String
+    @NSManaged var latitude: Double
+    @NSManaged var longitude: Double
+    @NSManaged var concerts: [Concert]
 
     override var description: String { return name }
+}
+
+extension Venue {
+    convenience init(from searchedVenue: SearchedVenue) {
+        self.init(context: CoreDataHelpers.viewContext)
+    }
 }
 
 extension Venue: NamedManagedObjectType {

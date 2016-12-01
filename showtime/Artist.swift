@@ -12,6 +12,7 @@ import CoreData
 class Artist: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var mbid: String?
+    @NSManaged var concerts: [Concert]
 
     override var description: String { return name }
 }

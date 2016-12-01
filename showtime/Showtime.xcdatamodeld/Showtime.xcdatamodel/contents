@@ -3,7 +3,13 @@
     <entity name="Artist" representedClassName="Artist" syncable="YES">
         <attribute name="mbid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="concerts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="artist" inverseEntity="Concert" syncable="YES"/>
+        <relationship name="concerts" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="artist" inverseEntity="Concert" syncable="YES"/>
+    </entity>
+    <entity name="City" representedClassName="City" syncable="YES">
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="country" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="cities" inverseEntity="Country" syncable="YES"/>
+        <relationship name="venues" toMany="YES" deletionRule="Nullify" destinationEntity="Venue" inverseName="city" inverseEntity="Venue" syncable="YES"/>
     </entity>
     <entity name="Concert" representedClassName="Concert" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -11,13 +17,24 @@
         <relationship name="artist" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="concerts" inverseEntity="Artist" syncable="YES"/>
         <relationship name="venue" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="concerts" inverseEntity="Venue" syncable="YES"/>
     </entity>
+    <entity name="Country" representedClassName="Country" syncable="YES">
+        <attribute name="code" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="cities" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="country" inverseEntity="City" syncable="YES"/>
+    </entity>
     <entity name="Venue" representedClassName="Venue" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="city" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="venues" inverseEntity="City" syncable="YES"/>
         <relationship name="concerts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="venue" inverseEntity="Concert" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Artist" positionX="-36" positionY="-207" width="128" height="90"/>
+        <element name="Artist" positionX="-36" positionY="-207" width="128" height="88"/>
         <element name="Concert" positionX="-360" positionY="-144" width="128" height="103"/>
-        <element name="Venue" positionX="-36" positionY="-48" width="128" height="73"/>
+        <element name="Venue" positionX="-36" positionY="-81" width="128" height="133"/>
+        <element name="City" positionX="160" positionY="-36" width="128" height="103"/>
+        <element name="Country" positionX="367" positionY="-39" width="128" height="88"/>
     </elements>
 </model>
