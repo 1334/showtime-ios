@@ -13,8 +13,12 @@ struct SearchedVenue {
     let name: String
     let cityId: String
     let cityName: String
-//    let state: String?
-    let country: String?
+    let countryName: String
+    let countryCode: String
     let latitude: Double
     let longitude: Double
+
+    var location: String {
+        return [cityName, countryName].joined(separator: ", ")
+    }
 }

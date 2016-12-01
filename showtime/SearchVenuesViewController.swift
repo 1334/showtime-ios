@@ -45,7 +45,7 @@ class SearchVenuesViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foundVenue")!
         let venue = venues[indexPath.row]
         cell.textLabel?.text = venue.name
-        cell.detailTextLabel?.text = venue.cityName
+        cell.detailTextLabel?.text = venue.location
 
         return cell
     }

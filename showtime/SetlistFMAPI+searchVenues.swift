@@ -50,15 +50,16 @@ extension SetlistFmAPI {
         guard let setlistId = json["@id"] as? String,
             let name = json["@name"] as? String,
             let city = json["city"] as? [String:Any],
-            let country = city["country"] as? [String:Any],
+            let country = city["country"] as? [String:String],
             let cityId = city["@id"] as? String,
             let cityName = city["@name"] as? String,
             let coords = city["coords"] as? [String:String],
             let latitude = coords["@lat"],
             let longitude = coords["@long"],
-            let countryName = country["@name"] as? String
+            let countryName = country["@name"],
+            let countryCode = country["@code"]
         else { return nil }
 
-        return SearchedVenue(setlistId: setlistId, name: name, cityId: cityId, cityName: cityName, country: countryName, latitude: Double(latitude)!, longitude: Double(longitude)!)
+        return SearchedVenue(setlistId: setlistId, name: name, cityId: cityId, cityName: cityName, countryName: countryName, countryCode: countryCode, latitude: Double(latitude)!, longitude: Double(longitude)!)
     }
 }
