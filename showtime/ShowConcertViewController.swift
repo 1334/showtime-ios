@@ -61,13 +61,9 @@ class ShowConcertViewController: UIViewController {
         switch segment {
         case .notes:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let subview = ConcertNotesView(concert: concert)
-            subview.translatesAutoresizingMaskIntoConstraints = false
-            detailView.addSubview(subview)
-            subview.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
-            subview.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
-            subview.widthAnchor.constraint(equalTo: detailView.widthAnchor).isActive = true
-            subview.heightAnchor.constraint(equalTo: detailView.heightAnchor).isActive = true
+            let notes = ConcertNotesView(concert: concert)
+            notes.translatesAutoresizingMaskIntoConstraints = false
+            notes.fill(parent: detailView)
         case .setlist:
             detailView.subviews.forEach { $0.removeFromSuperview() }
             let textView = UITextView()
@@ -86,12 +82,17 @@ class ShowConcertViewController: UIViewController {
             }
             textView.textAlignment = .center
             textView.translatesAutoresizingMaskIntoConstraints = false
-            detailView.addSubview(textView)
-            textView.centerYAnchor.constraint(equalTo: detailView.centerYAnchor).isActive = true
-            textView.centerXAnchor.constraint(equalTo: detailView.centerXAnchor).isActive = true
-            textView.widthAnchor.constraint(equalTo: detailView.widthAnchor).isActive = true
-            textView.heightAnchor.constraint(equalTo: detailView.heightAnchor).isActive = true
+            textView.fill(parent: detailView)
         }
     }
+}
 
+extension UIView {
+    func fill(parent: UIView) {
+        parent.addSubview(self)
+        self.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
+        self.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
+        self.widthAnchor.constraint(equalTo: parent.widthAnchor).isActive = true
+        self.heightAnchor.constraint(equalTo: parent.heightAnchor).isActive = true
+    }
 }
