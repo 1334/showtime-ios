@@ -21,13 +21,15 @@ class App {
     }
 
     private func setupTabBar() {
-        let listNC = UINavigationController(rootViewController: listConcertsVC)
+        let concertsNC = UINavigationController(rootViewController: listConcertsVC)
+        let artistsNC = UINavigationController(rootViewController: listArtistsVC)
         let addNC = UINavigationController(rootViewController: addConcertVC)
 
-        listNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
-        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 2)
+        concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
+        artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(named: "artist"), tag: 2)
+        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 3)
 
-        rootVC.setViewControllers([listNC, addNC, searchVenuesVC], animated: true)
+        rootVC.setViewControllers([concertsNC, artistsNC, addNC], animated: true)
     }
 
     // MARK: Actions
@@ -82,6 +84,12 @@ class App {
         listConcertsVC.navigationController?.pushViewController(concertVC, animated: true)
     }
 
+    func showConcertsForArtist(artist: Artist) {
+        let concertsVC = listConcertsVC
+        concertsVC.scope = .artist(artist)
+        listArtistsVC.navigationController?.pushViewController(concertsVC, animated: true)
+    }
+
     func venueSelected(venue: Venue) {
         self.addConcertVC.venueLabel.text = venue.name
         _ = addConcertVC.navigationController?.popViewController(animated: true)
@@ -94,6 +102,12 @@ class App {
         vc.didCreateConcert = self.concertCreated
         vc.pickArtist = self.pickArtist
         vc.pickVenue = self.pickVenue
+        return vc
+    }()
+
+    lazy var listArtistsVC: ListArtistsViewController = {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ListArtists") as! ListArtistsViewController
+        vc.didSelect = self.showConcertsForArtist
         return vc
     }()
 

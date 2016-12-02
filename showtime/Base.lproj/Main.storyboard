@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Concerts-->
+        <!--List Concerts View Controller-->
         <scene sceneID="tGX-ld-Jn5">
             <objects>
                 <tableViewController storyboardIdentifier="ListConcerts" id="x2G-hX-sSL" customClass="ListConcertsViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,11 +51,10 @@
                             <outlet property="delegate" destination="x2G-hX-sSL" id="Soj-PM-lTe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Concerts" id="CfH-b8-Xv6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAg-OZ-pXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426.4000000000001" y="179.46026986506749"/>
+            <point key="canvasLocation" x="1214" y="72"/>
         </scene>
         <!--Search Artists View Controller-->
         <scene sceneID="D2k-qZ-AjX">
@@ -570,6 +569,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbN-jM-Gpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4260" y="179"/>
+        </scene>
+        <!--List Artists View Controller-->
+        <scene sceneID="nLt-aw-KTM">
+            <objects>
+                <tableViewController storyboardIdentifier="ListArtists" id="LM8-39-lZM" customClass="ListArtistsViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kqt-sO-TUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" textLabel="y2a-bg-czk" detailTextLabel="58X-Od-bSC" style="IBUITableViewCellStyleSubtitle" id="wQH-gZ-ZiU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wQH-gZ-ZiU" id="rVL-Ra-GA1">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y2a-bg-czk">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="58X-Od-bSC">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LM8-39-lZM" id="VbX-wf-l0i"/>
+                            <outlet property="delegate" destination="LM8-39-lZM" id="QWU-OF-WeU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mY2-a8-KwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="793"/>
         </scene>
     </scenes>
 </document>
