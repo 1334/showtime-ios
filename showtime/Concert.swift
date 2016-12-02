@@ -16,7 +16,15 @@ class Concert: NSManagedObject {
     @NSManaged var venue: Venue
     @NSManaged var notes: String?
 
-    override var description: String { return "\(artist) live at \(venue) on \(formattedDate)" }
+    var formattedDate: String  {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        return df.string(from: date)
+    }
+
+    override var description: String {
+        return "\(artist) live at \(venue) on \(formattedDate)"
+    }
 }
 
 extension Concert: ManagedObjectType {
@@ -30,19 +38,25 @@ extension Concert: ManagedObjectType {
 }
 
 extension Concert {
-    var formattedDate: String  {
-        let df = DateFormatter()
-        df.dateStyle = .medium
-        return df.string(from: date)
-    }
-}
-
-extension Concert {
     convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
         self.init(context: CoreDataHelpers.viewContext)
 
         self.artist = Artist.named(artist)
         self.date = dateParser.date(from: date)!
         self.venue = Venue.named(venue)
+    }
+}
+
+extension Concert {
+    static func predicateMatching(keyword: String) -> NSPredicate {
+        return NSPredicate(format: "artist.name CONTAINS[c] %@ OR venue.name CONTAINS[c] %@", keyword, keyword)
+    }
+
+    static func predicateFilteredBy(artist: Artist) -> NSPredicate {
+        return NSPredicate(format: "artist == %@", artist)
+    }
+
+    static func predicateFilteredBy(venue: Venue) -> NSPredicate {
+        return NSPredicate(format: "venue == %@", venue)
     }
 }
