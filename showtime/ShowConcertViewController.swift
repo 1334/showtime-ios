@@ -72,7 +72,7 @@ class ShowConcertViewController: UIViewController {
             detailView.subviews.forEach { $0.removeFromSuperview() }
             let textView = UITextView()
             textView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
-            SetlistFmStore().searchSetlist(artist: concert.artist.name, venue: concert.venue.name, date: concert.date) { result in
+            SetlistFmStore().searchSetlist(artist: concert.artist.name, date: concert.date) { result in
                 switch result {
                 case let .success(setlist):
                     DispatchQueue.main.sync {
