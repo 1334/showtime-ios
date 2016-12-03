@@ -50,6 +50,7 @@ class AddConcertViewController: UITableViewController {
         if !(artist.isEmpty || venue.isEmpty) {
             _ = Concert(artist: artist, date: date, venue: venue)
             try? CoreDataHelpers.viewContext.save()
+            resetForm()
             didCreateConcert()
         } else {
             alertFieldsEmpty()
@@ -68,5 +69,11 @@ class AddConcertViewController: UITableViewController {
     private func alertFieldsEmpty() {
         let alert = UIElements.errorAlert(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty")
         self.present(alert, animated: true, completion: nil)
+    }
+
+    private func resetForm() {
+        artistLabel.text = ""
+        venueLabel.text = ""
+        datePicker.date = Date()
     }
 }
