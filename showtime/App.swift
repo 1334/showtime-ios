@@ -83,8 +83,8 @@ class App {
     }
 
     func showConcertsForArtist(artist: Artist) {
-        let concertsVC = listConcertsVC
-        concertsVC.scope = .artist(artist)
+        let concertsVC = listConcertsByArtistVC
+        concertsVC.artist = artist
         rootVC.currentNavigationController?.pushViewController(concertsVC, animated: true)
     }
 
@@ -121,6 +121,12 @@ class App {
 
     var listConcertsVC: ListConcertsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListConcerts") as! ListConcertsViewController
+        vc.didSelect = showConcert
+        return vc
+    }
+
+    var listConcertsByArtistVC: ListConcertsByArtistViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ListConcertsByArtist") as! ListConcertsByArtistViewController
         vc.didSelect = showConcert
         return vc
     }

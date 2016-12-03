@@ -22,6 +22,7 @@
 		7659368D1DF0923C0053B3EE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659368C1DF0923C0053B3EE /* Country.swift */; };
 		7659368F1DF1FC790053B3EE /* ConcertScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659368E1DF1FC790053B3EE /* ConcertScope.swift */; };
 		765936921DF1FE5E0053B3EE /* ListArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765936911DF1FE5E0053B3EE /* ListArtistsViewController.swift */; };
+		765936941DF367450053B3EE /* ListConcertsByArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765936931DF367450053B3EE /* ListConcertsByArtistViewController.swift */; };
 		7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8681DD0DC46004238EF /* SegueHandlerType.swift */; };
 		7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* DataFormatters.swift */; };
 		7688B17D1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */; };
@@ -71,6 +72,7 @@
 		7659368C1DF0923C0053B3EE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		7659368E1DF1FC790053B3EE /* ConcertScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertScope.swift; sourceTree = "<group>"; };
 		765936911DF1FE5E0053B3EE /* ListArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListArtistsViewController.swift; sourceTree = "<group>"; };
+		765936931DF367450053B3EE /* ListConcertsByArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsByArtistViewController.swift; sourceTree = "<group>"; };
 		7672B8681DD0DC46004238EF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		7672B86A1DD0DCA0004238EF /* DataFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatters.swift; sourceTree = "<group>"; };
 		7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchArtistsViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */,
 				765936911DF1FE5E0053B3EE /* ListArtistsViewController.swift */,
+				765936931DF367450053B3EE /* ListConcertsByArtistViewController.swift */,
 				765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */,
 				760682881DD4D63F00696589 /* SelectArtistViewController.swift */,
 				76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */,
@@ -504,6 +507,7 @@
 				76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */,
 				768E9E871DEF615A00FA95B0 /* SearchVenuesViewController.swift in Sources */,
 				768E9E7F1DEDFBBA00FA95B0 /* SearchedVenue.swift in Sources */,
+				765936941DF367450053B3EE /* ListConcertsByArtistViewController.swift in Sources */,
 				768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */,
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
 				768E9E851DEE0A7C00FA95B0 /* SetlistFMAPI+searchVenues.swift in Sources */,

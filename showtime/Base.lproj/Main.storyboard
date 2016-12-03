@@ -54,7 +54,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAg-OZ-pXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="72"/>
+            <point key="canvasLocation" x="961" y="6"/>
         </scene>
         <!--Search Artists View Controller-->
         <scene sceneID="D2k-qZ-AjX">
@@ -107,6 +107,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2h-On-gVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5282" y="-516"/>
+        </scene>
+        <!--List Concerts By Artist View Controller-->
+        <scene sceneID="b8e-ZN-bWq">
+            <objects>
+                <viewController storyboardIdentifier="ListConcertsByArtist" id="zmb-Hi-ylo" customClass="ListConcertsByArtistViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="93a-tO-S2j"/>
+                        <viewControllerLayoutGuide type="bottom" id="1G3-Sw-gs1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MYj-2a-Aib">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-Fy-krL">
+                                <rect key="frame" x="116.5" y="49" width="142" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-uM-pC4">
+                                <rect key="frame" x="0.0" y="143" width="375" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="concertByArtistCell" textLabel="luz-tG-DI0" detailTextLabel="zm9-pn-nqh" style="IBUITableViewCellStyleValue1" id="FVy-K8-NZ7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FVy-K8-NZ7" id="LdL-v1-WdN">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="luz-tG-DI0">
+                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zm9-pn-nqh">
+                                                    <rect key="frame" x="296" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zmb-Hi-ylo" id="kZW-Q1-mjt"/>
+                                    <outlet property="delegate" destination="zmb-Hi-ylo" id="jTK-dV-Tla"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sPl-uM-pC4" firstAttribute="top" secondItem="OXW-Fy-krL" secondAttribute="bottom" constant="60.5" id="D5f-gW-bsL"/>
+                            <constraint firstItem="sPl-uM-pC4" firstAttribute="leading" secondItem="MYj-2a-Aib" secondAttribute="leading" id="Lud-JB-2O6"/>
+                            <constraint firstAttribute="trailing" secondItem="sPl-uM-pC4" secondAttribute="trailing" id="OCX-5V-GMu"/>
+                            <constraint firstItem="1G3-Sw-gs1" firstAttribute="top" secondItem="sPl-uM-pC4" secondAttribute="bottom" id="faG-dg-Vr6"/>
+                            <constraint firstItem="OXW-Fy-krL" firstAttribute="centerX" secondItem="MYj-2a-Aib" secondAttribute="centerX" id="pgb-fe-CNe"/>
+                            <constraint firstItem="OXW-Fy-krL" firstAttribute="top" secondItem="93a-tO-S2j" secondAttribute="bottom" constant="29" id="vig-w7-ogw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="artistName" destination="OXW-Fy-krL" id="UcG-f7-lxF"/>
+                        <outlet property="tableView" destination="sPl-uM-pC4" id="NBY-Da-TiA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pA5-vF-ndw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079" y="587"/>
         </scene>
         <!--Add Concert View Controller-->
         <scene sceneID="2Cg-DP-F1h">
