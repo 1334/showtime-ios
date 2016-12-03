@@ -9,21 +9,21 @@
 import UIKit
 
 class App {
-
-    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let rootVC: UITabBarController
+    var concertsNC = UINavigationController()
+    var artistsNC = UINavigationController()
+    var addNC = UINavigationController()
 
     init(window: UIWindow) {
         rootVC = window.rootViewController as! UITabBarController
-
         setupTabBar()
     }
 
     private func setupTabBar() {
-        let concertsNC = UINavigationController(rootViewController: listConcertsVC)
-        let artistsNC = UINavigationController(rootViewController: listArtistsVC)
-        let addNC = UINavigationController(rootViewController: addConcertVC)
+        concertsNC = UINavigationController(rootViewController: listConcertsVC)
+        artistsNC = UINavigationController(rootViewController: listArtistsVC)
+        addNC = UINavigationController(rootViewController: addConcertVC)
 
         concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
         artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(named: "artist"), tag: 2)
@@ -35,8 +35,9 @@ class App {
     // MARK: Actions
 
     func artistSelected(artist: Artist) {
-        self.addConcertVC.artistLabel.text = artist.name
-        _ = addConcertVC.navigationController?.popViewController(animated: true)
+        let targetVC = currentAddConcertViewController
+        targetVC.artistLabel.text = artist.name
+        _ = rootVC.currentNavigationController?.popViewController(animated: true)
     }
 
     func concertCreated() {
@@ -44,100 +45,115 @@ class App {
     }
 
     func pickArtist() {
-        selectArtistVC.didSelectArtist = artistSelected
-
-        addConcertVC.navigationController?.pushViewController(selectArtistVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(selectArtistVC, animated: true)
     }
 
     func pickVenue() {
-        selectVenueVC.didSelectVenue = venueSelected
-
-        addConcertVC.navigationController?.pushViewController(selectVenueVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(selectVenueVC, animated: true)
     }
 
     @objc func pushSearchArtists() {
-        selectArtistVC.navigationController?.pushViewController(searchArtistsVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(searchArtistsVC, animated: true)
     }
 
     @objc func pushSearchVenues() {
-        selectVenueVC.navigationController?.pushViewController(searchVenuesVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(searchVenuesVC, animated: true)
     }
 
     func selectSearchedArtist(searchedArtist: SearchedArtist) {
         let artist = Artist(from: searchedArtist)
         try? CoreDataHelpers.viewContext.save()
         artistSelected(artist: artist)
-        _ = searchArtistsVC.navigationController?.popToRootViewController(animated: true)
+        _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
     }
 
     func selectSearchedVenue(searchedVenue: SearchedVenue) {
         let venue = Venue(from: searchedVenue)
         try? CoreDataHelpers.viewContext.save()
         venueSelected(venue: venue)
-        _ = searchVenuesVC.navigationController?.popToRootViewController(animated: true)
+        _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
     }
 
     func showConcert(concert: Concert) {
-        let concertVC = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
+        let concertVC = self.concertVC
         concertVC.concert = concert
 
-        listConcertsVC.navigationController?.pushViewController(concertVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(concertVC, animated: true)
+
     }
 
     func showConcertsForArtist(artist: Artist) {
         let concertsVC = listConcertsVC
         concertsVC.scope = .artist(artist)
-        listArtistsVC.navigationController?.pushViewController(concertsVC, animated: true)
+        rootVC.currentNavigationController?.pushViewController(concertsVC, animated: true)
     }
 
     func venueSelected(venue: Venue) {
-        self.addConcertVC.venueLabel.text = venue.name
-        _ = addConcertVC.navigationController?.popViewController(animated: true)
+        let targetVC = currentAddConcertViewController
+        targetVC.venueLabel.text = venue.name
+        _ = rootVC.currentNavigationController?.popViewController(animated: true)
+    }
+
+    var currentAddConcertViewController: AddConcertViewController {
+        return rootVC.currentNavigationController?.viewControllers.filter { $0 as? AddConcertViewController != nil }.first as! AddConcertViewController
     }
 
     // MARK: ViewControllers
 
-    lazy var addConcertVC: AddConcertViewController = {
+    var addConcertVC: AddConcertViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "AddConcert") as! AddConcertViewController
-        vc.didCreateConcert = self.concertCreated
-        vc.pickArtist = self.pickArtist
-        vc.pickVenue = self.pickVenue
+        vc.didCreateConcert = concertCreated
+        vc.pickArtist = pickArtist
+        vc.pickVenue = pickVenue
         return vc
-    }()
+    }
 
-    lazy var listArtistsVC: ListArtistsViewController = {
+    var concertVC: ShowConcertViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
+        return vc
+    }
+
+    var listArtistsVC: ListArtistsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListArtists") as! ListArtistsViewController
-        vc.didSelect = self.showConcertsForArtist
+        vc.didSelect = showConcertsForArtist
         return vc
-    }()
+    }
 
-    lazy var listConcertsVC: ListConcertsViewController = {
+    var listConcertsVC: ListConcertsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListConcerts") as! ListConcertsViewController
-        vc.didSelect = self.showConcert
+        vc.didSelect = showConcert
         return vc
-    }()
+    }
 
-    lazy var searchArtistsVC: SearchArtistsViewController = {
+    var searchArtistsVC: SearchArtistsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
-        vc.didSelectArtist = self.selectSearchedArtist
+        vc.didSelectArtist = selectSearchedArtist
         return vc
-    }()
+    }
 
-    lazy var searchVenuesVC: SearchVenuesViewController = {
+    var searchVenuesVC: SearchVenuesViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchVenues") as! SearchVenuesViewController
-        vc.didSelectVenue = self.selectSearchedVenue
+        vc.didSelectVenue = selectSearchedVenue
         return vc
-    }()
+    }
 
-    lazy var selectArtistVC: SelectArtistViewController = {
+    var selectArtistVC: SelectArtistViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectArtist") as! SelectArtistViewController
+        vc.didSelectArtist = artistSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchArtists))
         return vc
-    }()
+    }
 
-    lazy var selectVenueVC: SelectVenueViewController = {
+    var selectVenueVC: SelectVenueViewController {
         let vc =  storyboard.instantiateViewController(withIdentifier: "SelectVenue") as! SelectVenueViewController
+        vc.didSelectVenue = venueSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchVenues))
         return vc
-    }()
+    }
+}
+
+extension UITabBarController {
+    var currentNavigationController: UINavigationController? {
+        return self.selectedViewController as? UINavigationController
+    }
 }
