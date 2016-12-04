@@ -23,6 +23,8 @@ class ListConcertsViewController: UITableViewController {
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
 
         setupSearchController()
+        let nib = UINib(nibName: "ConcertCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "concertCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,11 +60,13 @@ class ListConcertsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell", for: indexPath) as! ConcertCell
+
         let concert = fetchedResultController.object(at: indexPath)
 
-        cell.textLabel?.text = "\(concert.artist)"
-        cell.detailTextLabel?.text = "\(concert.venue) - \(concert.formattedDate)"
+        cell.artistLabel.text = "\(concert.artist)"
+        cell.venueLabel.text = "\(concert.venue)"
+        cell.dateLabel.text = "\(concert.formattedDate)"
 
         return cell
     }
@@ -70,6 +74,10 @@ class ListConcertsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let concert = fetchedResultController.object(at: indexPath)
         didSelect(concert)
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
     }
 
 }

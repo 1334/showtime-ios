@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="yC8-EO-GwE" customClass="ConcertCell" customModule="showtime" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yC8-EO-GwE" id="g24-J0-9B4">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dY-FV-cUo">
+                        <rect key="frame" x="8" y="8" width="46.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dro-eU-ANa">
+                        <rect key="frame" x="8" y="30.5" width="46.5" height="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugc-kQ-3R7">
+                        <rect key="frame" x="62.5" y="18" width="271.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="topMargin" secondItem="7dY-FV-cUo" secondAttribute="top" id="1db-dZ-s1l"/>
+                    <constraint firstItem="dro-eU-ANa" firstAttribute="trailing" secondItem="7dY-FV-cUo" secondAttribute="trailing" id="O3X-DB-jsn"/>
+                    <constraint firstItem="ugc-kQ-3R7" firstAttribute="leading" secondItem="7dY-FV-cUo" secondAttribute="trailing" constant="8" id="Orj-Sf-PU8"/>
+                    <constraint firstItem="dro-eU-ANa" firstAttribute="top" secondItem="7dY-FV-cUo" secondAttribute="bottom" constant="2" id="ZPF-2Q-zwA"/>
+                    <constraint firstItem="ugc-kQ-3R7" firstAttribute="centerY" secondItem="g24-J0-9B4" secondAttribute="centerY" id="cCu-Pf-shW"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="7dY-FV-cUo" secondAttribute="leading" id="hSl-C9-hGS"/>
+                    <constraint firstItem="dro-eU-ANa" firstAttribute="leading" secondItem="7dY-FV-cUo" secondAttribute="leading" id="mgB-Jf-76o"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dro-eU-ANa" secondAttribute="bottom" id="zHa-7F-8jL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ugc-kQ-3R7" secondAttribute="trailing" constant="41" id="3tN-Ef-HrL"/>
+            </constraints>
+            <connections>
+                <outlet property="artistLabel" destination="7dY-FV-cUo" id="kcv-7K-YaX"/>
+                <outlet property="dateLabel" destination="ugc-kQ-3R7" id="50s-LF-8mc"/>
+                <outlet property="venueLabel" destination="dro-eU-ANa" id="HeJ-aZ-EJR"/>
+            </connections>
+            <point key="canvasLocation" x="-322.5" y="-69"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -17,6 +17,22 @@ class App {
     var addNC = UINavigationController()
 
     init(window: UIWindow) {
+        window.tintColor = .purple
+//        let tabBarAppearance = UITabBar.appearance()
+//        tabBarAppearance.barStyle = .black
+//        let navBarAppearance = UINavigationBar.appearance()
+//        navBarAppearance.barStyle = .black
+//        let tvAppearance = UITableView.appearance()
+//        tvAppearance.backgroundColor = .black
+//        tvAppearance.tintColor = .purple
+//        let tvcAppearance = UITableViewCell.appearance()
+//        tvcAppearance.tintColor = .purple
+//        tvcAppearance.backgroundColor = .black
+//        let labelAppearance = UILabel.appearance()
+//        labelAppearance.textColor = .purple
+//        let searchAppearance = UISearchBar.appearance()
+//        searchAppearance.barStyle = .black
+
         rootVC = window.rootViewController as! UITabBarController
         setupTabBar()
     }
