@@ -13,6 +13,7 @@ class App {
     let rootVC: UITabBarController
     var concertsNC = UINavigationController()
     var artistsNC = UINavigationController()
+    var venuesNC = UINavigationController()
     var addNC = UINavigationController()
 
     init(window: UIWindow) {
@@ -23,13 +24,15 @@ class App {
     private func setupTabBar() {
         concertsNC = UINavigationController(rootViewController: listConcertsVC)
         artistsNC = UINavigationController(rootViewController: listArtistsVC)
+        venuesNC = UINavigationController(rootViewController: listVenuesVC)
         addNC = UINavigationController(rootViewController: addConcertVC)
 
         concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
         artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(named: "artist"), tag: 2)
-        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 3)
+        venuesNC.tabBarItem = UITabBarItem(title: "Venues", image: UIImage(named: "venue"), tag: 3)
+        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 4)
 
-        rootVC.setViewControllers([concertsNC, artistsNC, addNC], animated: true)
+        rootVC.setViewControllers([concertsNC, artistsNC, venuesNC, addNC], animated: true)
     }
 
     // MARK: Actions
@@ -128,6 +131,11 @@ class App {
     var listConcertsByArtistVC: ListConcertsByArtistViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListConcertsByArtist") as! ListConcertsByArtistViewController
         vc.didSelect = showConcert
+        return vc
+    }
+
+    var listVenuesVC: ListVenuesViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ListVenues") as! ListVenuesViewController
         return vc
     }
 
