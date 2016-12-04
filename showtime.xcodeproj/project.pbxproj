@@ -37,6 +37,9 @@
 		76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7B1D96CF17004CFDF0 /* Assets.xcassets */; };
 		76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */; };
 		7697F2361DF3F7E5007C30E0 /* ListVenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697F2351DF3F7E5007C30E0 /* ListVenuesViewController.swift */; };
+		7697F2381DF42395007C30E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697F2371DF42395007C30E0 /* Theme.swift */; };
+		7697F23A1DF4322B007C30E0 /* ConcertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7697F2391DF4322B007C30E0 /* ConcertCell.xib */; };
+		7697F23C1DF43442007C30E0 /* ConcertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697F23B1DF43442007C30E0 /* ConcertCell.swift */; };
 		76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BDB6DB1DEDF4BB007B7461 /* UIElements.swift */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
@@ -90,6 +93,9 @@
 		76935F7E1D96CF17004CFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76935F801D96CF17004CFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7697F2351DF3F7E5007C30E0 /* ListVenuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVenuesViewController.swift; sourceTree = "<group>"; };
+		7697F2371DF42395007C30E0 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7697F2391DF4322B007C30E0 /* ConcertCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConcertCell.xib; sourceTree = "<group>"; };
+		7697F23B1DF43442007C30E0 /* ConcertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertCell.swift; sourceTree = "<group>"; };
 		76BDB6DB1DEDF4BB007B7461 /* UIElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +222,10 @@
 		7688B1841DE9D81F00C9B1B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76935F781D96CF17004CFDF0 /* Main.storyboard */,
+				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
+				7697F2391DF4322B007C30E0 /* ConcertCell.xib */,
+				7697F23B1DF43442007C30E0 /* ConcertCell.swift */,
 				7688B1821DE9D81300C9B1B8 /* ConcertNotesView.swift */,
 			);
 			name = Views;
@@ -252,10 +262,9 @@
 				765936901DF1FC8B0053B3EE /* Utility */,
 				7606828C1DD4EE0B00696589 /* ViewControllers */,
 				7688B1841DE9D81F00C9B1B8 /* Views */,
-				76935F781D96CF17004CFDF0 /* Main.storyboard */,
-				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
 				76E4467D1DDA48B2003D258C /* App.swift */,
 				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
+				7697F2371DF42395007C30E0 /* Theme.swift */,
 				76935F7B1D96CF17004CFDF0 /* Assets.xcassets */,
 				76935F801D96CF17004CFDF0 /* Info.plist */,
 			);
@@ -380,6 +389,7 @@
 			files = (
 				76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */,
 				76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */,
+				7697F23A1DF4322B007C30E0 /* ConcertCell.xib in Resources */,
 				76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +516,7 @@
 				760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */,
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				765936921DF1FE5E0053B3EE /* ListArtistsViewController.swift in Sources */,
+				7697F2381DF42395007C30E0 /* Theme.swift in Sources */,
 				7688B1831DE9D81300C9B1B8 /* ConcertNotesView.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
 				76BDB6DC1DEDF4BB007B7461 /* UIElements.swift in Sources */,
@@ -522,6 +533,7 @@
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
 				76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */,
 				76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */,
+				7697F23C1DF43442007C30E0 /* ConcertCell.swift in Sources */,
 				7659368F1DF1FC790053B3EE /* ConcertScope.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
