@@ -13,6 +13,7 @@ enum FormCell: Int {
     case dateLabel
     case datePicker
     case venue
+    case add
 }
 
 class AddConcertViewController: UITableViewController {
@@ -31,6 +32,11 @@ class AddConcertViewController: UITableViewController {
 
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         syncDatePickerWithLabel()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,9 +68,7 @@ class AddConcertViewController: UITableViewController {
         syncDatePickerWithLabel()
     }
 
-    private func syncDatePickerWithLabel() {
-        dateLabel.text = dateFormatter.string(from: datePicker.date)
-    }
+    // MARK: Private section
 
     private func alertFieldsEmpty() {
         let alert = UIElements.errorAlert(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty")
@@ -76,4 +80,15 @@ class AddConcertViewController: UITableViewController {
         venueLabel.text = ""
         datePicker.date = Date()
     }
+
+    private func setupTableView() {
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
+    }
+
+    private func syncDatePickerWithLabel() {
+        dateLabel.text = dateFormatter.string(from: datePicker.date)
+    }
+
 }
