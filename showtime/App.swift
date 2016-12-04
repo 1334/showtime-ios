@@ -108,6 +108,7 @@ class App {
         vc.didCreateConcert = concertCreated
         vc.pickArtist = pickArtist
         vc.pickVenue = pickVenue
+        vc.title = "Add new concert"
         return vc
     }
 
@@ -119,12 +120,14 @@ class App {
     var listArtistsVC: ListArtistsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListArtists") as! ListArtistsViewController
         vc.didSelect = showConcertsForArtist
+        vc.title = "List Artists"
         return vc
     }
 
     var listConcertsVC: ListConcertsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListConcerts") as! ListConcertsViewController
         vc.didSelect = showConcert
+        vc.title = "List Concerts"
         return vc
     }
 
@@ -136,18 +139,21 @@ class App {
 
     var listVenuesVC: ListVenuesViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListVenues") as! ListVenuesViewController
+        vc.title = "Display Venues"
         return vc
     }
 
     var searchArtistsVC: SearchArtistsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
         vc.didSelectArtist = selectSearchedArtist
+        vc.title = "Import new artist"
         return vc
     }
 
     var searchVenuesVC: SearchVenuesViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchVenues") as! SearchVenuesViewController
         vc.didSelectVenue = selectSearchedVenue
+        vc.title = "Import new venue"
         return vc
     }
 
@@ -155,6 +161,7 @@ class App {
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectArtist") as! SelectArtistViewController
         vc.didSelectArtist = artistSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchArtists))
+        vc.title = "Select existing artist"
         return vc
     }
 
@@ -162,6 +169,7 @@ class App {
         let vc =  storyboard.instantiateViewController(withIdentifier: "SelectVenue") as! SelectVenueViewController
         vc.didSelectVenue = venueSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchVenues))
+        vc.title = "Select existing venue"
         return vc
     }
 }
