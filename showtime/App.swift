@@ -17,7 +17,7 @@ class App {
     var addNC = UINavigationController()
 
     init(window: UIWindow) {
-        window.tintColor = .purple
+        window.tintColor = Theme.Colors.tint.color
 //        let tabBarAppearance = UITabBar.appearance()
 //        tabBarAppearance.barStyle = .black
 //        let navBarAppearance = UINavigationBar.appearance()
