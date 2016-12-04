@@ -32,7 +32,7 @@ class ListArtistsViewController: UITableViewController {
 
     func reloadData(keyword: String = "") {
         if !keyword.isEmpty {
-            let predicate = Concert.predicateMatching(keyword: keyword)
+            let predicate = Artist.predicateMatching(keyword: keyword)
             fetchedResultController.fetchRequest.predicate = predicate
         } else {
             fetchedResultController.fetchRequest.predicate = Artist.defaultPredicate

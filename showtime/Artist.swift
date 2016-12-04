@@ -23,6 +23,10 @@ extension Artist {
         self.name = searchedArtist.name
         self.mbid = searchedArtist.mbid
     }
+
+    static func predicateMatching(keyword: String) -> NSPredicate {
+        return NSPredicate(format: "name CONTAINS[c] %@", keyword)
+    }
 }
 
 extension Artist: NamedManagedObjectType {
