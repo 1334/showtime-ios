@@ -15,6 +15,8 @@ class Concert: NSManagedObject {
     @NSManaged var date: Date
     @NSManaged var venue: Venue
     @NSManaged var notes: String?
+    @NSManaged var setlist: String?
+    @NSManaged var setlistUpdatedAt: Date?
 
     var formattedDate: String  {
         let df = DateFormatter()
