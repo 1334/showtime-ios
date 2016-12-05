@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import MapKit
 
 @objc(Venue)
 class Venue: NSManagedObject {
@@ -16,6 +17,10 @@ class Venue: NSManagedObject {
     @NSManaged var longitude: Double
     @NSManaged var city: City
     @NSManaged var concerts: [Concert]
+
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 
     override var description: String { return name }
 }
@@ -44,4 +49,14 @@ extension Venue: NamedManagedObjectType {
     static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: "name", ascending: true)]
     }
+}
+
+extension Venue: MKAnnotation {
+    var title: String? {
+        return self.name
+    }
+    var subtitle: String? {
+        return ("\(concerts.count) concerts")
+    }
+
 }
