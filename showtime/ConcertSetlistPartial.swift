@@ -21,6 +21,7 @@ class ConcertSetlistPartial: UIView {
 
     private func setupSubviews() {
         textView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
+        textView.isEditable = false
         if concert.setlistUpdatedAt == nil {
             retrieveSetlist()
         } else {
