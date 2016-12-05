@@ -27,6 +27,10 @@ extension SetlistFmAPI {
                 let sets = setlist["sets"] as? [String:Any]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
+            let updatetAtFormatter = DateFormatter()
+            updatetAtFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+            let updatedAt = updatetAtFormatter.date(from: setlist["@lastUpdated"] as! String)!
+
             var completeSet = [[String:Any]]()
 
             // if it has encores [[String:Any]]
@@ -45,7 +49,7 @@ extension SetlistFmAPI {
                 return songs.map { $0["@name"] as! String }
             }
 
-            return .success(completeSetlist)
+            return .success(SearchedSetlist(setlist: completeSetlist, updatedAt: updatedAt))
 
         } catch let error {
             return .failure(error)

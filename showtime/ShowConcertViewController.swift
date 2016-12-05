@@ -61,28 +61,12 @@ class ShowConcertViewController: UIViewController {
         switch segment {
         case .notes:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let notes = ConcertNotesView(concert: concert)
-            notes.translatesAutoresizingMaskIntoConstraints = false
+            let notes = ConcertNotesPartial(concert: concert)
             notes.fill(parent: detailView)
         case .setlist:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let textView = UITextView()
-            textView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
-            SetlistFmStore().searchSetlist(artist: concert.artist.name, date: concert.date) { result in
-                switch result {
-                case let .success(setlist):
-                    DispatchQueue.main.sync {
-                        textView.text = setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
-                    }
-                default:
-                    DispatchQueue.main.sync {
-                        textView.text = "setlist not found"
-                    }
-                }
-            }
-            textView.textAlignment = .center
-            textView.translatesAutoresizingMaskIntoConstraints = false
-            textView.fill(parent: detailView)
+            let setlist = ConcertSetlistPartial(concert: concert)
+            setlist.fill(parent: detailView)
         }
     }
 }

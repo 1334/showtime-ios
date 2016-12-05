@@ -20,7 +20,7 @@ enum SearchArtistsResult {
 }
 
 enum SearchSetlistResult {
-    case success([[String]])
+    case success(SearchedSetlist)
     case notFound
     case failure(Error)
 }
