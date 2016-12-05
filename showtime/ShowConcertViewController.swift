@@ -52,6 +52,11 @@ class ShowConcertViewController: UIViewController {
         setupSegmentedControlView(segmentedControl: segmentedControl)
     }
 
+    // dismiss the keyboard when clicking outside
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     private func setupSegmentedControlView(segmentedControl: UISegmentedControl) {
         let segment = SegmentedControlSegment(rawValue: segmentedControl.selectedSegmentIndex)!
         updateSegmentedView(for: segment)
