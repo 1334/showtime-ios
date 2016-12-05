@@ -24,11 +24,22 @@ extension SetlistFmAPI {
             guard let root = jsonObject as? [String:Any],
                 let setlists = root["setlists"] as? [String:Any],
                 let setlist = setlists["setlist"] as? [String:Any],
-                let sets = setlist["sets"] as? [String:Any],
-                let set = sets["set"] as? [[String:Any]]
+                let sets = setlist["sets"] as? [String:Any]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
-            let completeSetlist: [[String]] = set.map { setPart in
+            var completeSet = [[String:Any]]()
+
+            // if it has encores [[String:Any]]
+            if let set = sets["set"] as? [[String:Any]] {
+                completeSet.append(contentsOf: set)
+            }
+
+            // if set is a single block, then [String:Any]
+            if let set = sets["set"] as? [String:Any] {
+                completeSet.append(set)
+            }
+
+            let completeSetlist: [[String]] = completeSet.map { setPart in
                 guard let songs = setPart["song"] as? [[String:Any]] else { return [] }
 
                 return songs.map { $0["@name"] as! String }
