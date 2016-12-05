@@ -11,13 +11,13 @@ import MapKit
 
 class ListVenuesViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
-    var venues = Venue.all()
+    var venues: [Venue]!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        venues = Venue.all()
         map.addAnnotations(venues)
         map.showAnnotations(venues, animated: true)
-    }
 
+    }
 }
