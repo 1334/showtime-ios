@@ -8,33 +8,22 @@
 
 import UIKit
 
-class ConcertNotesView : UIView {
+class ConcertNotesPartial: UIView {
     var concert: Concert!
-    var textView: UITextView!
+    private var textView: UITextView!
 
     convenience init(concert: Concert) {
-        self.init(frame: CGRect.zero)
+        self.init()
         self.concert = concert
+        translatesAutoresizingMaskIntoConstraints = false
         setupSubviews()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupSubviews() {
         textView = setupTextView()
         textView.text = concert.notes
-        addSubview(textView)
 
-        textView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        textView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        textView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        textView.fill(parent: self)
     }
 
     func saveNotes() {
@@ -58,7 +47,7 @@ class ConcertNotesView : UIView {
 
 }
 
-extension ConcertNotesView : UITextViewDelegate {
+extension ConcertNotesPartial: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         saveNotes()
     }
