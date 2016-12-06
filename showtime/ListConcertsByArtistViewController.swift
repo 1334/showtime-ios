@@ -11,8 +11,12 @@ import CoreData
 
 class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var artistName: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            setupImageView()
+        }
+    }
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
@@ -25,11 +29,6 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
         scope = .artist(artist)
         artistName.text = artist.name
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-
-        imageView.layer.borderColor = Theme.Colors.tint.color.cgColor
-        imageView.layer.borderWidth = 5
-        imageView.layer.cornerRadius =  imageView.frame.height / 2
-        imageView.clipsToBounds = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +62,45 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let concert = fetchedResultController.object(at: indexPath)
         didSelect(concert)
+    }
+
+    // MARK: private section
+
+    private func setupImageView() {
+        imageView.layer.borderColor = Theme.Colors.tint.color.cgColor
+        imageView.layer.borderWidth = 5
+        imageView.layer.cornerRadius =  imageView.frame.height / 2
+        imageView.clipsToBounds = true
+
+        // add gesture recognizer
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(recognizer)
+    }
+
+
+    @objc private func imageTapped() {
+        print("image tapped")
+        let actionSheet = UIAlertController(title: "Artist Image", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+
+            self.present(picker, animated: true, completion: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
+    }
+}
+
+extension ListConcertsByArtistViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        DispatchQueue.main.async {
+            self.imageView.image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+        }
+        dismiss(animated: true, completion: nil)
+
     }
 
 }
