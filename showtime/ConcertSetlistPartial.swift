@@ -11,6 +11,7 @@ import UIKit
 class ConcertSetlistPartial: UIView {
     var concert: Concert!
     private var textView = UITextView()
+    var context = CoreDataHelpers.viewContext
 
     convenience init(concert: Concert) {
         self.init()
@@ -42,7 +43,7 @@ class ConcertSetlistPartial: UIView {
                 DispatchQueue.main.sync {
                     self.concert.setlist = setlist.setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
                     self.concert.setlistUpdatedAt = setlist.updatedAt
-                    try? CoreDataHelpers.viewContext.save()
+                    self.context.saveIt()
                     self.setupSubviews()
                 }
             default:

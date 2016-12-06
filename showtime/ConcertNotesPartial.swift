@@ -11,6 +11,7 @@ import UIKit
 class ConcertNotesPartial: UIView {
     var concert: Concert!
     private var textView: UITextView!
+    var context = CoreDataHelpers.viewContext
 
     convenience init(concert: Concert) {
         self.init()
@@ -32,7 +33,7 @@ class ConcertNotesPartial: UIView {
         } else {
             concert.notes = textView.text
         }
-        try! CoreDataHelpers.viewContext.save()
+        context.saveIt()
     }
 
     private func setupTextView() -> UITextView {

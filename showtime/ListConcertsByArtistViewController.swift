@@ -101,7 +101,7 @@ extension ListConcertsByArtistViewController: UIImagePickerControllerDelegate, U
             let image = info["UIImagePickerControllerOriginalImage"] as? UIImage
             self.imageView.image = image
             self.artist.image = image
-            try? self.context.save()
+            self.context.saveIt()
         }
         dismiss(animated: true, completion: nil)
 

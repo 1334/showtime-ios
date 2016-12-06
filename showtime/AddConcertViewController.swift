@@ -21,6 +21,7 @@ class AddConcertViewController: UITableViewController {
     var didCreateConcert: () -> () = { }
     var pickArtist: () -> () = { }
     var pickVenue: () -> () = { }
+    var context = CoreDataHelpers.viewContext
     
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
@@ -55,7 +56,7 @@ class AddConcertViewController: UITableViewController {
 
         if !(artist.isEmpty || venue.isEmpty) {
             _ = Concert(artist: artist, date: date, venue: venue)
-            try? CoreDataHelpers.viewContext.save()
+            context.saveIt()
             resetForm()
             didCreateConcert()
         } else {

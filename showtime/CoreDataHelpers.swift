@@ -19,3 +19,15 @@ class CoreDataHelpers {
         return container.viewContext
     }()
 }
+
+extension NSManagedObjectContext {
+    func saveIt() {
+        if hasChanges {
+            do {
+                try save()
+            } catch {
+                fatalError("Error saving \(self.description) context! \(error)")
+            }
+        }
+    }
+}
