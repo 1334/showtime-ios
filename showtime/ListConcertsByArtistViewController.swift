@@ -11,6 +11,7 @@ import CoreData
 
 class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
 
     let context = CoreDataHelpers.viewContext
@@ -24,6 +25,11 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
         scope = .artist(artist)
         artistName.text = artist.name
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+
+        imageView.layer.borderColor = Theme.Colors.tint.color.cgColor
+        imageView.layer.borderWidth = 5
+        imageView.layer.cornerRadius =  imageView.frame.height / 2
+        imageView.clipsToBounds = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
