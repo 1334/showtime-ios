@@ -22,6 +22,9 @@ class ShowConcertViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var detailView: UIView!
+    var notesView = UITextView()
+    var setlistView = UITextView()
+    var context = CoreDataHelpers.viewContext
 
     // MARK: Actions
     func tweetConcert(_ sender: Any) {
@@ -56,7 +59,8 @@ class ShowConcertViewController: UIViewController {
 
     // dismiss the keyboard when clicking outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        print(touches)
+        view.endEditing(false)
     }
 
     private func setupSegmentedControlView(segmentedControl: UISegmentedControl) {
@@ -68,12 +72,85 @@ class ShowConcertViewController: UIViewController {
         switch segment {
         case .notes:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let notes = ConcertNotesPartial(concert: concert)
-            notes.fill(parent: detailView)
+            setupNotesView()
+            notesView.fill(parent: detailView)
         case .setlist:
             detailView.subviews.forEach { $0.removeFromSuperview() }
-            let setlist = ConcertSetlistPartial(concert: concert)
-            setlist.fill(parent: detailView)
+            setupSetlistView()
+            setlistView.fill(parent: detailView)
         }
+    }
+
+    private func setupNotesView() {
+        notesView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        notesView.text = concert.notes
+        notesView.translatesAutoresizingMaskIntoConstraints = false
+        notesView.delegate = self
+    }
+
+    private func setupSetlistView() {
+        setlistView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
+        setlistView.isEditable = false
+        if concert.setlistUpdatedAt == nil {
+            retrieveSetlist()
+        } else {
+            setlistView.text = concert.setlist
+            setlistView.text.append("\n\n updated at: \(concert.setlistUpdatedAt!)")
+        }
+        setlistView.textAlignment = .center
+        setlistView.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    private func retrieveSetlist() {
+        SetlistFmStore().searchSetlist(artist: concert.artist.name, date: concert.date) { result in
+            switch result {
+            case let .success(setlist):
+                DispatchQueue.main.sync {
+                    self.concert.setlist = setlist.setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
+                    self.concert.setlistUpdatedAt = setlist.updatedAt
+                    self.context.saveIt()
+                    self.setlistView.text = self.concert.setlist
+                }
+            default:
+                DispatchQueue.main.sync {
+                    self.setlistView.text = "setlist not found"
+                }
+            }
+        }
+    }
+
+}
+
+extension ShowConcertViewController: UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        saveNotes()
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        animateTextView(textView, up: true)
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        animateTextView(textView, up: false)
+    }
+
+    func animateTextView(_ textView: UITextView, up: Bool) {
+        let distance: CGFloat = 250.0
+        let duration = 0.5
+
+        let movement = up ? -distance : distance
+        UIView.animate(withDuration: duration) {
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        }
+    }
+
+    func saveNotes() {
+        if notesView.text.isEmpty {
+            concert.notes = nil
+        } else {
+            concert.notes = notesView.text
+        }
+        context.saveIt()
     }
 }

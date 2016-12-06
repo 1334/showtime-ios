@@ -26,7 +26,6 @@
 		7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8681DD0DC46004238EF /* SegueHandlerType.swift */; };
 		7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* DataFormatters.swift */; };
 		7688B17D1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */; };
-		7688B1831DE9D81300C9B1B8 /* ConcertNotesPartial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B1821DE9D81300C9B1B8 /* ConcertNotesPartial.swift */; };
 		768E9E7F1DEDFBBA00FA95B0 /* SearchedVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */; };
 		768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E801DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift */; };
 		768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E821DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift */; };
@@ -42,7 +41,6 @@
 		7697F23C1DF43442007C30E0 /* ConcertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7697F23B1DF43442007C30E0 /* ConcertCell.swift */; };
 		76AB57941DF731AC00897A6A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AB57931DF731AC00897A6A /* DashboardViewController.swift */; };
 		76B057C41DF57D75007E53C3 /* SearchedSetlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */; };
-		76B057C61DF5817D007E53C3 /* ConcertSetlistPartial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B057C51DF5817D007E53C3 /* ConcertSetlistPartial.swift */; };
 		76BDB6DC1DEDF4BB007B7461 /* UIElementsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
@@ -83,7 +81,6 @@
 		7672B8681DD0DC46004238EF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		7672B86A1DD0DCA0004238EF /* DataFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatters.swift; sourceTree = "<group>"; };
 		7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchArtistsViewController.swift; sourceTree = "<group>"; };
-		7688B1821DE9D81300C9B1B8 /* ConcertNotesPartial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertNotesPartial.swift; sourceTree = "<group>"; };
 		768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVenue.swift; sourceTree = "<group>"; };
 		768E9E801DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetlistFMAPI+searchArtists.swift"; sourceTree = "<group>"; };
 		768E9E821DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SetlistFMAPI+searchSetlists.swift"; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 		7697F23B1DF43442007C30E0 /* ConcertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertCell.swift; sourceTree = "<group>"; };
 		76AB57931DF731AC00897A6A /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedSetlist.swift; sourceTree = "<group>"; };
-		76B057C51DF5817D007E53C3 /* ConcertSetlistPartial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertSetlistPartial.swift; sourceTree = "<group>"; };
 		76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElementsAndExtensions.swift; sourceTree = "<group>"; };
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +259,6 @@
 				76E16F0B1DDE236A00EC7ACE /* API */,
 				7606828D1DD4F88400696589 /* Core Data */,
 				765652DB1DEB4E6700293E4F /* Models */,
-				76B057C71DF5C05B007E53C3 /* Partials */,
 				7606828B1DD4EDF900696589 /* Protocols */,
 				7606828A1DD4EDE400696589 /* Support */,
 				765936901DF1FC8B0053B3EE /* Utility */,
@@ -276,15 +271,6 @@
 				76935F801D96CF17004CFDF0 /* Info.plist */,
 			);
 			path = showtime;
-			sourceTree = "<group>";
-		};
-		76B057C71DF5C05B007E53C3 /* Partials */ = {
-			isa = PBXGroup;
-			children = (
-				7688B1821DE9D81300C9B1B8 /* ConcertNotesPartial.swift */,
-				76B057C51DF5817D007E53C3 /* ConcertSetlistPartial.swift */,
-			);
-			name = Partials;
 			sourceTree = "<group>";
 		};
 		76D354051D98545F00723A61 /* showtimeTests */ = {
@@ -518,7 +504,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B057C61DF5817D007E53C3 /* ConcertSetlistPartial.swift in Sources */,
 				7659368D1DF0923C0053B3EE /* Country.swift in Sources */,
 				7688B17D1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift in Sources */,
 				765652D81DEB4E1B00293E4F /* Venue.swift in Sources */,
@@ -535,7 +520,6 @@
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,
 				765936921DF1FE5E0053B3EE /* ListArtistsViewController.swift in Sources */,
 				7697F2381DF42395007C30E0 /* Theme.swift in Sources */,
-				7688B1831DE9D81300C9B1B8 /* ConcertNotesPartial.swift in Sources */,
 				765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */,
 				76BDB6DC1DEDF4BB007B7461 /* UIElementsAndExtensions.swift in Sources */,
 				76B057C41DF57D75007E53C3 /* SearchedSetlist.swift in Sources */,
