@@ -52,4 +52,22 @@ extension ConcertNotesPartial: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         saveNotes()
     }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        animateTextView(textView, up: true)
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        animateTextView(textView, up: false)
+    }
+
+    func animateTextView(_ textView: UITextView, up: Bool) {
+        let distance: CGFloat = 250.0
+        let duration = 0.5
+
+        let movement = up ? -distance : distance
+        UIView.animate(withDuration: duration) {
+            textView.frame = textView.frame.offsetBy(dx: 0, dy: movement)
+        }
+    }
 }
