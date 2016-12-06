@@ -16,3 +16,13 @@ struct UIElements {
         return alert
     }
 }
+
+extension UIView {
+    func fill(parent: UIView) {
+        parent.addSubview(self)
+        self.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
+        self.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
+        self.widthAnchor.constraint(equalTo: parent.widthAnchor).isActive = true
+        self.heightAnchor.constraint(equalTo: parent.heightAnchor).isActive = true
+    }
+}
