@@ -97,13 +97,24 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
 extension ListConcertsByArtistViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         DispatchQueue.main.async {
-            let image = info["UIImagePickerControllerOriginalImage"] as? UIImage
-            self.imageView.image = image
-            self.artist.image = image
-            self.context.saveIt()
+            guard let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else { return }
+            if let image = self.resizeImage(originalImage) {
+                self.imageView.image = image
+                self.artist.image = image
+                self.context.saveIt()
+            }
         }
         dismiss(animated: true, completion: nil)
+    }
 
+    private func resizeImage(_ image: UIImage) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: 128, height: 128)
+        UIGraphicsBeginImageContext(rect.size)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
     }
 
 }
