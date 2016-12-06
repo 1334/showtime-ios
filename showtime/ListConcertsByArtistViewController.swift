@@ -81,7 +81,6 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
 
 
     @objc private func imageTapped() {
-        print("image tapped")
         let actionSheet = UIAlertController(title: "Artist Image", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
             let picker = UIImagePickerController()

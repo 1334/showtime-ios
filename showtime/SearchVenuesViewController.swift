@@ -22,7 +22,6 @@ class SearchVenuesViewController: UITableViewController, UISearchBarDelegate {
         SetlistFmStore().searchVenue(name: searchText) { result in
             switch result {
             case let .success(foundVenues):
-                print(foundVenues)
                 DispatchQueue.main.sync {
                     self.venues = foundVenues
                     self.tableView.reloadData()
