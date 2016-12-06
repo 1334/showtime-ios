@@ -28,6 +28,7 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
         super.viewDidLoad()
         scope = .artist(artist)
         artistName.text = artist.name
+        imageView.image = artist.image ?? #imageLiteral(resourceName: "artistPlaceHolder")
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
 
@@ -97,7 +98,10 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
 extension ListConcertsByArtistViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         DispatchQueue.main.async {
-            self.imageView.image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+            let image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+            self.imageView.image = image
+            self.artist.image = image
+            try? self.context.save()
         }
         dismiss(animated: true, completion: nil)
 

@@ -6,6 +6,7 @@
 //  Copyright © 2016 UOC. All rights reserved.
 //
 
+import UIKit
 import CoreData
 
 @objc(Artist)
@@ -13,6 +14,7 @@ class Artist: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var mbid: String?
     @NSManaged var concerts: [Concert]
+    @NSManaged var image: UIImage?
 
     override var description: String { return name }
 }
