@@ -48,7 +48,7 @@ class App {
         venuesNC.tabBarItem = UITabBarItem(title: "Venues", image: #imageLiteral(resourceName: "venue"), tag: 4)
         addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: #imageLiteral(resourceName: "addConcert"), tag: 5)
 
-        rootVC.setViewControllers([concertsNC, artistsNC, venuesNC, addNC], animated: true)
+        rootVC.setViewControllers([dashboardVC, concertsNC, artistsNC, venuesNC, addNC], animated: true)
     }
 
     // MARK: Actions
@@ -130,6 +130,12 @@ class App {
 
     var concertVC: ShowConcertViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
+        return vc
+    }
+
+    var dashboardVC: DashboardViewContrller {
+        let vc = storyboard.instantiateViewController(withIdentifier: "Dashboard") as! DashboardViewContrller
+        vc.tabBarItem = UITabBarItem(title: "Dashboard", image: #imageLiteral(resourceName: "dashboard"), tag: 1)
         return vc
     }
 

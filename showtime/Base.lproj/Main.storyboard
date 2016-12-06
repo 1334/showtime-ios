@@ -12,6 +12,64 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Dashboard View Contrller-->
+        <scene sceneID="qbb-H2-jyf">
+            <objects>
+                <viewController storyboardIdentifier="Dashboard" id="5kz-cn-E39" customClass="DashboardViewContrller" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s6j-eF-wgu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Im0-lu-kbB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Gx-CT-LpV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onk-9J-Hgk">
+                                <rect key="frame" x="16" y="28" width="238" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov4-GS-nBx">
+                                <rect key="frame" x="0.0" y="69" width="375" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="264" id="yI3-JU-qoU"/>
+                                </constraints>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wYc-bz-llM">
+                                <rect key="frame" x="0.0" y="403" width="375" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="264" id="gn2-8P-hkL"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-ib-Uyo">
+                                <rect key="frame" x="16" y="361" width="194.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ov4-GS-nBx" firstAttribute="top" secondItem="Onk-9J-Hgk" secondAttribute="bottom" constant="7.5" id="1CI-90-1U9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wYc-bz-llM" secondAttribute="trailing" constant="-16" id="4eV-uq-Gea"/>
+                            <constraint firstItem="Ov4-GS-nBx" firstAttribute="leading" secondItem="5Gx-CT-LpV" secondAttribute="leadingMargin" constant="-16" id="JV0-nx-SrI"/>
+                            <constraint firstItem="wYc-bz-llM" firstAttribute="leading" secondItem="5Gx-CT-LpV" secondAttribute="leadingMargin" constant="-16" id="RgF-oR-3ea"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Onk-9J-Hgk" secondAttribute="leading" id="Vdj-Db-LRn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fQM-ib-Uyo" secondAttribute="leading" id="Wze-fg-SJd"/>
+                            <constraint firstItem="wYc-bz-llM" firstAttribute="top" secondItem="fQM-ib-Uyo" secondAttribute="bottom" constant="8.5" id="Z5k-He-n1D"/>
+                            <constraint firstItem="Onk-9J-Hgk" firstAttribute="top" secondItem="s6j-eF-wgu" secondAttribute="bottom" constant="8" id="hL1-hS-p8e"/>
+                            <constraint firstItem="fQM-ib-Uyo" firstAttribute="top" secondItem="Ov4-GS-nBx" secondAttribute="bottom" constant="28" id="qNp-U2-kJX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ov4-GS-nBx" secondAttribute="trailing" constant="-16" id="tZh-dX-an4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chQ-gt-hU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242.4000000000001" y="-700.29985007496259"/>
+        </scene>
         <!--List Concerts View Controller-->
         <scene sceneID="tGX-ld-Jn5">
             <objects>
