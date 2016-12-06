@@ -30,7 +30,8 @@ class ShowConcertViewController: UIViewController {
             tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
             self.present(tweetVC!, animated: true, completion: nil)
         } else {
-            print("Can't send tweet")
+            let alert = UIElements.errorAlert(title: "Can't send tweet", message: "Please make sure at least one twitter account is set up in Settings > Twitter")
+            present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
