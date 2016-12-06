@@ -130,6 +130,7 @@ class App {
 
     var concertVC: ShowConcertViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ConcertDetail") as! ShowConcertViewController
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: vc.self, action: #selector(vc.self.tweetConcert))
         return vc
     }
 

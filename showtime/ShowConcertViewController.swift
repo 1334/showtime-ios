@@ -24,7 +24,7 @@ class ShowConcertViewController: UIViewController {
     @IBOutlet weak var detailView: UIView!
 
     // MARK: Actions
-    @IBAction func tweetConcert(_ sender: Any) {
+    func tweetConcert(_ sender: Any) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
             let tweetVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
@@ -34,6 +34,7 @@ class ShowConcertViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
+
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         setupSegmentedControlView(segmentedControl: sender)
     }
