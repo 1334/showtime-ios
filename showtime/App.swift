@@ -43,10 +43,10 @@ class App {
         venuesNC = UINavigationController(rootViewController: listVenuesVC)
         addNC = UINavigationController(rootViewController: addConcertVC)
 
-        concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: UIImage(named: "concert"), tag: 1)
-        artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: UIImage(named: "artist"), tag: 2)
-        venuesNC.tabBarItem = UITabBarItem(title: "Venues", image: UIImage(named: "venue"), tag: 3)
-        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: UIImage(named: "addConcert"), tag: 4)
+        concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: #imageLiteral(resourceName: "concert"), tag: 2)
+        artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: #imageLiteral(resourceName: "artist"), tag: 3)
+        venuesNC.tabBarItem = UITabBarItem(title: "Venues", image: #imageLiteral(resourceName: "venue"), tag: 4)
+        addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: #imageLiteral(resourceName: "addConcert"), tag: 5)
 
         rootVC.setViewControllers([concertsNC, artistsNC, venuesNC, addNC], animated: true)
     }
