@@ -13,6 +13,7 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var recentShowsTableView: UITableView!
     var upcomingShows = [Concert]()
     var recentShows = [Concert]()
+    var didSelect: (Concert) -> () = { _ in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,12 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
         cell.dateLabel.text = concert.formattedDate
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let concerts = tableView == upcomingShowsTableView ? upcomingShows : recentShows
+        let concert = concerts[indexPath.row]
+        didSelect(concert)
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
