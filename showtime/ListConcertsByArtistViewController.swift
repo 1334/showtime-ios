@@ -28,7 +28,7 @@ class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate,
         super.viewDidLoad()
         scope = .artist(artist)
         artistName.text = artist.name
-        imageView.image = artist.image ?? #imageLiteral(resourceName: "artistPlaceHolder")
+        imageView.image = artist.image
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
 
@@ -100,7 +100,7 @@ extension ListConcertsByArtistViewController: UIImagePickerControllerDelegate, U
             guard let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else { return }
             if let image = self.resizeImage(originalImage) {
                 self.imageView.image = image
-                self.artist.image = image
+                self.artist.storedImage = image
                 self.context.saveIt()
             }
         }

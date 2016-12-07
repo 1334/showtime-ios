@@ -14,7 +14,11 @@ class Artist: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var mbid: String?
     @NSManaged var concerts: [Concert]
-    @NSManaged var image: UIImage?
+    @NSManaged var storedImage: UIImage?
+
+    var image: UIImage {
+        return storedImage ?? #imageLiteral(resourceName: "artistPlaceHolder")
+    }
 
     override var description: String { return name }
 }
