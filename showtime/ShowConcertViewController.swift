@@ -49,7 +49,6 @@ class ShowConcertViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Concert details"
-
         artistLabel.text = "\(concert.artist)"
         venueLabel.text = "\(concert.venue)"
         dateLabel.text = concert.formattedDate
@@ -94,8 +93,7 @@ class ShowConcertViewController: UIViewController {
         if concert.setlistUpdatedAt == nil {
             retrieveSetlist()
         } else {
-            setlistView.text = concert.setlist
-            setlistView.text.append("\n\n updated at: \(concert.setlistUpdatedAt!)")
+            setlistView.text = concert.setlistText
         }
         setlistView.textAlignment = .center
         setlistView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +107,7 @@ class ShowConcertViewController: UIViewController {
                     self.concert.setlist = setlist.setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
                     self.concert.setlistUpdatedAt = setlist.updatedAt
                     self.context.saveIt()
-                    self.setlistView.text = self.concert.setlist
+                    self.setlistView.text = self.concert.setlistText
                 }
             default:
                 DispatchQueue.main.sync {
@@ -136,7 +134,7 @@ extension ShowConcertViewController: UITextViewDelegate {
     }
 
     func animateTextView(_ textView: UITextView, up: Bool) {
-        let distance: CGFloat = 250.0
+        let distance: CGFloat = 210.0
         let duration = 0.5
 
         let movement = up ? -distance : distance
