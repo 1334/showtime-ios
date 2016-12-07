@@ -11,6 +11,7 @@ import UIKit
 class App {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let rootVC: UITabBarController
+    var dashboardNC = UINavigationController()
     var concertsNC = UINavigationController()
     var artistsNC = UINavigationController()
     var venuesNC = UINavigationController()
@@ -18,37 +19,26 @@ class App {
 
     init(window: UIWindow) {
         window.tintColor = Theme.Colors.tint.color
-//        let tabBarAppearance = UITabBar.appearance()
-//        tabBarAppearance.barStyle = .black
-//        let navBarAppearance = UINavigationBar.appearance()
-//        navBarAppearance.barStyle = .black
-//        let tvAppearance = UITableView.appearance()
-//        tvAppearance.backgroundColor = .black
-//        tvAppearance.tintColor = .purple
-//        let tvcAppearance = UITableViewCell.appearance()
-//        tvcAppearance.tintColor = .purple
-//        tvcAppearance.backgroundColor = .black
-//        let labelAppearance = UILabel.appearance()
-//        labelAppearance.textColor = .purple
-//        let searchAppearance = UISearchBar.appearance()
-//        searchAppearance.barStyle = .black
+        Theme.apply()
 
         rootVC = window.rootViewController as! UITabBarController
         setupTabBar()
     }
 
     private func setupTabBar() {
+        dashboardNC = UINavigationController(rootViewController: dashboardVC)
         concertsNC = UINavigationController(rootViewController: listConcertsVC)
         artistsNC = UINavigationController(rootViewController: listArtistsVC)
         venuesNC = UINavigationController(rootViewController: listVenuesVC)
         addNC = UINavigationController(rootViewController: addConcertVC)
 
+        dashboardNC.tabBarItem = UITabBarItem(title: "Dashboard", image: #imageLiteral(resourceName: "dashboard"), tag: 1)
         concertsNC.tabBarItem = UITabBarItem(title: "Concerts", image: #imageLiteral(resourceName: "concert"), tag: 2)
         artistsNC.tabBarItem = UITabBarItem(title: "Artists", image: #imageLiteral(resourceName: "artist"), tag: 3)
         venuesNC.tabBarItem = UITabBarItem(title: "Venues", image: #imageLiteral(resourceName: "venue"), tag: 4)
         addNC.tabBarItem = UITabBarItem(title: "Add Concert", image: #imageLiteral(resourceName: "addConcert"), tag: 5)
 
-        rootVC.setViewControllers([dashboardVC, concertsNC, artistsNC, venuesNC, addNC], animated: true)
+        rootVC.setViewControllers([dashboardNC, concertsNC, artistsNC, venuesNC, addNC], animated: true)
     }
 
     // MARK: Actions
@@ -136,7 +126,7 @@ class App {
 
     var dashboardVC: DashboardViewContrller {
         let vc = storyboard.instantiateViewController(withIdentifier: "Dashboard") as! DashboardViewContrller
-        vc.tabBarItem = UITabBarItem(title: "Dashboard", image: #imageLiteral(resourceName: "dashboard"), tag: 1)
+        vc.didSelect = showConcert
         return vc
     }
 
