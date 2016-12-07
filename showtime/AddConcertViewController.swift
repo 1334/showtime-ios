@@ -22,6 +22,7 @@ class AddConcertViewController: UITableViewController {
     var pickArtist: () -> () = { }
     var pickVenue: () -> () = { }
     var context = CoreDataHelpers.viewContext
+    private var datePickerVisible = false
     
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
@@ -46,9 +47,12 @@ class AddConcertViewController: UITableViewController {
             pickArtist()
         case .venue:
             pickVenue()
+        case .dateLabel:
+            toggleDatepicker()
         default:
             break
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     @IBAction func addConcert(_ sender: UIButton) {
@@ -67,6 +71,15 @@ class AddConcertViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         syncDatePickerWithLabel()
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch FormCell(rawValue: indexPath.row)! {
+        case .datePicker:
+            return !datePickerVisible ? 0 : 212.0
+        default:
+            return 44.0
+        }
     }
 
     // MARK: Private section
@@ -90,6 +103,13 @@ class AddConcertViewController: UITableViewController {
 
     private func syncDatePickerWithLabel() {
         dateLabel.text = dateFormatter.string(from: datePicker.date)
+    }
+
+    private func toggleDatepicker() {
+        datePickerVisible = !datePickerVisible
+
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 
 }
