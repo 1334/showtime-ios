@@ -26,3 +26,9 @@ extension UIView {
         self.heightAnchor.constraint(equalTo: parent.heightAnchor).isActive = true
     }
 }
+
+extension Date {
+    static var yesterday: Date {
+        return Date(timeIntervalSinceNow: -86400)
+    }
+}

@@ -24,6 +24,11 @@ class Concert: NSManagedObject {
         return df.string(from: date)
     }
 
+    var setlistText: String {
+        guard let setlist = setlist, let setlistUpdatedAt = setlistUpdatedAt else { return "No setlist" }
+        return "\(setlist)\n\n updated at: \(setlistUpdatedAt)"
+    }
+
     override var description: String {
         return "\(artist) live at \(venue) on \(formattedDate)"
     }
@@ -60,5 +65,20 @@ extension Concert {
 
     static func predicateFilteredBy(venue: Venue) -> NSPredicate {
         return NSPredicate(format: "venue == %@", venue)
+    }
+
+    static func recent(limit:Int = 5) -> [Concert] {
+        let request = sortedFetchRequest
+
+        request.predicate = NSPredicate(format: "date < %@", argumentArray: [Date.yesterday])
+        request.fetchLimit = limit
+        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
+    }
+
+    static func upcoming(limit:Int = 5) -> [Concert] {
+        let request = sortedFetchRequest
+        request.predicate = NSPredicate(format: "date >= %@", argumentArray: [Date.yesterday])
+        request.fetchLimit = limit
+        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
     }
 }
