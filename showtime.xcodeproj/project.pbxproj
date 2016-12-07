@@ -43,6 +43,7 @@
 		76B057C41DF57D75007E53C3 /* SearchedSetlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */; };
 		76BDB6DC1DEDF4BB007B7461 /* UIElementsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
+		76CC91A11DF8797800E5FF13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CC91A01DF8797800E5FF13 /* MapKit.framework */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E16F071DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F061DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift */; };
 		76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */; };
@@ -100,6 +101,7 @@
 		76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedSetlist.swift; sourceTree = "<group>"; };
 		76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElementsAndExtensions.swift; sourceTree = "<group>"; };
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
+		76CC91A01DF8797800E5FF13 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmAPI.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76CC91A11DF8797800E5FF13 /* MapKit.framework in Frameworks */,
 				6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +153,7 @@
 		52AA6185F994ABA8F3C52496 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76CC91A01DF8797800E5FF13 /* MapKit.framework */,
 				76F74B211DD24F32005CEA32 /* DVR.framework */,
 				B1154AF36871128223D6D9E1 /* Pods_showtime.framework */,
 				D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */,

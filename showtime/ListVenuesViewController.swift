@@ -9,15 +9,43 @@
 import UIKit
 import MapKit
 
-class ListVenuesViewController: UIViewController {
+class ListVenuesViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
     var venues: [Venue]!
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        map.delegate = self
         venues = Venue.all()
+
+        map.isPitchEnabled = false
+        map.isRotateEnabled = false
         map.addAnnotations(venues)
         map.showAnnotations(venues, animated: true)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var view: MKAnnotationView! = mapView.dequeueReusableAnnotationView(withIdentifier: "venueCell")
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "venueCell")
+            view.canShowCallout = true
+        } else {
+            view.annotation = annotation
+        }
+        view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+
+        return view
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let venue = view.annotation as? Venue else { return }
+        let alert = UIElements.errorAlert(title: "HI", message: "Venue: \(venue)")
+        present(alert, animated: true, completion: nil)
 
     }
 }
