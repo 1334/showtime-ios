@@ -41,6 +41,14 @@ class AddConcertViewController: UITableViewController {
         setupTableView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        syncDatePickerWithLabel()
+        if datePickerVisible {
+            toggleDatepicker()
+        }
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch FormCell(rawValue: indexPath.row)! {
         case .artist:
@@ -66,11 +74,6 @@ class AddConcertViewController: UITableViewController {
         } else {
             alertFieldsEmpty()
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        syncDatePickerWithLabel()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -107,6 +110,7 @@ class AddConcertViewController: UITableViewController {
 
     private func toggleDatepicker() {
         datePickerVisible = !datePickerVisible
+        datePicker.isHidden = !datePickerVisible
 
         tableView.beginUpdates()
         tableView.endUpdates()
