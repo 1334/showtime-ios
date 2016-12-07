@@ -61,8 +61,11 @@ class ListArtistsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath)
         let artist = fetchedResultController.object(at: indexPath)
 
+        cell.imageView?.image = artist.image
         cell.textLabel?.text = "\(artist)"
-        cell.detailTextLabel?.text = "\(artist.concerts.count) concerts"
+        let concertsCount = artist.concerts.count
+        let word = concertsCount == 1 ? "concert" : "concerts"
+        cell.detailTextLabel?.text = "\(concertsCount) \(word)"
 
         return cell
     }
