@@ -30,6 +30,12 @@ extension Artist {
         self.mbid = searchedArtist.mbid
     }
 
+    convenience init(name: String, mbid: String) {
+        self.init(context: CoreDataHelpers.viewContext)
+        self.name = name
+        self.mbid = mbid
+    }
+
     static func predicateMatching(keyword: String) -> NSPredicate {
         return NSPredicate(format: "name CONTAINS[c] %@", keyword)
     }
