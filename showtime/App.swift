@@ -97,6 +97,12 @@ class App {
         rootVC.currentNavigationController?.pushViewController(concertsVC, animated: true)
     }
 
+    func showConcertsForVenue(venue: Venue) {
+        let concertsVC = listConcertsByVenueVC
+        concertsVC.venue = venue
+        rootVC.currentNavigationController?.pushViewController(concertsVC, animated: true)
+    }
+
     func venueSelected(venue: Venue) {
         let targetVC = currentAddConcertViewController
         targetVC.venueLabel.text = venue.name
@@ -150,9 +156,16 @@ class App {
         return vc
     }
 
+    var listConcertsByVenueVC: ListConcertsByVenueViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ListConcertsByVenue") as! ListConcertsByVenueViewController
+        vc.didSelect = showConcert
+        return vc
+    }
+
     var listVenuesVC: ListVenuesViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ListVenues") as! ListVenuesViewController
         vc.title = "Display Venues"
+        vc.didSelect = showConcertsForVenue
         return vc
     }
 
