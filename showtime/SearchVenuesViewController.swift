@@ -15,6 +15,7 @@ class SearchVenuesViewController: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         searchBar.delegate = self
+        searchBar.placeholder = "enter the venue name to search"
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
