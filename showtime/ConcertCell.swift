@@ -12,4 +12,9 @@ class ConcertCell: UITableViewCell {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //artistLabel.style(titleStyle)
+    }
 }
