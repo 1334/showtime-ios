@@ -58,7 +58,6 @@ class ShowConcertViewController: UIViewController {
 
     // dismiss the keyboard when clicking outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(touches)
         view.endEditing(false)
     }
 

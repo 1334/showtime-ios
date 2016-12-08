@@ -43,7 +43,6 @@ class ListVenuesViewController: UIViewController, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let venue = view.annotation as? Venue else { return }
-        print(venue)
         didSelect(venue)
     }
 }
