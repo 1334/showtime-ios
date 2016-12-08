@@ -71,14 +71,16 @@ class App {
     }
 
     func selectSearchedArtist(searchedArtist: SearchedArtist) {
-        let artist = Artist(from: searchedArtist)
+        let artist = Artist.named(searchedArtist.name)
+        artist.update(from: searchedArtist)
         context.saveIt()
         artistSelected(artist: artist)
         _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
     }
 
     func selectSearchedVenue(searchedVenue: SearchedVenue) {
-        let venue = Venue(from: searchedVenue)
+        let venue = Venue.named(searchedVenue.name)
+        venue.update(from: searchedVenue)
         context.saveIt()
         venueSelected(venue: venue)
         _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)

@@ -19,15 +19,21 @@ class Venue: NSManagedObject {
     @NSManaged var concerts: [Concert]
 
     var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        get {
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+        set {
+            latitude = newValue.latitude
+            longitude = newValue.longitude
+            managedObjectContext?.saveIt()
+        }
     }
 
     override var description: String { return name }
 }
 
 extension Venue {
-    convenience init(from searchedVenue: SearchedVenue) {
-        self.init(context: CoreDataHelpers.viewContext)
+    func update(from searchedVenue: SearchedVenue) {
         self.id = searchedVenue.id
         self.name = searchedVenue.name
         self.latitude = searchedVenue.latitude

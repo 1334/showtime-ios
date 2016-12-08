@@ -24,10 +24,9 @@ class Artist: NSManagedObject {
 }
 
 extension Artist {
-    convenience init(from searchedArtist: SearchedArtist) {
-        self.init(context: CoreDataHelpers.viewContext)
-        self.name = searchedArtist.name
-        self.mbid = searchedArtist.mbid
+    func update(from searchedArtist: SearchedArtist) {
+        name = searchedArtist.name
+        mbid = searchedArtist.mbid
     }
 
     convenience init(name: String, mbid: String) {
