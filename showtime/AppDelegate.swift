@@ -27,13 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        if try! container.viewContext.count(for: Concert.sortedFetchRequest) == 0 {
-            addTestData()
-        }
-
         if let window = window {
             app = App(window: window)
         }
+
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
 
         return true
     }
@@ -59,21 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    private func addTestData() {
-//        let artists = ["Iggy Pop", "Iggy and the Stooges", "Bauhaus", "David Bowie", "Leonard Cohen", "The Sound"]
-//        let venues = ["Wiskey A Go Go", "La Cova del Drac", "Zeleste", "O2 Arena", "Sala Apolo"]
-//        let years = Array(1985...2016)
-//        let months = Array(1...12)
-//        let days = Array(1...28)
-//        for _ in 1...100 {
-//            _ = Concert(artist: artists.random(),
-//                    date: "\(days.random())/\(months.random())/\(years.random())",
-//                venue: venues.random())
-//        }
-//        try? container.viewContext.save()
-    }
-
 }
 
 extension Array {
