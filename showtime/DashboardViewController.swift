@@ -20,11 +20,7 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
 
         let nib = UINib(nibName: "ConcertCell", bundle: nil)
         upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
-        upcomingShowsTableView.dataSource = self
-        upcomingShowsTableView.delegate = self
         recentShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
-        recentShowsTableView.dataSource = self
-        recentShowsTableView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
