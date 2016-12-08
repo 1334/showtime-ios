@@ -16,6 +16,7 @@ class App {
     var artistsNC = UINavigationController()
     var venuesNC = UINavigationController()
     var addNC = UINavigationController()
+    let context = CoreDataHelpers.viewContext
 
     init(window: UIWindow) {
         window.tintColor = Theme.Colors.tint.color
@@ -71,14 +72,14 @@ class App {
 
     func selectSearchedArtist(searchedArtist: SearchedArtist) {
         let artist = Artist(from: searchedArtist)
-        try? CoreDataHelpers.viewContext.save()
+        context.saveIt()
         artistSelected(artist: artist)
         _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
     }
 
     func selectSearchedVenue(searchedVenue: SearchedVenue) {
         let venue = Venue(from: searchedVenue)
-        try? CoreDataHelpers.viewContext.save()
+        context.saveIt()
         venueSelected(venue: venue)
         _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
     }
