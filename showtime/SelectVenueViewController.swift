@@ -36,6 +36,7 @@ class SelectVenueViewController : UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "knownVenue", for: indexPath)
         let venue = venues[indexPath.row]
         cell.textLabel?.text = venue.name
+        cell.detailTextLabel?.text = venue.city.name
 
         return cell
     }
