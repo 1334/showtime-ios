@@ -23,9 +23,10 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
         upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
         recentShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
 
-        if try! context.count(for: Concert.sortedFetchRequest) == 0 {
+        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") {
             let alert = NewDialog().display()
             present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: "FirstRunComplete")
         }
     }
 
