@@ -23,8 +23,9 @@ class ShowConcertViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var detailView: UIView!
     var notesView = UITextView()
-    var setlistView = UITextView()
+    var setlistView: SetlistView?
     var context = CoreDataHelpers.viewContext
+    let dateFormatter = DateFormatters.mediumFormatDate
 
     // MARK: Actions
     func tweetConcert(_ sender: Any) {
@@ -75,7 +76,7 @@ class ShowConcertViewController: UIViewController {
         case .setlist:
             detailView.subviews.forEach { $0.removeFromSuperview() }
             setupSetlistView()
-            setlistView.fill(parent: detailView)
+            setlistView?.fill(parent: detailView)
         }
     }
 
@@ -87,31 +88,32 @@ class ShowConcertViewController: UIViewController {
     }
 
     private func setupSetlistView() {
-        setlistView.backgroundColor = UIColor(red: 0.95, green: 0.8, blue: 1, alpha: 1)
-        setlistView.isEditable = false
-        if concert.setlistUpdatedAt == nil {
-            retrieveSetlist()
-        } else {
-            setlistView.text = concert.setlistText
+        if setlistView == nil {
+            setlistView = Bundle.main.loadNibNamed("SetlistView", owner: self, options: [:])?.first as? SetlistView
+            setlistView?.translatesAutoresizingMaskIntoConstraints = false
+            setlistView?.refreshSetlist.addTarget(self, action: #selector(retrieveSetlist), for: .touchUpInside)
         }
-        setlistView.textAlignment = .center
-        setlistView.translatesAutoresizingMaskIntoConstraints = false
+
+        if let updatedAt = concert.setlistUpdatedAt {
+            setlistView?.setlistText.text = concert.setlistText
+            setlistView?.updatedAtText.text = "last update: \(dateFormatter.string(from: updatedAt))"
+            setlistView?.setlistText.scrollRangeToVisible(NSRange(location:0, length:0))
+        } else {
+            retrieveSetlist()
+        }
     }
 
-    private func retrieveSetlist() {
+    @objc private func retrieveSetlist() {
         SetlistFmStore().searchSetlist(artist: concert.artist.name, date: concert.date) { result in
             switch result {
             case let .success(setlist):
-                DispatchQueue.main.sync {
-                    self.concert.setlist = setlist.setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
-                    self.concert.setlistUpdatedAt = setlist.updatedAt
-                    self.context.saveIt()
-                    self.setlistView.text = self.concert.setlistText
-                }
+                self.concert.updateSetlist(setlist)
             default:
-                DispatchQueue.main.sync {
-                    self.setlistView.text = "setlist not found"
-                }
+                self.concert.setlistUpdatedAt = Date()
+            }
+            DispatchQueue.main.sync {
+                self.context.saveIt()
+                self.setupSetlistView()
             }
         }
     }

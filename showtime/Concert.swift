@@ -25,12 +25,19 @@ class Concert: NSManagedObject {
     }
 
     var setlistText: String {
-        guard let setlist = setlist, let setlistUpdatedAt = setlistUpdatedAt else { return "No setlist" }
-        return "\(setlist)\n\n updated at: \(setlistUpdatedAt)"
+        guard let setlist = setlist else { return "setlist not found" }
+
+        return setlist
     }
 
     override var description: String {
         return "\(artist) live at \(venue) on \(formattedDate)"
+    }
+
+    func updateSetlist(_ setlist: SearchedSetlist) {
+        self.setlist = setlist.setlist.map { $0.joined(separator: "\n") }.joined(separator: "\n\n")
+        self.setlistUpdatedAt = setlist.updatedAt
+        managedObjectContext?.saveIt()
     }
 }
 
