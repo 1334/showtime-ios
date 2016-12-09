@@ -50,8 +50,10 @@ class App {
         _ = rootVC.currentNavigationController?.popViewController(animated: true)
     }
 
-    func concertCreated() {
-        rootVC.selectedIndex = 0
+    func concertCreated(concert: Concert) {
+        rootVC.selectedIndex = 1
+        concertsNC.popToRootViewController(animated: true)
+        showConcert(concert: concert)
     }
 
     func pickArtist() {

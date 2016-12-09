@@ -18,7 +18,7 @@ enum FormCell: Int {
 
 class AddConcertViewController: UITableViewController {
 
-    var didCreateConcert: () -> () = { }
+    var didCreateConcert: (Concert) -> () = { _ in }
     var pickArtist: () -> () = { }
     var pickVenue: () -> () = { }
     var context = CoreDataHelpers.viewContext
@@ -67,10 +67,10 @@ class AddConcertViewController: UITableViewController {
         guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateLabel.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
-            _ = Concert(artist: artist, date: date, venue: venue)
+            let concert = Concert(artist: artist, date: date, venue: venue)
             context.saveIt()
             resetForm()
-            didCreateConcert()
+            didCreateConcert(concert)
         } else {
             alertFieldsEmpty()
         }
