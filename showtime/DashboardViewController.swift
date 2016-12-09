@@ -31,11 +31,7 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        upcomingShows = Concert.upcoming()
-        recentShows = Concert.recent()
-
-        upcomingShowsTableView.reloadData()
-        recentShowsTableView.reloadData()
+        reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,5 +58,32 @@ class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            var concert: Concert
+            if tableView == upcomingShowsTableView {
+                concert = upcomingShows[indexPath.row]
+                upcomingShows.remove(at: indexPath.row)
+            } else {
+                concert = recentShows[indexPath.row]
+                recentShows.remove(at: indexPath.row)
+            }
+            context.delete(concert)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            context.saveIt()
+//            reloadData()
+        }
+    }
+
+    private func reloadData() {
+        upcomingShows = Concert.upcoming()
+        recentShows = Concert.recent()
+
+        upcomingShowsTableView.reloadData()
+        recentShowsTableView.reloadData()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ListConcertsViewController: UITableViewController {
+class ListConcertsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
@@ -21,6 +21,7 @@ class ListConcertsViewController: UITableViewController {
         super.viewDidLoad()
 
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultController.delegate = self
 
         setupSearchController()
         let nib = UINib(nibName: "ConcertCell", bundle: nil)
@@ -78,6 +79,18 @@ class ListConcertsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let concert = fetchedResultController.object(at: indexPath)
+        context.delete(concert)
+        context.saveIt()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        if type == .delete {
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        }
     }
 
 }
