@@ -29,6 +29,23 @@ class Venue: NSManagedObject {
         }
     }
 
+    func updateCoords() {
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "\(name), \(city.name)"
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else { return }
+            for item in response.mapItems {
+                let foundName = item.placemark.addressDictionary?["Name"] as? String ?? ""
+                let foundCity = item.placemark.addressDictionary?["City"] as? String ?? ""
+                if foundName.lowercased().contains(self.name.lowercased()) && foundCity.lowercased().contains(self.city.name.lowercased()) {
+                    self.coordinate = item.placemark.coordinate
+                    self.managedObjectContext?.saveIt()
+                }
+            }
+        }
+    }
+
     override var description: String { return name }
 }
 

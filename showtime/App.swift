@@ -81,6 +81,7 @@ class App {
     func selectSearchedVenue(searchedVenue: SearchedVenue) {
         let venue = Venue.named(searchedVenue.name)
         venue.update(from: searchedVenue)
+        venue.updateCoords()
         context.saveIt()
         venueSelected(venue: venue)
         _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
