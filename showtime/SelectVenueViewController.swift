@@ -40,10 +40,6 @@ class SelectVenueViewController : UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Select a venue"
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let venue = venues[indexPath.row]
         didSelectVenue(venue)
