@@ -9,8 +9,8 @@
 import Foundation
 
 extension SetlistFmAPI {
-    static func searchArtistsURL(keyword: String) -> URL {
-        return setlistFmURL(method: .searchArtists, params: ["artistName": keyword])
+    static func searchArtistsURL(keyword: String, pageNumber: Int = 1) -> URL {
+        return setlistFmURL(method: .searchArtists, params: ["artistName": keyword, "p":"\(pageNumber)"])
     }
 
     static func artistsFromJSON(data: Data) -> SearchArtistsResult {
