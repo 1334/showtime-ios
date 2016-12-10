@@ -12,6 +12,8 @@
 		760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */; };
 		760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C21DD71F2400696589 /* CoreDataHelpers.swift */; };
 		760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* CoreDataProtocols.swift */; };
+		7617B85B1DFB4155002D606A /* CustomArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8591DFB4155002D606A /* CustomArtistCell.swift */; };
+		7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7617B85A1DFB4155002D606A /* CustomArtistCell.xib */; };
 		7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */; };
 		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
@@ -72,6 +74,8 @@
 		7606828F1DD4F89F00696589 /* Showtime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Showtime.xcdatamodel; sourceTree = "<group>"; };
 		760682C21DD71F2400696589 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		760682C41DD72E1A00696589 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
+		7617B8591DFB4155002D606A /* CustomArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomArtistCell.swift; sourceTree = "<group>"; };
+		7617B85A1DFB4155002D606A /* CustomArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomArtistCell.xib; sourceTree = "<group>"; };
 		7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
 		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 		7688B1841DE9D81F00C9B1B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7617B8591DFB4155002D606A /* CustomArtistCell.swift */,
+				7617B85A1DFB4155002D606A /* CustomArtistCell.xib */,
 				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
 				7697F2391DF4322B007C30E0 /* ConcertCell.xib */,
@@ -409,6 +415,7 @@
 				76CC91A71DFAA51200E5FF13 /* SetlistView.xib in Resources */,
 				76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */,
 				76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */,
+				7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */,
 				7697F23A1DF4322B007C30E0 /* ConcertCell.xib in Resources */,
 				76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */,
 			);
@@ -533,6 +540,7 @@
 				765652DA1DEB4E3F00293E4F /* Artist.swift in Sources */,
 				7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */,
 				7697F2361DF3F7E5007C30E0 /* ListVenuesViewController.swift in Sources */,
+				7617B85B1DFB4155002D606A /* CustomArtistCell.swift in Sources */,
 				760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */,
 				760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */,
 				76935F751D96CF17004CFDF0 /* AppDelegate.swift in Sources */,

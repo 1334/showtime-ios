@@ -56,6 +56,13 @@ class App {
         showConcert(concert: concert)
     }
 
+    func createCustomArtist(name: String) {
+        let artist = Artist.named(name)
+        context.saveIt()
+        artistSelected(artist: artist)
+        _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
+    }
+
     func pickArtist() {
         rootVC.currentNavigationController?.pushViewController(selectArtistVC, animated: true)
     }
@@ -178,6 +185,7 @@ class App {
     var searchArtistsVC: SearchArtistsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
         vc.didSelectArtist = selectSearchedArtist
+        vc.didCreateArtist = createCustomArtist
         vc.title = "Import new artist"
         return vc
     }

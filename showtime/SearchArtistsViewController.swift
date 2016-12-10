@@ -9,49 +9,94 @@
 import UIKit
 
 class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
-    var artists = [SearchedArtist]()
-    var didSelectArtist: (SearchedArtist) -> () = { _ in }
+    enum Sections: Int {
+        case searchedArtist = 0
+        case newArtist
 
-    override func viewDidLoad() {
-        searchBar.delegate = self
-        searchBar.placeholder = "enter the artist name to search"
+        static var count: Int { return 2 }
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text , !searchText.isEmpty else { return }
-        SetlistFmStore().searchArtists(keyword: searchText) { result in
-            switch result {
-            case let .success(foundArtists):
-                DispatchQueue.main.sync {
-                    self.artists = foundArtists
-                    self.tableView.reloadData()
-                }
-            case .failure:
-                DispatchQueue.main.sync {
-                    let alert = UIElements.errorAlert(title: "No results", message: "Your search didn't find any results")
-                    self.present(alert, animated: true, completion: nil)
+    @IBOutlet weak var searchBar: UISearchBar!
+    var artists = [SearchedArtist]()
+    var newArtistCell: CustomArtistCell!
+    var didSelectArtist: (SearchedArtist) -> () = { _ in }
+    var didCreateArtist: (String) -> () = { _ in }
+
+    override func viewDidLoad() {
+        setupSearchBar()
+        setupTableView()
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            newArtistCell.artistName.text = ""
+        } else {
+            if searchText.characters.count >= 2 {
+                SetlistFmStore().searchArtists(keyword: searchText) { result in
+                    switch result {
+                    case let .success(foundArtists):
+                        self.artists = foundArtists
+                    case .failure:
+                        self.artists = []
+                    }
+                    DispatchQueue.main.sync {
+                        self.tableView.reloadData()
+                    }
                 }
             }
+            newArtistCell.artistName.text = searchText
+        }
+    }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return Sections.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == Sections.newArtist.rawValue ? 1 : artists.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch Sections(rawValue: indexPath.section)! {
+        case .newArtist:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customArtistCell") as! CustomArtistCell
+            newArtistCell = cell
+            return cell
+        case .searchedArtist:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "foundArtist")!
+            let artist = artists[indexPath.row]
+            cell.textLabel?.text = artist.name
+            cell.detailTextLabel?.text = artist.disambiguation
+
+            return cell
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch Sections(rawValue: indexPath.section)! {
+        case .newArtist:
+            guard let artistName = newArtistCell.artistName.text else { break }
+            if artistName.isEmpty { tableView.deselectRow(at: indexPath, animated: true); break }
+            didCreateArtist(artistName)
+        case .searchedArtist:
+            let searchedArtist = artists[indexPath.row]
+            didSelectArtist(searchedArtist)
         }
 
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artists.count
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foundArtist")!
-        let artist = artists[indexPath.row]
-        cell.textLabel?.text = artist.name
-        cell.detailTextLabel?.text = artist.disambiguation
+    // MARK: Private section
 
-        return cell
+    private func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = "enter the artist name"
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let searchedArtist = artists[indexPath.row]
-        didSelectArtist(searchedArtist)
+    private func setupTableView() {
+        let nib = UINib(nibName: "CustomArtistCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "customArtistCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
+        tableView.tableFooterView = UIView()
     }
 }
