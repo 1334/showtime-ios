@@ -25,6 +25,12 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         setupSearchBar()
         setupTableView()
+
+        if !Utils.isInternetAvailable() {
+            UIElements.errorAlert(title: "No internet connection", message: "There is no internet connection available at this time, please try again later", presenter: self, callback: { _ in
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+        }
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
