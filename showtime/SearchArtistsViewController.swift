@@ -34,27 +34,23 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            newArtistCell.artistName.text = ""
-        } else {
-            if searchText.characters.count >= 2 {
-                SetlistFmStore().searchArtists(keyword: searchText) { result in
-                    switch result {
-                    case let .success(foundArtists):
-                        self.artists = foundArtists
-                    case .failure:
-                        self.artists = []
-                    }
-                    DispatchQueue.main.sync {
-                        self.tableView.reloadData()
-                    }
+        if searchText.characters.count >= 2 {
+            SetlistFmStore().searchArtists(keyword: searchText) { result in
+                switch result {
+                case let .success(foundArtists):
+                    self.artists = foundArtists
+                case .failure:
+                    self.artists = []
                 }
-            } else {
-                artists = []
-                tableView.reloadData()
+                DispatchQueue.main.sync {
+                    self.tableView.reloadData()
+                }
             }
-            newArtistCell.artistName.text = searchText
+        } else {
+            artists = []
+            tableView.reloadData()
         }
+        newArtistCell.artistName.text = searchText
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
