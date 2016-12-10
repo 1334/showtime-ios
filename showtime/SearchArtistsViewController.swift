@@ -43,6 +43,9 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
                         self.tableView.reloadData()
                     }
                 }
+            } else {
+                artists = []
+                tableView.reloadData()
             }
             newArtistCell.artistName.text = searchText
         }
@@ -82,7 +85,15 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
             let searchedArtist = artists[indexPath.row]
             didSelectArtist(searchedArtist)
         }
+    }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let searchText = searchBar.text {
+            if searchText.isEmpty && indexPath == IndexPath(row: 0, section: 1) {
+                return 0
+            }
+        }
+        return UITableViewAutomaticDimension
     }
 
     // MARK: Private section
@@ -95,7 +106,6 @@ class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
     private func setupTableView() {
         let nib = UINib(nibName: "CustomArtistCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "customArtistCell")
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
         tableView.tableFooterView = UIView()
     }
