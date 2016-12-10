@@ -26,6 +26,8 @@ class ListConcertsViewController: UITableViewController, NSFetchedResultsControl
         setupSearchController()
         let nib = UINib(nibName: "ConcertCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "concertCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,10 +77,6 @@ class ListConcertsViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let concert = fetchedResultController.object(at: indexPath)
         didSelect(concert)
-    }
-
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
