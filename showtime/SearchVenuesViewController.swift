@@ -18,24 +18,23 @@ class SearchVenuesViewController: UITableViewController, UISearchBarDelegate {
         searchBar.placeholder = "enter the venue name to search"
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text , !searchText.isEmpty else { return }
-        SetlistFmStore().searchVenue(name: searchText) { result in
-            switch result {
-            case let .success(foundVenues):
-                DispatchQueue.main.sync {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            venues = []
+            tableView.reloadData()
+        } else {
+            SetlistFmStore().searchVenue(name: searchText) { result in
+                switch result {
+                case let .success(foundVenues):
                     self.venues = foundVenues
+                case .failure:
+                    self.venues = []
+                }
+                DispatchQueue.main.sync {
                     self.tableView.reloadData()
                 }
-            case .failure:
-                DispatchQueue.main.sync {
-                    let alert = UIElements.errorAlert(title: "No results", message: "Your search didn't find any results")
-                    self.present(alert, animated: true, completion: nil)
-                }
             }
-
         }
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
