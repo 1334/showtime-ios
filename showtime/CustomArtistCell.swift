@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomArtistCell: UITableViewCell {
-    @IBOutlet weak var artistName: UITextField!
+    @IBOutlet weak var artistName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

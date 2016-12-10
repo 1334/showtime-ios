@@ -19,40 +19,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueU-2k-KUW">
-                        <rect key="frame" x="8" y="41" width="93" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Artist:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueU-2k-KUW">
+                        <rect key="frame" x="8" y="41" width="102" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you din't find the artist you were looking for, narrow the search or create a custom artist down below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3H0-ED-06E">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="If you din't find the artist you were looking for, narrow the search or create a custom artist down below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3H0-ED-06E">
                         <rect key="frame" x="8" y="8" width="304" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Iggy and the stooges" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7MW-uc-k8v">
-                        <rect key="frame" x="109" y="41" width="203" height="21"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Iggy and the Stooges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-N0-DtF">
+                        <rect key="frame" x="118" y="41" width="194" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="leadingMargin" secondItem="ueU-2k-KUW" secondAttribute="leading" id="8mE-9v-pdi"/>
-                    <constraint firstItem="7MW-uc-k8v" firstAttribute="leading" secondItem="ueU-2k-KUW" secondAttribute="trailing" constant="8" id="Etq-r2-2ed"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ueU-2k-KUW" secondAttribute="bottom" id="InV-5x-wRw"/>
                     <constraint firstItem="ueU-2k-KUW" firstAttribute="top" secondItem="3H0-ED-06E" secondAttribute="bottom" constant="4" id="TrJ-bB-RGK"/>
+                    <constraint firstItem="1EZ-N0-DtF" firstAttribute="centerY" secondItem="ueU-2k-KUW" secondAttribute="centerY" id="YzZ-sN-fGQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1EZ-N0-DtF" secondAttribute="trailing" id="ZZu-KX-1w5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3H0-ED-06E" secondAttribute="trailing" id="ZbA-Yl-TbO"/>
+                    <constraint firstItem="1EZ-N0-DtF" firstAttribute="leading" secondItem="ueU-2k-KUW" secondAttribute="trailing" constant="8" id="cXK-Qn-ybi"/>
                     <constraint firstAttribute="leadingMargin" secondItem="3H0-ED-06E" secondAttribute="leading" id="k7g-Je-1NB"/>
                     <constraint firstAttribute="topMargin" secondItem="3H0-ED-06E" secondAttribute="top" id="ngS-Ml-17N"/>
-                    <constraint firstItem="7MW-uc-k8v" firstAttribute="centerY" secondItem="ueU-2k-KUW" secondAttribute="centerY" id="ulp-n4-rev"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="7MW-uc-k8v" secondAttribute="trailing" id="v72-Q8-LtZ"/>
                     <constraint firstItem="3H0-ED-06E" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yg6-zm-qvu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="artistName" destination="7MW-uc-k8v" id="5wX-Gh-nl4"/>
+                <outlet property="artistName" destination="1EZ-N0-DtF" id="Npr-hN-igV"/>
             </connections>
             <point key="canvasLocation" x="105" y="-75"/>
         </tableViewCell>
