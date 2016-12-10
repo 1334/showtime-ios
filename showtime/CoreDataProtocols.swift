@@ -48,7 +48,7 @@ protocol NamedManagedObjectType : ManagedObjectType {
 
 extension NamedManagedObjectType where Self : NSManagedObject {
     static func named(_ name: String, context: NSManagedObjectContext = CoreDataHelpers.viewContext) -> Self {
-        let predicate = NSPredicate(format: "name =[c] %@", name)
+        let predicate = NSPredicate(format: "name =[cd] %@", name)
         let result = Self.find(predicate: predicate).first
         if let result = result {
             return result

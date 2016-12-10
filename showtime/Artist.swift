@@ -36,7 +36,7 @@ extension Artist {
     }
 
     static func predicateMatching(keyword: String) -> NSPredicate {
-        return NSPredicate(format: "name CONTAINS[c] %@", keyword)
+        return NSPredicate(format: "name CONTAINS[cd] %@", keyword)
     }
 }
 

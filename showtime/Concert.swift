@@ -63,7 +63,7 @@ extension Concert {
 
 extension Concert {
     static func predicateMatching(keyword: String) -> NSPredicate {
-        return NSPredicate(format: "artist.name CONTAINS[c] %@ OR venue.name CONTAINS[c] %@", keyword, keyword)
+        return NSPredicate(format: "artist.name CONTAINS[cd] %@ OR venue.name CONTAINS[cd] %@", keyword, keyword)
     }
 
     static func predicateFilteredBy(artist: Artist) -> NSPredicate {
