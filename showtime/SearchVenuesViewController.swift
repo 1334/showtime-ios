@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchVenuesViewController: UITableViewController, UISearchBarDelegate {
+class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     var venues = [SearchedVenue]()
     var didSelectVenue: (SearchedVenue) -> () = { _ in }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectArtistViewController : UITableViewController {
+class SelectArtistViewController : ShowtimeBaseTableViewController {
 
     var artists: [Artist]!
     var didSelectArtist: (Artist) -> () = { _ in }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewContrller: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var upcomingShowsTableView: UITableView!
     @IBOutlet weak var recentShowsTableView: UITableView!
     var upcomingShows = [Concert]()

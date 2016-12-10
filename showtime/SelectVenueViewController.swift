@@ -16,7 +16,7 @@
 
 import UIKit
 
-class SelectVenueViewController : UITableViewController {
+class SelectVenueViewController : ShowtimeBaseTableViewController {
 
     var venues: [Venue]!
     var didSelectVenue: (Venue) -> () = { _ in }

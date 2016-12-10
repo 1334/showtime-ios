@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ListConcertsByArtistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView! {

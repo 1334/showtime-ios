@@ -16,7 +16,7 @@ enum FormCell: Int {
     case add
 }
 
-class AddConcertViewController: UITableViewController {
+class AddConcertViewController: ShowtimeBaseTableViewController {
 
     var didCreateConcert: (Concert) -> () = { _ in }
     var pickArtist: () -> () = { }
@@ -39,6 +39,7 @@ class AddConcertViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        datePicker.setValue(Theme.Colors.foreground.color, forKey: "textColor")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +99,6 @@ class AddConcertViewController: UITableViewController {
     }
 
     private func setupTableView() {
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.isScrollEnabled = false
         tableView.separatorStyle = .none
     }

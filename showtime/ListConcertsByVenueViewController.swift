@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class ListConcertsByVenueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     @IBOutlet weak var venueName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!

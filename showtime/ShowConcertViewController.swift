@@ -14,7 +14,7 @@ enum SegmentedControlSegment: Int {
     case setlist
 }
 
-class ShowConcertViewController: UIViewController {
+class ShowConcertViewController: ShowtimeBaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var artistLabel: UILabel!
@@ -80,7 +80,6 @@ class ShowConcertViewController: UIViewController {
     }
 
     private func setupNotesView() {
-        notesView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         notesView.text = concert.notes
         notesView.translatesAutoresizingMaskIntoConstraints = false
         notesView.delegate = self

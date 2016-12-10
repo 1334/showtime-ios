@@ -10,7 +10,7 @@
 import UIKit
 import CoreData
 
-class ListArtistsViewController: UITableViewController {
+class ListArtistsViewController: ShowtimeBaseTableViewController {
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Artist>!

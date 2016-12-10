@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ListVenuesViewController: UIViewController, MKMapViewDelegate {
+class ListVenuesViewController: ShowtimeBaseViewController, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
     var venues: [Venue]!
     var didSelect: (Venue) -> () = { _ in }

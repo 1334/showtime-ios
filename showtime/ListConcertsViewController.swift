@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ListConcertsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ListConcertsViewController: ShowtimeBaseTableViewController, NSFetchedResultsControllerDelegate {
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!

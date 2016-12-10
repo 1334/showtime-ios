@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchArtistsViewController: UITableViewController, UISearchBarDelegate {
+class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarDelegate {
     enum Sections: Int {
         case searchedArtist = 0
         case newArtist

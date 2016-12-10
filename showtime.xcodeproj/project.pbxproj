@@ -17,6 +17,7 @@
 		7617B8601DFC20FB002D606A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7617B85F1DFC20FB002D606A /* Reachability.m */; };
 		7617B8621DFC2158002D606A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8611DFC2158002D606A /* Utils.swift */; };
 		7617B8641DFC233E002D606A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617B8631DFC233E002D606A /* SystemConfiguration.framework */; };
+		7634DFF21DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634DFF11DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift */; };
 		7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */; };
 		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
@@ -84,6 +85,7 @@
 		7617B85F1DFC20FB002D606A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7617B8611DFC2158002D606A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7617B8631DFC233E002D606A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7634DFF11DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowtimeBaseViewControllers.swift; sourceTree = "<group>"; };
 		7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
 		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */,
 				7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */,
 				768E9E861DEF615A00FA95B0 /* SearchVenuesViewController.swift */,
+				7634DFF11DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				7659368B1DF091AF0053B3EE /* City.swift in Sources */,
 				76CC91A31DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift in Sources */,
 				76E4467E1DDA48B2003D258C /* App.swift in Sources */,
+				7634DFF21DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift in Sources */,
 				76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */,
 				7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */,
 				765652D61DEB4DD500293E4F /* Concert.swift in Sources */,
