@@ -33,26 +33,3 @@ extension Date {
         return Date(timeIntervalSinceNow: -86400)
     }
 }
-
-struct TextStyle {
-    let color: UIColor
-    let weight: CGFloat
-    let size: CGFloat
-}
-//let UIFontWeightUltraLight: CGFloat
-//let UIFontWeightThin: CGFloat
-//let UIFontWeightLight: CGFloat
-//let UIFontWeightRegular: CGFloat
-//let UIFontWeightMedium: CGFloat
-//let UIFontWeightSemibold: CGFloat
-//let UIFontWeightBold: CGFloat
-//let UIFontWeightHeavy: CGFloat
-//let UIFontWeightBlack: CGFloat
-let titleStyle = TextStyle(color: Theme.Colors.tint.color, weight: UIFontWeightBold, size: 28.0)
-
-extension UILabel {
-    func style(_ style: TextStyle) {
-        self.font = UIFont.systemFont(ofSize: style.size, weight: style.weight)
-        self.textColor = style.color
-    }
-}
