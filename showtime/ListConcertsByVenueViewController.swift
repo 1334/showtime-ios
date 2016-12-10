@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class ListConcertsByVenueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListConcertsByVenueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     @IBOutlet weak var venueName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
@@ -25,7 +25,9 @@ class ListConcertsByVenueViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         scope = .venue(venue)
         venueName.text = venue.name
-//        imageView.image = artist.image
+        mapView.delegate = self
+        mapView.addAnnotation(venue)
+        mapView.showAnnotations([venue], animated: false)
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
 
@@ -60,5 +62,19 @@ class ListConcertsByVenueViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let concert = fetchedResultController.object(at: indexPath)
         didSelect(concert)
+    }
+
+    // MARK: - MapViewDelegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var view: MKAnnotationView! = mapView.dequeueReusableAnnotationView(withIdentifier: "venueCell")
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "venueCell")
+            view.canShowCallout = false
+        } else {
+            view.annotation = annotation
+        }
+        view.isDraggable = true
+
+        return view
     }
 }
