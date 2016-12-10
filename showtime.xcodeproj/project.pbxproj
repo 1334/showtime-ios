@@ -14,6 +14,9 @@
 		760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* CoreDataProtocols.swift */; };
 		7617B85B1DFB4155002D606A /* CustomArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8591DFB4155002D606A /* CustomArtistCell.swift */; };
 		7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7617B85A1DFB4155002D606A /* CustomArtistCell.xib */; };
+		7617B8601DFC20FB002D606A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7617B85F1DFC20FB002D606A /* Reachability.m */; };
+		7617B8621DFC2158002D606A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8611DFC2158002D606A /* Utils.swift */; };
+		7617B8641DFC233E002D606A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7617B8631DFC233E002D606A /* SystemConfiguration.framework */; };
 		7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */; };
 		7642FA241DCE07BF0050C9EE /* ShowConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */; };
 		765022BF1DCC7DB500D434E6 /* ListConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */; };
@@ -76,6 +79,11 @@
 		760682C41DD72E1A00696589 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
 		7617B8591DFB4155002D606A /* CustomArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomArtistCell.swift; sourceTree = "<group>"; };
 		7617B85A1DFB4155002D606A /* CustomArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomArtistCell.xib; sourceTree = "<group>"; };
+		7617B85D1DFC20FA002D606A /* showtime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "showtime-Bridging-Header.h"; sourceTree = "<group>"; };
+		7617B85E1DFC20FB002D606A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7617B85F1DFC20FB002D606A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7617B8611DFC2158002D606A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7617B8631DFC233E002D606A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7642FA211DCDC2880050C9EE /* AddConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
 		7642FA231DCE07BF0050C9EE /* ShowConcertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowConcertViewController.swift; sourceTree = "<group>"; };
 		765022BE1DCC7DB500D434E6 /* ListConcertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7617B8641DFC233E002D606A /* SystemConfiguration.framework in Frameworks */,
 				76CC91A11DF8797800E5FF13 /* MapKit.framework in Frameworks */,
 				6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */,
 			);
@@ -165,6 +174,7 @@
 		52AA6185F994ABA8F3C52496 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7617B8631DFC233E002D606A /* SystemConfiguration.framework */,
 				76CC91A01DF8797800E5FF13 /* MapKit.framework */,
 				76F74B211DD24F32005CEA32 /* DVR.framework */,
 				B1154AF36871128223D6D9E1 /* Pods_showtime.framework */,
@@ -176,9 +186,12 @@
 		7606828A1DD4EDE400696589 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				7617B85E1DFC20FB002D606A /* Reachability.h */,
+				7617B85F1DFC20FB002D606A /* Reachability.m */,
 				7672B86A1DD0DCA0004238EF /* DataFormatters.swift */,
 				76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */,
 				76CC91A41DF9C00B00E5FF13 /* NewDialog.swift */,
+				7617B85D1DFC20FA002D606A /* showtime-Bridging-Header.h */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				7659368E1DF1FC790053B3EE /* ConcertScope.swift */,
+				7617B8611DFC2158002D606A /* Utils.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -377,6 +391,7 @@
 					76935F701D96CF17004CFDF0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = G5L772F28R;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					76D354031D98545F00723A61 = {
@@ -557,11 +572,13 @@
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
 				76CC91A51DF9C00B00E5FF13 /* NewDialog.swift in Sources */,
 				768E9E851DEE0A7C00FA95B0 /* SetlistFMAPI+searchVenues.swift in Sources */,
+				7617B8621DFC2158002D606A /* Utils.swift in Sources */,
 				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
 				768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
 				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
+				7617B8601DFC20FB002D606A /* Reachability.m in Sources */,
 				76AB57941DF731AC00897A6A /* DashboardViewController.swift in Sources */,
 				76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */,
 				76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */,
@@ -704,11 +721,14 @@
 			baseConfigurationReference = E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
 				INFOPLIST_FILE = showtime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "showtime/showtime-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -718,11 +738,13 @@
 			baseConfigurationReference = F5013ECD646BC81522390CF2 /* Pods-showtime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G5L772F28R;
 				INFOPLIST_FILE = showtime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.isolanop.showtime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "showtime/showtime-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
