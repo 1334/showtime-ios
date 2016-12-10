@@ -34,8 +34,7 @@ class ShowConcertViewController: UIViewController {
             tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
             self.present(tweetVC!, animated: true, completion: nil)
         } else {
-            let alert = UIElements.errorAlert(title: "Can't send tweet", message: "Please make sure at least one twitter account is set up in Settings > Twitter")
-            present(alert, animated: true, completion: nil)
+            UIElements.errorAlert(title: "Can't send tweet", message: "Please make sure at least one twitter account is set up in Settings > Twitter", presenter: self)
         }
     }
 

@@ -88,8 +88,7 @@ class AddConcertViewController: UITableViewController {
     // MARK: Private section
 
     private func alertFieldsEmpty() {
-        let alert = UIElements.errorAlert(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty")
-        self.present(alert, animated: true, completion: nil)
+        UIElements.errorAlert(title: "Empty fields not valid", message: "Please ensure that neither the artist nor the venue are empty", presenter: self)
     }
 
     private func resetForm() {
