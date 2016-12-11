@@ -55,7 +55,7 @@ extension Venue {
         self.name = searchedVenue.name
         self.latitude = searchedVenue.latitude
         self.longitude = searchedVenue.longitude
-        let country = Country.named(searchedVenue.name)
+        let country = Country.named(searchedVenue.countryName)
         country.code = searchedVenue.countryCode
         let city = City.named(searchedVenue.cityName)
         city.id = searchedVenue.cityId
