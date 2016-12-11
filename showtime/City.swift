@@ -20,8 +20,4 @@ extension City: NamedManagedObjectType {
     static var entityName: String {
         return "City"
     }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
-    }
 }

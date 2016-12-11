@@ -44,8 +44,4 @@ extension Artist: NamedManagedObjectType {
     static var entityName: String {
         return "Artist"
     }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
-    }
 }

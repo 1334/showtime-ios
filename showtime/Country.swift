@@ -19,8 +19,4 @@ extension Country: NamedManagedObjectType {
     static var entityName: String {
         return "Country"
     }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
-    }
 }

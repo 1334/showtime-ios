@@ -58,4 +58,8 @@ extension NamedManagedObjectType where Self : NSManagedObject {
             return newItem
         }
     }
+    
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare))]
+    }
 }

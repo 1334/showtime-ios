@@ -82,10 +82,6 @@ extension Venue: NamedManagedObjectType {
     static var entityName: String {
         return "Venue"
     }
-
-    static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "name", ascending: true)]
-    }
 }
 
 extension Venue: MKAnnotation {
