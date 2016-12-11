@@ -119,6 +119,8 @@ struct Theme {
     private static  func styleSearchBars() {
         let proxy = UISearchBar.appearance()
         proxy.barStyle = .black
+        let cbProxy = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        cbProxy.setTitleTextAttributes([NSFontAttributeName: Theme.Fonts.small.font, NSForegroundColorAttributeName: Theme.Colors.tint.color], for: .normal)
     }
 
     private static func styleLabels() {
