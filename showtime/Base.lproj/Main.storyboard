@@ -130,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2h-On-gVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4198" y="896"/>
+            <point key="canvasLocation" x="3430" y="896"/>
         </scene>
         <!--List Concerts By Artist View Controller-->
         <scene sceneID="b8e-ZN-bWq">
@@ -403,44 +403,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57Q-J5-rsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3429.5999999999999" y="178.56071964017991"/>
-        </scene>
-        <!--Select Artist View Controller-->
-        <scene sceneID="2J3-Gi-oRr">
-            <objects>
-                <tableViewController storyboardIdentifier="SelectArtist" id="0lN-wv-1Q1" customClass="SelectArtistViewController" customModule="showtime" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XiJ-hC-693">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="knownArtist" textLabel="T8Q-Zb-lvE" style="IBUITableViewCellStyleDefault" id="MMc-Pq-6kk">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MMc-Pq-6kk" id="n9y-Hj-I8n">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T8Q-Zb-lvE">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="0lN-wv-1Q1" id="kQO-kn-aWO"/>
-                            <outlet property="delegate" destination="0lN-wv-1Q1" id="g6B-7p-avb"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="ews-P1-GUZ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t04-c5-wMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3430" y="896"/>
         </scene>
         <!--Show Concert View Controller-->
         <scene sceneID="SPY-6O-WDM">

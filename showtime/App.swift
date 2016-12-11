@@ -198,7 +198,7 @@ class App {
     }
 
     var selectArtistVC: SelectArtistViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "SelectArtist") as! SelectArtistViewController
+        let vc = SelectArtistViewController(style: .plain)
         vc.didSelectArtist = artistSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchArtists))
         vc.title = "Select existing artist"

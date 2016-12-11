@@ -13,6 +13,11 @@ class SelectArtistViewController : ShowtimeBaseTableViewController {
     var artists: [Artist]!
     var didSelectArtist: (Artist) -> () = { _ in }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "artistCell")
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         artists = Artist.all()
@@ -25,9 +30,11 @@ class SelectArtistViewController : ShowtimeBaseTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "knownArtist", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath)
         let artist = artists[indexPath.row]
+
         cell.textLabel?.text = artist.name
+        cell.textLabel?.style(Theme.Styles.bold.style)
 
         return cell
     }
