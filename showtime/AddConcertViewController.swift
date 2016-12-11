@@ -67,6 +67,10 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return FormCell(rawValue: indexPath.row)! == .add ? false : true
+    }
+
     @IBAction func addConcert(_ sender: UIButton) {
         guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateLabel.text else { return }
 
