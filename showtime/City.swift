@@ -14,6 +14,8 @@ class City: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var country: Country
     @NSManaged var venues: [Venue]
+
+    override var description: String { return name }
 }
 
 extension City: NamedManagedObjectType {

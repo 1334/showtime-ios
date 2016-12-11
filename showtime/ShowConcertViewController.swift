@@ -62,12 +62,14 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     private func setupLabels() {
         self.title = "Concert details"
         artistLabel.text = "\(concert.artist)"
-        venueLabel.text = "\(concert.venue)"
+        venueLabel.text = "\(concert.venue), \(concert.venue.city)"
         dateLabel.text = concert.formattedDate
 
         artistLabel.style(Theme.Styles.title.style)
         venueLabel.style(Theme.Styles.subtitle.style)
         dateLabel.style(Theme.Styles.subtitle.style)
+
+        notesView.backgroundColor = Theme.Colors.background.color.withAlphaComponent(0.97)
     }
 
     private func setupSegmentedControlView(segmentedControl: UISegmentedControl) {
