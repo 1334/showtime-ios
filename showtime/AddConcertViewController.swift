@@ -71,7 +71,7 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
         guard let artist = artistLabel.text, let venue = venueLabel.text, let date = dateLabel.text else { return }
 
         if !(artist.isEmpty || venue.isEmpty) {
-            let concert = Concert(artist: artist, date: date, venue: venue)
+            let concert = Concert.from(artist: artist, date: date, venue: venue)
             context.saveIt()
             resetForm()
             didCreateConcert(concert)

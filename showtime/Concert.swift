@@ -52,12 +52,25 @@ extension Concert: ManagedObjectType {
 }
 
 extension Concert {
-    convenience init(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser ) {
-        self.init(context: CoreDataHelpers.viewContext)
+    static func from(artist: String, date: String, venue: String, dateParser:DateFormatter = DateFormatters.dateParser) -> Concert {
+        let artist = Artist.named(artist)
+        let venue = Venue.named(venue)
+        let date = dateParser.date(from: date)!
 
-        self.artist = Artist.named(artist)
-        self.date = dateParser.date(from: date)!
-        self.venue = Venue.named(venue)
+        let predicate = NSPredicate(format: "artist == %@ AND date == %@", artist, date as NSDate)
+        let result = Concert.find(predicate: predicate)
+
+        if let concert = result.first {
+            concert.venue = venue
+            return concert
+        } else {
+            let concert = Concert(context: CoreDataHelpers.viewContext)
+            concert.artist = artist
+            concert.venue = venue
+            concert.date = date
+
+            return concert
+        }
     }
 }
 
