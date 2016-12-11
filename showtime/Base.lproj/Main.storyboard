@@ -217,6 +217,7 @@
                     <connections>
                         <outlet property="artistName" destination="OXW-Fy-krL" id="UcG-f7-lxF"/>
                         <outlet property="imageView" destination="xKL-hN-VpC" id="lPT-ns-rbh"/>
+                        <outlet property="showsLabel" destination="aaV-DB-6A4" id="zxK-3r-oIF"/>
                         <outlet property="tableView" destination="sPl-uM-pC4" id="NBY-Da-TiA"/>
                     </connections>
                 </viewController>

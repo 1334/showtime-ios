@@ -11,12 +11,9 @@ import CoreData
 
 class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var showsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            setupImageView()
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
 
     let context = CoreDataHelpers.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
@@ -27,9 +24,9 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         scope = .artist(artist)
-        artistName.text = artist.name
-        imageView.image = artist.image
-        fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        setupTableView()
+        setupLabels()
+        setupImageView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +53,8 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
 
         cell.textLabel?.text = "\(concert.venue)"
         cell.detailTextLabel?.text = "\(concert.formattedDate)"
+        cell.textLabel?.style(Theme.Styles.bold.style)
+        cell.detailTextLabel?.style(Theme.Styles.tintSmall.style)
 
         return cell
     }
@@ -69,7 +68,7 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
 
     private func setupImageView() {
         imageView.layer.borderColor = Theme.Colors.tint.color.cgColor
-        imageView.layer.borderWidth = 5
+        imageView.layer.borderWidth = 1
         imageView.layer.cornerRadius =  imageView.frame.height / 2
         imageView.clipsToBounds = true
 
@@ -79,6 +78,16 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
         imageView.addGestureRecognizer(recognizer)
     }
 
+    private func setupTableView() {
+        fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+
+    private func setupLabels() {
+        artistName.text = artist.name
+        imageView.image = artist.image
+        artistName.style(Theme.Styles.title.style)
+        showsLabel.style(Theme.Styles.subtitle.style)
+    }
 
     @objc private func imageTapped() {
         let actionSheet = UIAlertController(title: "Artist Image", message: nil, preferredStyle: .actionSheet)
