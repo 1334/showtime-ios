@@ -68,32 +68,6 @@ struct Theme {
         }
     }
 
-    enum FontWeight {
-        case ultraLight
-        case thin
-        case light
-        case regular
-        case medium
-        case semibold
-        case bold
-        case heavy
-        case black
-
-        var weight: CGFloat {
-            switch self {
-            case .ultraLight: return UIFontWeightUltraLight
-            case .thin: return UIFontWeightThin
-            case .light: return UIFontWeightLight
-            case .regular: return UIFontWeightRegular
-            case .medium: return UIFontWeightMedium
-            case .semibold: return UIFontWeightSemibold
-            case .bold: return UIFontWeightBold
-            case .heavy: return UIFontWeightHeavy
-            case .black: return UIFontWeightBlack
-            }
-        }
-    }
-
     static func apply() {
         UIWindow.appearance().backgroundColor = Theme.Colors.background.color
         SetlistView.appearance().backgroundColor = Theme.Colors.background.color
