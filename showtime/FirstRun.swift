@@ -59,8 +59,10 @@ final class FirstRun {
         _ = Artist(mbid: "b78346af-e3ce-4b36-a0d5-032414de8a27", name: "Peter Murphy")
         _ = Artist(mbid: "0688add2-c282-4ee2-ba61-223ffdb3c201", name: "Bauhaus")
         _ = Artist(mbid: "32981181-5e3f-4160-a872-625980035593", name: "Éliane Radigue")
-        _ = Artist(mbid: "1fe4e038-d219-46b0-bb52-286ffd994ee3", name: "Mohammad")
         _ = Artist(mbid: "8a399a51-6b93-448e-82c0-f86c83602605", name: "Hildur Guðnadóttir")
+        _ = Artist(mbid: "169c4c28-858e-497b-81a4-8bc15e0026ea", name: "Porcupine Tree")
+        _ = Artist(mbid: "d9675421-ba0d-4414-af03-60d04e8ec25c", name: "Stick Men")
+        _ = Artist(mbid: "e938a15c-b17e-4e7a-9f68-ff0d536cab44", name: "The Jesus and Mary Chain")
     }
 
     private func createVenues() {
@@ -84,6 +86,8 @@ final class FirstRun {
         _ = Venue(id: "53d63779", name: "Royal Albert Hall", latitude: 51.5010389760603, longitude: -0.177273502134961,  cityId: "2643743", cityName: "London", countryCode: "GB", countryName: "United Kingdom")
         _ = Venue(id: "5bd4b3cc", name: "Estadi Olímpic Lluís Companys", latitude: 41.3647687, longitude: 2.1534705, cityId: "3128760", cityName: "Barcelona", countryCode: "ES", countryName: "Spain")
         _ = Venue(id: "53d50701", name: "Pavelló Olímpic de Badalona", latitude: 41.4500446631785, longitude: 2.24741220474243, cityId: "3129028", cityName: "Badalona", countryCode: "ES", countryName: "Spain")
+        _ = Venue(id: "73d7b2f5", name: "Palais de Tokyo", latitude: 48.8642528014036, longitude: 2.29644298553467, cityId: "2988507", cityName: "Paris", countryCode: "FR", countryName: "France")
+
     }
 
     private func createConcerts() {
@@ -113,5 +117,17 @@ final class FirstRun {
         _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "22-04-2001", venue: "La Riviera")
         _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "11-06-1998", venue: "El Pla de Santa Maria")
         _ = Concert.from(artist: "Peter Murphy", date: "21-03-2000", venue: "Irving Plaza")
+        _ = Concert.from(artist: "Éliane Radigue", date: "26-11-2010", venue: "Palais de Tokyo")
+        _ = Concert.from(artist: "Alien Sex Fiend", date: "24-05-2012", venue: "La [2] de Apolo")
+        _ = Concert.from(artist: "Bauhaus", date: "15-02-2006", venue: "Razzmatazz")
+        _ = Concert.from(artist: "Bauhaus", date: "11-11-1998", venue: "Zeleste")
+        _ = Concert.from(artist: "Hildur Guðnadóttir", date: "07-02-2010", venue: "Parc del Fòrum")
+        _ = Concert.from(artist: "Michael Gira", date: "08-03-2014", venue: "La [2] de Apolo")
+        _ = Concert.from(artist: "Michael Gira", date: "22-11-2008", venue: "La [2] de Apolo")
+        _ = Concert.from(artist: "Jarboe", date: "30-10-2005", venue: "El Born Centre Cultural")
+        _ = Concert.from(artist: "Iggy Pop", date: "13-05-2016", venue: "Royal Albert Hall")
+        _ = Concert.from(artist: "Porcupine Tree", date: "23-11-2009", venue: "Sant Jordi Club")
+        _ = Concert.from(artist: "Stick Men", date: "23-11-2009", venue: "Sant Jordi Club")
+        _ = Concert.from(artist: "The Jesus and Mary Chain", date: "29-04-2017", venue: "Razzmatazz")
     }
 }
