@@ -50,6 +50,20 @@ class Venue: NSManagedObject {
 }
 
 extension Venue {
+    convenience init(id: String, name: String, latitude: Double, longitude: Double, cityId: String, cityName: String, countryCode: String, countryName: String) {
+        self.init(context: CoreDataHelpers.viewContext)
+        self.id = id
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        let country = Country.named(countryName)
+        country.code = countryCode
+        let city = City.named(cityName)
+        city.id = cityId
+        city.country = country
+        self.city = city
+    }
+
     func update(from searchedVenue: SearchedVenue) {
         self.id = searchedVenue.id
         self.name = searchedVenue.name

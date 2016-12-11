@@ -29,7 +29,7 @@ extension Artist {
         mbid = searchedArtist.mbid
     }
 
-    convenience init(name: String, mbid: String) {
+    convenience init(mbid: String, name: String) {
         self.init(context: CoreDataHelpers.viewContext)
         self.name = name
         self.mbid = mbid
