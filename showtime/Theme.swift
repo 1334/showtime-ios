@@ -48,6 +48,7 @@ struct Theme {
 
     enum Styles {
         case title
+        case contrastTitle
         case subtitle
         case tintBold
         case tintSmall
@@ -58,6 +59,7 @@ struct Theme {
         var style: TextStyle {
             switch self {
             case .title: return TextStyle(font: Fonts.title.font,color: Colors.tint.color)
+            case .contrastTitle: return TextStyle(font: Fonts.title.font,color: Colors.background.color)
             case .subtitle: return TextStyle(font: Fonts.subtitle.font, color: Colors.foreground.color)
             case .tintBold: return TextStyle(font: Fonts.bold.font, color: Colors.tint.color)
             case .tintSmall: return TextStyle(font: Fonts.small.font, color: Colors.tint.color)

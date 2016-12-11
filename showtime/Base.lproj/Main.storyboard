@@ -750,6 +750,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="5zy-Q9-9hD" id="iof-ls-al9"/>
+                        <outlet property="showsLabel" destination="idP-DN-oLV" id="RvC-TR-5bK"/>
                         <outlet property="tableView" destination="MoZ-O2-7eI" id="htg-cp-2WJ"/>
                         <outlet property="venueName" destination="pUa-ml-F3y" id="aIZ-YN-qQa"/>
                     </connections>

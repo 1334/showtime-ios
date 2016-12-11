@@ -12,6 +12,7 @@ import CoreData
 
 class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     @IBOutlet weak var venueName: UILabel!
+    @IBOutlet weak var showsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
 
@@ -24,11 +25,9 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         scope = .venue(venue)
-        venueName.text = venue.name
-        mapView.delegate = self
-        mapView.addAnnotation(venue)
-        mapView.showAnnotations([venue], animated: false)
-        fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        setupLabels()
+        setupMapView()
+        setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +54,8 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
 
         cell.textLabel?.text = "\(concert.artist)"
         cell.detailTextLabel?.text = "\(concert.formattedDate)"
+        cell.textLabel?.style(Theme.Styles.bold.style)
+        cell.detailTextLabel?.style(Theme.Styles.tintSmall.style)
 
         return cell
     }
@@ -77,4 +78,24 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
 
         return view
     }
+
+    // MARK: Private section
+
+    private func setupLabels() {
+        venueName.text = venue.name
+        venueName.style(Theme.Styles.contrastTitle.style)
+        showsLabel.style(Theme.Styles.subtitle.style)
+    }
+
+    private func setupMapView() {
+        mapView.delegate = self
+        mapView.addAnnotation(venue)
+        mapView.showAnnotations([venue], animated: false)
+    }
+
+    private func setupTableView() {
+        fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+
+
 }
