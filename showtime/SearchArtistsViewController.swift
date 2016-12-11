@@ -64,11 +64,11 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Sections(rawValue: indexPath.section)! {
         case .newArtist:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customArtistCell") as! CustomArtistCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customArtist") as! CustomArtistCell
             newArtistCell = cell
             return cell
         case .searchedArtist:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "foundArtist")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "foundArtist") as! SubtitleCell
             let artist = artists[indexPath.row]
             cell.textLabel?.text = artist.name
             cell.detailTextLabel?.text = artist.disambiguation
@@ -107,7 +107,8 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
 
     private func setupTableView() {
         let nib = UINib(nibName: "CustomArtistCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "customArtistCell")
+        tableView.register(nib, forCellReuseIdentifier: "customArtist")
+        tableView.register(SubtitleCell.self, forCellReuseIdentifier: "foundArtist")
         tableView.estimatedRowHeight = 65
         tableView.tableFooterView = UIView()
     }
