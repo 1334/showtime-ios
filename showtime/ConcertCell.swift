@@ -15,6 +15,7 @@ class ConcertCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        //artistLabel.style(titleStyle)
+        artistLabel.style(Theme.Styles.bold.style)
+        dateLabel.style(Theme.Styles.tintSmall.style)
     }
 }

@@ -82,6 +82,7 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
 
     @objc private func imageTapped() {
         let actionSheet = UIAlertController(title: "Artist Image", message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = Theme.Colors.background.color
         actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary

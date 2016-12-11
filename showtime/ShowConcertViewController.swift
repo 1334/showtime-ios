@@ -28,16 +28,6 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     let dateFormatter = DateFormatters.mediumFormatDate
 
     // MARK: Actions
-    func tweetConcert(_ sender: Any) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
-            let tweetVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
-            self.present(tweetVC!, animated: true, completion: nil)
-        } else {
-            UIElements.errorAlert(title: "Can't send tweet", message: "Please make sure at least one twitter account is set up in Settings > Twitter", presenter: self)
-        }
-    }
-
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         setupSegmentedControlView(segmentedControl: sender)
     }
@@ -48,17 +38,36 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Concert details"
-        artistLabel.text = "\(concert.artist)"
-        venueLabel.text = "\(concert.venue)"
-        dateLabel.text = concert.formattedDate
-
+        setupLabels()
         setupSegmentedControlView(segmentedControl: segmentedControl)
     }
 
     // dismiss the keyboard when clicking outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(false)
+    }
+
+    func tweetConcert(_ sender: Any) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+            let tweetVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            tweetVC?.setInitialText("I went to \(concert!) and it was amazing!")
+            self.present(tweetVC!, animated: true, completion: nil)
+        } else {
+            UIElements.errorAlert(title: "Can't send tweet", message: "Please make sure at least one twitter account is set up in Settings > Twitter", presenter: self)
+        }
+    }
+
+    // MARK: Private section
+
+    private func setupLabels() {
+        self.title = "Concert details"
+        artistLabel.text = "\(concert.artist)"
+        venueLabel.text = "\(concert.venue)"
+        dateLabel.text = concert.formattedDate
+
+        artistLabel.style(Theme.Styles.title.style)
+        venueLabel.style(Theme.Styles.subtitle.style)
+        dateLabel.style(Theme.Styles.subtitle.style)
     }
 
     private func setupSegmentedControlView(segmentedControl: UISegmentedControl) {

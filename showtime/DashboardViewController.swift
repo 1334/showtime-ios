@@ -11,6 +11,9 @@ import UIKit
 class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var upcomingShowsTableView: UITableView!
     @IBOutlet weak var recentShowsTableView: UITableView!
+    @IBOutlet weak var upcomingShowsLabel: UILabel!
+    @IBOutlet weak var recentShowsLabel: UILabel!
+
     var upcomingShows = [Concert]()
     var recentShows = [Concert]()
     var didSelect: (Concert) -> () = { _ in }
@@ -18,6 +21,8 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        upcomingShowsLabel.style(Theme.Styles.title.style)
+        recentShowsLabel.style(Theme.Styles.title.style)
 
         let nib = UINib(nibName: "ConcertCell", bundle: nil)
         upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")

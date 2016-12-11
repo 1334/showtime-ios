@@ -28,16 +28,42 @@ struct Theme {
 
     enum Fonts {
         case title
-        case bold
+        case subtitle
         case base
-        case base2
+        case bold
+        case small
+        case tiny
 
         var font: UIFont {
             switch self {
-            case .bold: return UIFont(name: "Copperplate-Bold", size: 17)!
-            case .title: return UIFont(name: "Copperplate", size: 16)!
-            case .base: return UIFont(name: "AvenirNext-Regular", size: 17)!// return UIFont.systemFont(ofSize: 17, weight: FontWeight.regular.weight)
-            case .base2: return UIFont(name: "Copperplate", size: 20)!
+            case .title: return UIFont(name: "AvenirNext-Bold", size: 28)!
+            case .subtitle: return UIFont(name: "AvenirNext-Medium", size: 20)!
+            case .base: return UIFont(name: "AvenirNext-Regular", size: 17)!
+            case .bold: return UIFont(name: "AvenirNext-Bold", size: 17)!
+            case .small: return UIFont(name: "Avenir-Light", size: 14)!
+            case .tiny: return UIFont(name: "Avenir-Light", size: 12)!
+            }
+        }
+    }
+
+    enum Styles {
+        case title
+        case subtitle
+        case tintBold
+        case tintSmall
+        case bold
+        case small
+        case tiny
+
+        var style: TextStyle {
+            switch self {
+            case .title: return TextStyle(font: Fonts.title.font,color: Colors.tint.color)
+            case .subtitle: return TextStyle(font: Fonts.subtitle.font, color: Colors.foreground.color)
+            case .tintBold: return TextStyle(font: Fonts.bold.font, color: Colors.tint.color)
+            case .tintSmall: return TextStyle(font: Fonts.small.font, color: Colors.tint.color)
+            case .bold: return TextStyle(font: Fonts.bold.font, color: Colors.foreground.color)
+            case .small: return TextStyle(font: Fonts.small.font, color: Colors.foreground.color)
+            case .tiny: return TextStyle(font: Fonts.tiny.font, color: Colors.foreground.color)
             }
         }
     }
@@ -80,6 +106,7 @@ struct Theme {
         styleButtons()
         styleTextViews()
         styleDatePicker()
+        styleImagePicker()
     }
 
     private static func styleTabBars() {
@@ -92,6 +119,7 @@ struct Theme {
         let proxy = UINavigationBar.appearance()
         proxy.barStyle = .black
         proxy.barTintColor = Theme.Colors.background.color
+        proxy.titleTextAttributes = [NSFontAttributeName: Theme.Fonts.bold.font, NSForegroundColorAttributeName: Theme.Colors.tint.color]
     }
 
     private static  func styleTableViews() {
@@ -122,8 +150,6 @@ struct Theme {
     }
 
     private static func styleButtons() {
-        let proxy = UIButton.appearance()
-        proxy.titleLabel?.font = Fonts.base2.font
     }
 
     private static func styleTextViews() {
@@ -137,19 +163,21 @@ struct Theme {
         let proxy = UIDatePicker.appearance()
         proxy.tintColor = Theme.Colors.tint.color
     }
+
+    private static func styleImagePicker() {
+        let proxy = UITableViewCell.appearance(whenContainedInInstancesOf: [UIImagePickerController.self])
+        proxy.backgroundColor = .white
+    }
 }
 
 struct TextStyle {
+    let font: UIFont
     let color: UIColor
-    let weight: CGFloat
-    let size: CGFloat
 }
-
-let titleStyle = TextStyle(color: Theme.Colors.tint.color, weight: UIFontWeightBold, size: 28.0)
 
 extension UILabel {
     func style(_ style: TextStyle) {
-        self.font = UIFont.systemFont(ofSize: style.size, weight: style.weight)
+        self.font = style.font
         self.textColor = style.color
     }
 }
