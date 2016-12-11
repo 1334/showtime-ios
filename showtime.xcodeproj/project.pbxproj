@@ -48,6 +48,8 @@
 		76AB57941DF731AC00897A6A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AB57931DF731AC00897A6A /* DashboardViewController.swift */; };
 		76B057C41DF57D75007E53C3 /* SearchedSetlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */; };
 		76BDB6DC1DEDF4BB007B7461 /* UIElementsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */; };
+		76BE5F9A1DFD4016004A3F02 /* CellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE5F981DFD4016004A3F02 /* CellWithImage.swift */; };
+		76BE5F9B1DFD4016004A3F02 /* CellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76BE5F991DFD4016004A3F02 /* CellWithImage.xib */; };
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76CC91A11DF8797800E5FF13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CC91A01DF8797800E5FF13 /* MapKit.framework */; };
 		76CC91A31DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A21DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift */; };
@@ -118,6 +120,8 @@
 		76AB57931DF731AC00897A6A /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		76B057C31DF57D75007E53C3 /* SearchedSetlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedSetlist.swift; sourceTree = "<group>"; };
 		76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElementsAndExtensions.swift; sourceTree = "<group>"; };
+		76BE5F981DFD4016004A3F02 /* CellWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWithImage.swift; sourceTree = "<group>"; };
+		76BE5F991DFD4016004A3F02 /* CellWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithImage.xib; sourceTree = "<group>"; };
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76CC91A01DF8797800E5FF13 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		76CC91A21DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsByVenueViewController.swift; sourceTree = "<group>"; };
@@ -260,14 +264,16 @@
 		7688B1841DE9D81F00C9B1B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76BE5F981DFD4016004A3F02 /* CellWithImage.swift */,
+				76BE5F991DFD4016004A3F02 /* CellWithImage.xib */,
+				7697F23B1DF43442007C30E0 /* ConcertCell.swift */,
+				7697F2391DF4322B007C30E0 /* ConcertCell.xib */,
 				7617B8591DFB4155002D606A /* CustomArtistCell.swift */,
 				7617B85A1DFB4155002D606A /* CustomArtistCell.xib */,
-				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76935F7D1D96CF17004CFDF0 /* LaunchScreen.storyboard */,
-				7697F2391DF4322B007C30E0 /* ConcertCell.xib */,
-				7697F23B1DF43442007C30E0 /* ConcertCell.swift */,
-				76CC91A61DFAA51200E5FF13 /* SetlistView.xib */,
+				76935F781D96CF17004CFDF0 /* Main.storyboard */,
 				76CC91A81DFAA7F400E5FF13 /* SetlistView.swift */,
+				76CC91A61DFAA51200E5FF13 /* SetlistView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 				7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */,
 				7697F23A1DF4322B007C30E0 /* ConcertCell.xib in Resources */,
 				76935F7A1D96CF17004CFDF0 /* Main.storyboard in Resources */,
+				76BE5F9B1DFD4016004A3F02 /* CellWithImage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +581,7 @@
 				76CC91A91DFAA7F400E5FF13 /* SetlistView.swift in Sources */,
 				768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */,
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
+				76BE5F9A1DFD4016004A3F02 /* CellWithImage.swift in Sources */,
 				76CC91A51DF9C00B00E5FF13 /* FirstRun.swift in Sources */,
 				768E9E851DEE0A7C00FA95B0 /* SetlistFMAPI+searchVenues.swift in Sources */,
 				7617B8621DFC2158002D606A /* Utils.swift in Sources */,

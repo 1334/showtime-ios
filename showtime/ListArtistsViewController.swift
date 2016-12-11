@@ -20,8 +20,7 @@ class ListArtistsViewController: ShowtimeBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchedResultController = NSFetchedResultsController(fetchRequest: Artist.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-
+        setupTableView()
         setupSearchController()
     }
 
@@ -44,6 +43,12 @@ class ListArtistsViewController: ShowtimeBaseTableViewController {
 
     // MARK: - Search Controller
 
+    private func setupTableView() {
+        fetchedResultController = NSFetchedResultsController(fetchRequest: Artist.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        let nib = UINib(nibName: "CellWithImage", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "artistCell")
+    }
+    
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -58,14 +63,14 @@ class ListArtistsViewController: ShowtimeBaseTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! CellWithImage
         let artist = fetchedResultController.object(at: indexPath)
 
-        cell.imageView?.image = artist.image
-        cell.textLabel?.text = "\(artist)"
+        cell.cellImage.image = artist.image
+        cell.titleText.text = "\(artist)"
         let concertsCount = artist.concerts.count
         let word = concertsCount == 1 ? "concert" : "concerts"
-        cell.detailTextLabel?.text = "\(concertsCount) \(word)"
+        cell.subtitleText.text = "\(concertsCount) \(word)"
 
         return cell
     }

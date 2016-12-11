@@ -150,7 +150,7 @@ class App {
     }
 
     var listArtistsVC: ListArtistsViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "ListArtists") as! ListArtistsViewController
+        let vc = ListArtistsViewController(style: .plain)
         vc.didSelect = showConcertsForArtist
         vc.title = "List Artists"
         return vc
