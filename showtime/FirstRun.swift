@@ -11,25 +11,27 @@ import UIKit
 final class FirstRun {
     let context = CoreDataHelpers.viewContext
 
-    func dialog(presenter: UIViewController) {
-        if UserDefaults.standard.bool(forKey: "FirstRunComplete") {
-            let alert = firstRunMessage()
-            presenter.present(alert, animated: true, completion: nil)
+    func dialog(presenter: UIViewController, callback: @escaping () -> ()) {
+        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") {
+            let alert = firstRunMessage(callback: callback)
+            presenter.present(alert, animated: true)
             UserDefaults.standard.set(true, forKey: "FirstRunComplete")
         }
     }
 
-    private func firstRunMessage() -> UIAlertController {
+    private func firstRunMessage(callback: @escaping () -> ()) -> UIAlertController {
         let alert = UIAlertController(title: "New Run", message: "We've found that there are no shows entered, what do you want to do?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Load Sample Data", style: .default) { _ in
             self.createArtists()
             self.createVenues()
             self.createConcerts()
             self.context.saveIt()
+            callback()
         })
         alert.addAction(UIAlertAction(title: "Add Concert", style: .default) { _ in
             guard let rootVC = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
             rootVC.selectedIndex = 4
+            callback()
         })
         alert.addAction(UIAlertAction(title: "Nothing", style: .cancel, handler: nil))
 
@@ -44,7 +46,7 @@ final class FirstRun {
     private func createArtists() {
         _ = Artist(mbid: "5441c29d-3602-4898-b1a1-b77fa23b8e50", name: "David Bowie")
         _ = Artist(mbid: "f37b3f31-b1f8-4b88-8cb5-b34f709b17d7", name: "Iggy Pop")
-        _ = Artist(mbid: "1253e5e9-eaa7-4ce6-81b8-09725e8cee43", name: "Iggy and The Stooges")
+        _ = Artist(mbid: "1253e5e9-eaa7-4ce6-81b8-09725e8cee43", name: "Iggy and the Stooges")
         _ = Artist(mbid: "b7ffd2af-418f-4be2-bdd1-22f8b48613da", name: "Nine Inch Nails")
         _ = Artist(mbid: "3580a118-49e3-4aa1-972a-f5f0ff750dd2", name: "Alien Sex Fiend")
         _ = Artist(mbid: "e5db18cb-4b1f-496d-a308-548b611090d3", name: "Sex Pistols")
@@ -53,7 +55,6 @@ final class FirstRun {
         _ = Artist(mbid: "9b7130d0-558a-4599-b721-04b68c43aaad", name: "Jarboe")
         _ = Artist(mbid: "8d936df1-9da6-4b11-87c3-7bb8fd8a62c4", name: "Michael Gira")
         _ = Artist(mbid: "3285dc48-9505-469d-ad8a-bdf2d3dba632", name: "Swans")
-        _ = Artist(mbid: "4aae17a7-9f0c-487b-b60e-f8eafb410b1d", name: "Nick Cave")
         _ = Artist(mbid: "172e1f1a-504d-4488-b053-6344ba63e6d0", name: "Nick Cave & The Bad Seeds")
         _ = Artist(mbid: "b78346af-e3ce-4b36-a0d5-032414de8a27", name: "Peter Murphy")
         _ = Artist(mbid: "0688add2-c282-4ee2-ba61-223ffdb3c201", name: "Bauhaus")
@@ -86,31 +87,31 @@ final class FirstRun {
     }
 
     private func createConcerts() {
-        _ = Concert.from(artist: "David Bowie ", date: "16-09-1990", venue: "Estadi Olímpic Lluís Companys")
-        _ = Concert.from(artist: "Iggy Pop ", date: "23-06-1996", venue: "Finsbury Park")
-        _ = Concert.from(artist: "Iggy Pop ", date: "30-10-1993", venue: "Zeleste")
-        _ = Concert.from(artist: "Iggy and the Stooges ", date: "6-07-2012", venue: "Parc del Fòrum")
-        _ = Concert.from(artist: "Iggy Pop ", date: "18-11-1999", venue: "Zeleste")
-        _ = Concert.from(artist: "Iggy Pop ", date: "27-04-1994", venue: "Zeleste")
-        _ = Concert.from(artist: "Nine Inch Nails ", date: "29-06-2005", venue: "Razzmatazz")
-        _ = Concert.from(artist: "Nine Inch Nails ", date: "14-11-1999", venue: "Pavelló de la Vall d’Hebron")
-        _ = Concert.from(artist: "Nine Inch Nails ", date: "31-05-2014", venue: "Parc del Fòrum")
-        _ = Concert.from(artist: "Nine Inch Nails ", date: "18-02-2007", venue: "Razzmatazz")
-        _ = Concert.from(artist: "Sex Pistols ", date: "19-07-2008", venue: "Parc del Fòrum")
-        _ = Concert.from(artist: "Sex Pistols ", date: "23-06-1996", venue: "Finsbury Park")
-        _ = Concert.from(artist: "Alice Cooper ", date: "11-12-2002", venue: "Palau Sant Jordi")
-        _ = Concert.from(artist: "Kitsch a la Cova ", date: "13-05-2016", venue: "El Born Centre Cultural")
-        _ = Concert.from(artist: "Kitsch a la Cova ", date: "19-9-2014", venue: "Teatre del Casino")
-        _ = Concert.from(artist: "Kitsch a la Cova ", date: "21-06-2014", venue: "Auditori de l'Ateneu")
-        _ = Concert.from(artist: "Kitsch ", date: "14-10-2011", venue: "Teatre del Casino")
-        _ = Concert.from(artist: "Kitsch ", date: "18-11-2008", venue: "Sala Becool")
-        _ = Concert.from(artist: "Kitsch ", date: "18-3-2004", venue: "Sala Apolo")
-        _ = Concert.from(artist: "Ghost ", date: "30-11-2015", venue: "Sala Apolo")
-        _ = Concert.from(artist: "Swans ", date: "1-10-2014", venue: "Sala Apolo")
-        _ = Concert.from(artist: "Nick Cave ", date: "21-05-2015", venue: "Auditòri CCIB")
-        _ = Concert.from(artist: "Nick ", date: "25-04-2008", venue: "Pavelló Olímpic de Badalona")
-        _ = Concert.from(artist: "Nick Cave ", date: "22-04-2001", venue: "La Riviera")
-        _ = Concert.from(artist: "Nick Cave ", date: "11-06-1998", venue: "El Pla de Santa Maria")
-        _ = Concert.from(artist: "Peter Murphy ", date: "21-03-2000", venue: "Irving Plaza")
+        _ = Concert.from(artist: "David Bowie", date: "16-09-1990", venue: "Estadi Olímpic Lluís Companys")
+        _ = Concert.from(artist: "Iggy Pop", date: "23-06-1996", venue: "Finsbury Park")
+        _ = Concert.from(artist: "Iggy Pop", date: "30-10-1993", venue: "Zeleste")
+        _ = Concert.from(artist: "Iggy and the Stooges", date: "6-07-2012", venue: "Parc del Fòrum")
+        _ = Concert.from(artist: "Iggy Pop", date: "18-11-1999", venue: "Zeleste")
+        _ = Concert.from(artist: "Iggy Pop", date: "27-04-1994", venue: "Zeleste")
+        _ = Concert.from(artist: "Nine Inch Nails", date: "29-06-2005", venue: "Razzmatazz")
+        _ = Concert.from(artist: "Nine Inch Nails", date: "14-11-1999", venue: "Pavelló de la Vall d’Hebron")
+        _ = Concert.from(artist: "Nine Inch Nails", date: "31-05-2014", venue: "Parc del Fòrum")
+        _ = Concert.from(artist: "Nine Inch Nails", date: "18-02-2007", venue: "Razzmatazz")
+        _ = Concert.from(artist: "Sex Pistols", date: "19-07-2008", venue: "Parc del Fòrum")
+        _ = Concert.from(artist: "Sex Pistols", date: "23-06-1996", venue: "Finsbury Park")
+        _ = Concert.from(artist: "Alice Cooper", date: "11-12-2002", venue: "Palau Sant Jordi")
+        _ = Concert.from(artist: "Kitsch a la Cova", date: "13-05-2016", venue: "El Born Centre Cultural")
+        _ = Concert.from(artist: "Kitsch a la Cova", date: "19-9-2014", venue: "Teatre del Casino")
+        _ = Concert.from(artist: "Kitsch a la Cova", date: "21-06-2014", venue: "Auditori de l'Ateneu")
+        _ = Concert.from(artist: "Kitsch", date: "14-10-2011", venue: "Teatre del Casino")
+        _ = Concert.from(artist: "Kitsch", date: "18-11-2008", venue: "Sala Becool")
+        _ = Concert.from(artist: "Kitsch", date: "18-3-2004", venue: "Sala Apolo")
+        _ = Concert.from(artist: "Ghost", date: "30-11-2015", venue: "Sala Apolo")
+        _ = Concert.from(artist: "Swans", date: "1-10-2014", venue: "Sala Apolo")
+        _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "21-05-2015", venue: "Auditòri CCIB")
+        _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "25-04-2008", venue: "Pavelló Olímpic de Badalona")
+        _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "22-04-2001", venue: "La Riviera")
+        _ = Concert.from(artist: "Nick Cave & The Bad Seeds", date: "11-06-1998", venue: "El Pla de Santa Maria")
+        _ = Concert.from(artist: "Peter Murphy", date: "21-03-2000", venue: "Irving Plaza")
     }
 }

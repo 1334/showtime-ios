@@ -21,7 +21,9 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirstRun().dialog(presenter: self)
+        FirstRun().dialog(presenter: self) {
+            self.reloadData()
+        }
 
         setupLabels()
         setupTableViews()
