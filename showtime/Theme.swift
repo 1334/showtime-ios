@@ -83,7 +83,6 @@ struct Theme {
         styleTableViewCells()
         styleSearchBars()
         styleLabels()
-        styleButtons()
         styleTextViews()
         styleImagePicker()
     }
@@ -129,9 +128,6 @@ struct Theme {
         let proxy = UILabel.appearance()
         proxy.textColor = Theme.Colors.foreground.color
         proxy.font = Theme.Fonts.base.font
-    }
-
-    private static func styleButtons() {
     }
 
     private static func styleTextViews() {

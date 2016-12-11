@@ -236,11 +236,11 @@
                         <sections>
                             <tableViewSection id="I9Y-Hz-QPN">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ors-tn-mpI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Ors-tn-mpI">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ors-tn-mpI" id="4aD-XI-lkJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVG-ad-MJ7">
@@ -253,7 +253,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkP-HQ-iyu">
-                                                    <rect key="frame" x="96" y="32" width="271" height="0.0"/>
+                                                    <rect key="frame" x="96" y="32" width="238" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -324,11 +324,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eIX-72-7kO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="eIX-72-7kO">
                                         <rect key="frame" x="0.0" y="304" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eIX-72-7kO" id="vFB-QU-wtK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-3I-qgH">
@@ -341,7 +341,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxH-UQ-vdd">
-                                                    <rect key="frame" x="96" y="12" width="271" height="21"/>
+                                                    <rect key="frame" x="96" y="12" width="238" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -357,15 +357,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jbA-GB-w1y">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="jbA-GB-w1y">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jbA-GB-w1y" id="vQ5-rD-zTY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCZ-Vl-7pw">
-                                                    <rect key="frame" x="144" y="6" width="87" height="30"/>
+                                                    <rect key="frame" x="8" y="28" width="359" height="50"/>
+                                                    <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="lbP-Dv-iUn"/>
+                                                    </constraints>
                                                     <state key="normal" title="Add Concert"/>
                                                     <connections>
                                                         <action selector="addConcert:" destination="hZx-Eq-RcQ" eventType="touchUpInside" id="lfX-gF-Rqh"/>
@@ -373,8 +377,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DCZ-Vl-7pw" firstAttribute="centerX" secondItem="vQ5-rD-zTY" secondAttribute="centerX" id="H4C-h6-Jom"/>
-                                                <constraint firstItem="DCZ-Vl-7pw" firstAttribute="centerY" secondItem="vQ5-rD-zTY" secondAttribute="centerY" id="URi-qT-VdD"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="DCZ-Vl-7pw" secondAttribute="leading" id="KUR-l0-bCE"/>
+                                                <constraint firstItem="DCZ-Vl-7pw" firstAttribute="top" secondItem="vQ5-rD-zTY" secondAttribute="topMargin" constant="20" id="n84-aU-GR1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DCZ-Vl-7pw" secondAttribute="trailing" id="pzD-md-AKq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DCZ-Vl-7pw" secondAttribute="bottom" constant="3" id="zxn-4n-dej"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -387,6 +393,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="addConcertButton" destination="DCZ-Vl-7pw" id="24u-e5-BcQ"/>
                         <outlet property="artistLabel" destination="rkP-HQ-iyu" id="oS6-cr-1kX"/>
                         <outlet property="dateLabel" destination="Eha-Jv-Jt9" id="o8g-C6-cJh"/>
                         <outlet property="datePicker" destination="ber-cG-EC4" id="L7H-mc-Eef"/>
@@ -395,7 +402,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57Q-J5-rsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3430" y="179"/>
+            <point key="canvasLocation" x="3429.5999999999999" y="178.56071964017991"/>
         </scene>
         <!--Select Artist View Controller-->
         <scene sceneID="2J3-Gi-oRr">

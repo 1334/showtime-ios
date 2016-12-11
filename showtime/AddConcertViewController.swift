@@ -29,6 +29,7 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var addConcertButton: UIButton!
 
     private let dateFormatter = DateFormatters.dateParser
 
@@ -38,8 +39,10 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButton()
         setupTableView()
-        datePicker.setValue(Theme.Colors.foreground.color, forKey: "textColor")
+        setupLabels()
+        setupDatePicker()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +84,8 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
         switch FormCell(rawValue: indexPath.row)! {
         case .datePicker:
             return !datePickerVisible ? 0 : 212.0
+        case .add:
+            return 90
         default:
             return UITableViewAutomaticDimension
         }
@@ -96,6 +101,20 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
         artistLabel.text = ""
         venueLabel.text = ""
         datePicker.date = Date()
+    }
+
+    private func setupButton() {
+        addConcertButton.backgroundColor = Theme.Colors.tint.color.withAlphaComponent(0.2)
+    }
+
+    private func setupLabels() {
+        artistLabel.style(Theme.Styles.bold.style)
+        venueLabel.style(Theme.Styles.bold.style)
+        dateLabel.style(Theme.Styles.bold.style)
+    }
+
+    private func setupDatePicker() {
+        datePicker.setValue(Theme.Colors.foreground.color, forKey: "textColor")
     }
 
     private func setupTableView() {
