@@ -16,7 +16,7 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
         static var count: Int { return 2 }
     }
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchBar: UISearchBar!
     var artists = [SearchedArtist]()
     var newArtistCell: CustomArtistCell!
     var didSelectArtist: (SearchedArtist) -> () = { _ in }
@@ -101,15 +101,17 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
     // MARK: Private section
 
     private func setupSearchBar() {
+        searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "enter the artist name"
+        searchBar.sizeToFit()
     }
 
     private func setupTableView() {
         let nib = UINib(nibName: "CustomArtistCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "customArtist")
         tableView.register(SubtitleCell.self, forCellReuseIdentifier: "foundArtist")
-        tableView.estimatedRowHeight = 65
-        tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
+        tableView.tableHeaderView = searchBar
     }
 }

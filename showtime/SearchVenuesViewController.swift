@@ -9,13 +9,13 @@
 import UIKit
 
 class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchBar: UISearchBar!
     var venues = [SearchedVenue]()
     var didSelectVenue: (SearchedVenue) -> () = { _ in }
 
     override func viewDidLoad() {
-        searchBar.delegate = self
-        searchBar.placeholder = "enter the venue name to search"
+        setupSearchBar()
+        setupTableView()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -41,7 +41,7 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
         return venues.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foundVenue")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchedVenue") as! SubtitleCell
         let venue = venues[indexPath.row]
         cell.textLabel?.text = venue.name
         cell.detailTextLabel?.text = venue.location
@@ -52,6 +52,18 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchedVenue = venues[indexPath.row]
         didSelectVenue(searchedVenue)
+    }
+
+    private func setupSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = "enter the venue name to search"
+        searchBar.sizeToFit()
+    }
+
+    private func setupTableView() {
+        tableView.register(SubtitleCell.self, forCellReuseIdentifier: "searchedVenue")
+        tableView.tableHeaderView = searchBar
     }
 }
 

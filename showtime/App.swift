@@ -183,7 +183,7 @@ class App {
     }
 
     var searchArtistsVC: SearchArtistsViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "SearchArtists") as! SearchArtistsViewController
+        let vc = SearchArtistsViewController(style: .plain)
         vc.didSelectArtist = selectSearchedArtist
         vc.didCreateArtist = createCustomArtist
         vc.title = "Import new artist"
@@ -191,7 +191,7 @@ class App {
     }
 
     var searchVenuesVC: SearchVenuesViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "SearchVenues") as! SearchVenuesViewController
+        let vc = SearchVenuesViewController(style: .plain)
         vc.didSelectVenue = selectSearchedVenue
         vc.title = "Import new venue"
         return vc
