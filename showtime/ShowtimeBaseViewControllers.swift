@@ -18,6 +18,9 @@ class ShowtimeBaseViewController: UIViewController {
 class ShowtimeBaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bg = UIView()
+        bg.backgroundColor = Theme.Colors.background.color
+        tableView.backgroundView = bg
         view.backgroundColor = Theme.Colors.background.color
         tableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
     }
