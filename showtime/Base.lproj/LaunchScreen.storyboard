@@ -32,11 +32,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="setlist information provided by setlist.fm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kir-yJ-bPL">
                                 <rect key="frame" x="65.5" y="631" width="243" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.078431372550000003" green="0.078431372550000003" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sDP-TF-WIL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4my-wy-7xm"/>
                             <constraint firstItem="sDP-TF-WIL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="21" id="PrR-6T-MNZ"/>
@@ -52,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bigIcon" width="512" height="512"/>
+        <image name="bigIcon" width="300" height="300"/>
     </resources>
 </document>
