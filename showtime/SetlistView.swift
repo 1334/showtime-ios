@@ -23,5 +23,6 @@ class SetlistView: UIView {
     override func awakeFromNib() {
         setlistText.text = ""
         updatedAtText.text = ""
+        updatedAtText.style(Theme.Styles.tiny.style)
     }
 }
