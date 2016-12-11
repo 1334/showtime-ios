@@ -9,15 +9,23 @@
 import UIKit
 
 class ShowtimeBaseViewController: UIViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = Theme.Colors.background.color
     }
 }
 
 class ShowtimeBaseTableViewController: UITableViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Theme.Colors.background.color
+        tableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
+    }
+}
+
+class ShowtimeBaseStaticTableViewController: UITableViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = Theme.Colors.background.color
     }
 }

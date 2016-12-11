@@ -89,5 +89,7 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
         let nib = UINib(nibName: "ConcertCell", bundle: nil)
         upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
         recentShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
+        upcomingShowsTableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
+        recentShowsTableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
     }
 }

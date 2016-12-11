@@ -16,7 +16,7 @@ enum FormCell: Int {
     case add
 }
 
-class AddConcertViewController: ShowtimeBaseTableViewController {
+class AddConcertViewController: ShowtimeBaseStaticTableViewController {
 
     var didCreateConcert: (Concert) -> () = { _ in }
     var pickArtist: () -> () = { }
@@ -82,7 +82,7 @@ class AddConcertViewController: ShowtimeBaseTableViewController {
         case .datePicker:
             return !datePickerVisible ? 0 : 212.0
         default:
-            return 44.0
+            return UITableViewAutomaticDimension
         }
     }
 

@@ -68,6 +68,10 @@ struct Theme {
         }
     }
 
+    enum Constants: Int {
+        case estimatedRowHeight = 65
+    }
+
     static func apply() {
         UIWindow.appearance().backgroundColor = Theme.Colors.background.color
         SetlistView.appearance().backgroundColor = Theme.Colors.background.color
@@ -79,7 +83,6 @@ struct Theme {
         styleLabels()
         styleButtons()
         styleTextViews()
-        styleDatePicker()
         styleImagePicker()
     }
 
@@ -103,7 +106,6 @@ struct Theme {
         proxy.separatorColor = Theme.Colors.tint.color
         proxy.separatorInset = UIEdgeInsets.zero
         proxy.rowHeight = UITableViewAutomaticDimension
-        proxy.estimatedRowHeight = 65
     }
 
     private static  func styleTableViewCells() {
@@ -133,11 +135,6 @@ struct Theme {
         proxy.backgroundColor = Theme.Colors.background.color
         proxy.font = Fonts.base.font
         proxy.textColor = Theme.Colors.foreground.color
-    }
-
-    private static func styleDatePicker() {
-        let proxy = UIDatePicker.appearance()
-        proxy.tintColor = Theme.Colors.tint.color
     }
 
     private static func styleImagePicker() {
