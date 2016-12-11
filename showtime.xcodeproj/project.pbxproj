@@ -51,7 +51,7 @@
 		76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */; };
 		76CC91A11DF8797800E5FF13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CC91A01DF8797800E5FF13 /* MapKit.framework */; };
 		76CC91A31DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A21DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift */; };
-		76CC91A51DF9C00B00E5FF13 /* NewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A41DF9C00B00E5FF13 /* NewDialog.swift */; };
+		76CC91A51DF9C00B00E5FF13 /* FirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A41DF9C00B00E5FF13 /* FirstRun.swift */; };
 		76CC91A71DFAA51200E5FF13 /* SetlistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CC91A61DFAA51200E5FF13 /* SetlistView.xib */; };
 		76CC91A91DFAA7F400E5FF13 /* SetlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A81DFAA7F400E5FF13 /* SetlistView.swift */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
@@ -121,7 +121,7 @@
 		76C424E81DD89290006D5DA5 /* SelectVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVenueViewController.swift; sourceTree = "<group>"; };
 		76CC91A01DF8797800E5FF13 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		76CC91A21DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsByVenueViewController.swift; sourceTree = "<group>"; };
-		76CC91A41DF9C00B00E5FF13 /* NewDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDialog.swift; sourceTree = "<group>"; };
+		76CC91A41DF9C00B00E5FF13 /* FirstRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRun.swift; sourceTree = "<group>"; };
 		76CC91A61DFAA51200E5FF13 /* SetlistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetlistView.xib; sourceTree = "<group>"; };
 		76CC91A81DFAA7F400E5FF13 /* SetlistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistView.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +192,7 @@
 				7617B85F1DFC20FB002D606A /* Reachability.m */,
 				7672B86A1DD0DCA0004238EF /* DataFormatters.swift */,
 				76BDB6DB1DEDF4BB007B7461 /* UIElementsAndExtensions.swift */,
-				76CC91A41DF9C00B00E5FF13 /* NewDialog.swift */,
+				76CC91A41DF9C00B00E5FF13 /* FirstRun.swift */,
 				7617B85D1DFC20FA002D606A /* showtime-Bridging-Header.h */,
 			);
 			name = Support;
@@ -574,7 +574,7 @@
 				76CC91A91DFAA7F400E5FF13 /* SetlistView.swift in Sources */,
 				768E9E831DEE004700FA95B0 /* SetlistFMAPI+searchSetlists.swift in Sources */,
 				76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */,
-				76CC91A51DF9C00B00E5FF13 /* NewDialog.swift in Sources */,
+				76CC91A51DF9C00B00E5FF13 /* FirstRun.swift in Sources */,
 				768E9E851DEE0A7C00FA95B0 /* SetlistFMAPI+searchVenues.swift in Sources */,
 				7617B8621DFC2158002D606A /* Utils.swift in Sources */,
 				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,

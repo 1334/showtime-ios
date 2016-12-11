@@ -128,6 +128,8 @@ struct Theme {
         proxy.tableFooterView = UIView()
         proxy.separatorColor = Theme.Colors.tint.color
         proxy.separatorInset = UIEdgeInsets.zero
+        proxy.rowHeight = UITableViewAutomaticDimension
+        proxy.estimatedRowHeight = 65
     }
 
     private static  func styleTableViewCells() {

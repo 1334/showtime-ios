@@ -8,10 +8,18 @@
 
 import UIKit
 
-final class NewDialog {
+final class FirstRun {
     let context = CoreDataHelpers.viewContext
 
-    func display() -> UIAlertController {
+    func dialog(presenter: UIViewController) {
+        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") {
+            let alert = firstRunMessage()
+            presenter.present(alert, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: "FirstRunComplete")
+        }
+    }
+
+    private func firstRunMessage() -> UIAlertController {
         let alert = UIAlertController(title: "New Run", message: "We've found that there are no shows entered, what do you want to do?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Load Sample Data", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Add Concert", style: .default) { action in

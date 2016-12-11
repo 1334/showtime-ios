@@ -21,18 +21,10 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        upcomingShowsLabel.style(Theme.Styles.title.style)
-        recentShowsLabel.style(Theme.Styles.title.style)
+        FirstRun().dialog(presenter: self)
 
-        let nib = UINib(nibName: "ConcertCell", bundle: nil)
-        upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
-        recentShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
-
-        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") {
-            let alert = NewDialog().display()
-            present(alert, animated: true, completion: nil)
-            UserDefaults.standard.set(true, forKey: "FirstRunComplete")
-        }
+        setupLabels()
+        setupTableViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,10 +54,6 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
         didSelect(concert)
     }
 
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
-    }
-
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
@@ -81,7 +69,6 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
             context.saveIt()
-//            reloadData()
         }
     }
 
@@ -91,5 +78,16 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
 
         upcomingShowsTableView.reloadData()
         recentShowsTableView.reloadData()
+    }
+
+    private func setupLabels() {
+        upcomingShowsLabel.style(Theme.Styles.title.style)
+        recentShowsLabel.style(Theme.Styles.title.style)
+    }
+
+    private func setupTableViews() {
+        let nib = UINib(nibName: "ConcertCell", bundle: nil)
+        upcomingShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
+        recentShowsTableView.register(nib, forCellReuseIdentifier: "concertCell")
     }
 }
