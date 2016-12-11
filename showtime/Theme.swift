@@ -85,6 +85,7 @@ struct Theme {
         styleLabels()
         styleTextViews()
         styleImagePicker()
+        styleAlert()
     }
 
     private static func styleTabBars() {
@@ -140,6 +141,11 @@ struct Theme {
     private static func styleImagePicker() {
         let proxy = UITableViewCell.appearance(whenContainedInInstancesOf: [UIImagePickerController.self])
         proxy.backgroundColor = .white
+    }
+
+    private static func styleAlert() {
+        let proxy = UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self])
+        proxy.tintColor = Theme.Colors.background.color
     }
 }
 
