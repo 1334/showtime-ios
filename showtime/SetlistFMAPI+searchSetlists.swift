@@ -43,8 +43,8 @@ extension SetlistFmAPI {
                 completeSet.append(set)
             }
 
-            let completeSetlist: [[String]] = completeSet.map { setPart in
-                guard let songs = setPart["song"] as? [[String:Any]] else { return [] }
+            let completeSetlist: [[String]] = completeSet.flatMap { setPart in
+                guard let songs = setPart["song"] as? [[String:Any]] else { return nil }
 
                 return songs.map { $0["@name"] as! String }
             }
