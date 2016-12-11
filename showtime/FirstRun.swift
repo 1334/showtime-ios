@@ -44,25 +44,27 @@ final class FirstRun {
     }
 
     private func createArtists() {
-        _ = Artist(mbid: "5441c29d-3602-4898-b1a1-b77fa23b8e50", name: "David Bowie")
-        _ = Artist(mbid: "f37b3f31-b1f8-4b88-8cb5-b34f709b17d7", name: "Iggy Pop")
-        _ = Artist(mbid: "1253e5e9-eaa7-4ce6-81b8-09725e8cee43", name: "Iggy and the Stooges")
-        _ = Artist(mbid: "b7ffd2af-418f-4be2-bdd1-22f8b48613da", name: "Nine Inch Nails")
+        _ = Artist(mbid: "5441c29d-3602-4898-b1a1-b77fa23b8e50", name: "David Bowie", image: #imageLiteral(resourceName: "bowie"))
+        _ = Artist(mbid: "f37b3f31-b1f8-4b88-8cb5-b34f709b17d7", name: "Iggy Pop", image: #imageLiteral(resourceName: "iggy"))
+        _ = Artist(mbid: "1253e5e9-eaa7-4ce6-81b8-09725e8cee43", name: "Iggy and the Stooges", image: #imageLiteral(resourceName: "stooges"))
+        _ = Artist(mbid: "b7ffd2af-418f-4be2-bdd1-22f8b48613da", name: "Nine Inch Nails", image: #imageLiteral(resourceName: "nin"))
         _ = Artist(mbid: "3580a118-49e3-4aa1-972a-f5f0ff750dd2", name: "Alien Sex Fiend")
         _ = Artist(mbid: "e5db18cb-4b1f-496d-a308-548b611090d3", name: "Sex Pistols")
-        _ = Artist(mbid: "4d7928cd-7ed2-4282-8c29-c0c9f966f1bd", name: "Alice Cooper")
-        _ = Artist(mbid: "", name: "Ghost")
+        _ = Artist(mbid: "4d7928cd-7ed2-4282-8c29-c0c9f966f1bd", name: "Alice Cooper", image: #imageLiteral(resourceName: "alice"))
+        _ = Artist(mbid: "2bcf2e02-5bc3-4c76-bf76-41126cb11444", name: "Ghost", image: #imageLiteral(resourceName: "ghost"))
         _ = Artist(mbid: "9b7130d0-558a-4599-b721-04b68c43aaad", name: "Jarboe")
         _ = Artist(mbid: "8d936df1-9da6-4b11-87c3-7bb8fd8a62c4", name: "Michael Gira")
-        _ = Artist(mbid: "3285dc48-9505-469d-ad8a-bdf2d3dba632", name: "Swans")
-        _ = Artist(mbid: "172e1f1a-504d-4488-b053-6344ba63e6d0", name: "Nick Cave & The Bad Seeds")
+        _ = Artist(mbid: "3285dc48-9505-469d-ad8a-bdf2d3dba632", name: "Swans", image: #imageLiteral(resourceName: "swans"))
+        _ = Artist(mbid: "172e1f1a-504d-4488-b053-6344ba63e6d0", name: "Nick Cave & The Bad Seeds", image: #imageLiteral(resourceName: "cave"))
         _ = Artist(mbid: "b78346af-e3ce-4b36-a0d5-032414de8a27", name: "Peter Murphy")
-        _ = Artist(mbid: "0688add2-c282-4ee2-ba61-223ffdb3c201", name: "Bauhaus")
+        _ = Artist(mbid: "0688add2-c282-4ee2-ba61-223ffdb3c201", name: "Bauhaus", image: #imageLiteral(resourceName: "bauhaus"))
         _ = Artist(mbid: "32981181-5e3f-4160-a872-625980035593", name: "Éliane Radigue")
-        _ = Artist(mbid: "8a399a51-6b93-448e-82c0-f86c83602605", name: "Hildur Guðnadóttir")
+        _ = Artist(mbid: "8a399a51-6b93-448e-82c0-f86c83602605", name: "Hildur Guðnadóttir", image: #imageLiteral(resourceName: "hildur"))
         _ = Artist(mbid: "169c4c28-858e-497b-81a4-8bc15e0026ea", name: "Porcupine Tree")
         _ = Artist(mbid: "d9675421-ba0d-4414-af03-60d04e8ec25c", name: "Stick Men")
         _ = Artist(mbid: "e938a15c-b17e-4e7a-9f68-ff0d536cab44", name: "The Jesus and Mary Chain")
+        _ = Artist(mbid: "e53cf47c-b91f-4822-b35c-15416608b586", name: "Kitsch", image: #imageLiteral(resourceName: "kitsch"))
+        _ = Artist(mbid: "8c076101-0410-4c64-9c49-fc806cba2dc2", name: "Kitsch a la cova", image: #imageLiteral(resourceName: "kac"))
     }
 
     private func createVenues() {

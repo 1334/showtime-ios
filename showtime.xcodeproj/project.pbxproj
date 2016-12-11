@@ -64,6 +64,7 @@
 		76F245701DFD7D1F002897FB /* SubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2456F1DFD7D1F002897FB /* SubtitleCell.swift */; };
 		76F245731DFD7EFD002897FB /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F245721DFD7EFD002897FB /* DefaultCell.swift */; };
 		76F245751DFD7FEF002897FB /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F245741DFD7FEF002897FB /* RightDetailCell.swift */; };
+		76F245771DFDE265002897FB /* SampleImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F245761DFDE265002897FB /* SampleImages.xcassets */; };
 		C583764CFBBF1C12EA258FAC /* Pods_showtimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		76F2456F1DFD7D1F002897FB /* SubtitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleCell.swift; sourceTree = "<group>"; };
 		76F245721DFD7EFD002897FB /* DefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
 		76F245741DFD7FEF002897FB /* RightDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
+		76F245761DFDE265002897FB /* SampleImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SampleImages.xcassets; sourceTree = "<group>"; };
 		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
 		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -313,6 +315,7 @@
 				76E4467D1DDA48B2003D258C /* App.swift */,
 				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
 				7697F2371DF42395007C30E0 /* Theme.swift */,
+				76F245761DFDE265002897FB /* SampleImages.xcassets */,
 				76935F7B1D96CF17004CFDF0 /* Assets.xcassets */,
 				76935F801D96CF17004CFDF0 /* Info.plist */,
 			);
@@ -454,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76CC91A71DFAA51200E5FF13 /* SetlistView.xib in Resources */,
+				76F245771DFDE265002897FB /* SampleImages.xcassets in Resources */,
 				76935F7F1D96CF17004CFDF0 /* LaunchScreen.storyboard in Resources */,
 				76935F7C1D96CF17004CFDF0 /* Assets.xcassets in Resources */,
 				7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */,

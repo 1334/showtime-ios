@@ -20,6 +20,7 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var concertImage: UIImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var detailView: UIView!
     var notesView = UITextView()
@@ -68,6 +69,10 @@ class ShowConcertViewController: ShowtimeBaseViewController {
         artistLabel.style(Theme.Styles.title.style)
         venueLabel.style(Theme.Styles.subtitle.style)
         dateLabel.style(Theme.Styles.subtitle.style)
+
+        concertImage.image = concert.artist.image
+        concertImage.layer.cornerRadius =  concertImage.frame.height / 2
+        concertImage.clipsToBounds = true
 
         notesView.backgroundColor = Theme.Colors.background.color.withAlphaComponent(0.97)
     }

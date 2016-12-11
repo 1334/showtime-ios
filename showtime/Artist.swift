@@ -29,10 +29,11 @@ extension Artist {
         mbid = searchedArtist.mbid
     }
 
-    convenience init(mbid: String, name: String) {
+    convenience init(mbid: String, name: String, image: UIImage? = nil) {
         self.init(context: CoreDataHelpers.viewContext)
         self.name = name
         self.mbid = mbid
+        self.storedImage = image
     }
 
     static func predicateMatching(keyword: String) -> NSPredicate {

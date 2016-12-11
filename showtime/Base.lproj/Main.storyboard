@@ -403,6 +403,7 @@
                     <navigationItem key="navigationItem" id="QZ8-rZ-o2f"/>
                     <connections>
                         <outlet property="artistLabel" destination="8qc-ks-98a" id="KhE-hy-pSa"/>
+                        <outlet property="concertImage" destination="obf-js-K1m" id="FWM-Yy-RMo"/>
                         <outlet property="dateLabel" destination="Jdl-EH-FPy" id="BZS-qw-hx2"/>
                         <outlet property="detailView" destination="dPR-go-dLy" id="bT3-Nv-gN1"/>
                         <outlet property="segmentedControl" destination="b3N-E4-2Fp" id="MZW-D5-85g"/>
