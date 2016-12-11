@@ -21,6 +21,12 @@ class SelectVenueViewController : ShowtimeBaseTableViewController {
     var venues: [Venue]!
     var didSelectVenue: (Venue) -> () = { _ in }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.register(SubtitleCell.self, forCellReuseIdentifier: "selectVenue")
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         venues = Venue.all()
@@ -33,7 +39,7 @@ class SelectVenueViewController : ShowtimeBaseTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "knownVenue", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectVenue", for: indexPath) as! SubtitleCell
         let venue = venues[indexPath.row]
         cell.textLabel?.text = venue.name
         cell.detailTextLabel?.text = venue.city.name
