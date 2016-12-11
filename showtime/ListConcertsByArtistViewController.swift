@@ -48,14 +48,13 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "concertByArtistCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "concertByArtist", for: indexPath)
         let concert = fetchedResultController.object(at: indexPath)
 
         cell.textLabel?.text = "\(concert.venue)"
         cell.detailTextLabel?.text = "\(concert.formattedDate)"
-        cell.textLabel?.style(Theme.Styles.bold.style)
-        cell.detailTextLabel?.style(Theme.Styles.tintSmall.style)
-
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
 
@@ -80,13 +79,12 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
 
     private func setupTableView() {
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        tableView.register(RightDetailCell.self, forCellReuseIdentifier: "concertByArtist")
     }
 
     private func setupLabels() {
         artistName.text = artist.name
         imageView.image = artist.image
-        artistName.style(Theme.Styles.title.style)
-        showsLabel.style(Theme.Styles.subtitle.style)
     }
 
     @objc private func imageTapped() {

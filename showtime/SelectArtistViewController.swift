@@ -15,7 +15,7 @@ class SelectArtistViewController : ShowtimeBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "artistCell")
+        tableView.register(DefaultCell.self, forCellReuseIdentifier: "artistCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,6 @@ class SelectArtistViewController : ShowtimeBaseTableViewController {
         let artist = artists[indexPath.row]
 
         cell.textLabel?.text = artist.name
-        cell.textLabel?.style(Theme.Styles.bold.style)
 
         return cell
     }

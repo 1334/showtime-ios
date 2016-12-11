@@ -49,14 +49,13 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "concertByVenueCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "concertByVenue", for: indexPath)
         let concert = fetchedResultController.object(at: indexPath)
 
         cell.textLabel?.text = "\(concert.artist)"
         cell.detailTextLabel?.text = "\(concert.formattedDate)"
-        cell.textLabel?.style(Theme.Styles.bold.style)
-        cell.detailTextLabel?.style(Theme.Styles.tintSmall.style)
-
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
 
@@ -95,6 +94,7 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
 
     private func setupTableView() {
         fetchedResultController = NSFetchedResultsController(fetchRequest: Concert.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        tableView.register(RightDetailCell.self, forCellReuseIdentifier: "concertByVenue")
     }
 
 
