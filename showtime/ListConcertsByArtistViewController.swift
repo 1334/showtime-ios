@@ -85,6 +85,9 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     private func setupLabels() {
         artistName.text = artist.name
         imageView.image = artist.image
+
+        artistName.style(Theme.Styles.title.style)
+        showsLabel.style(Theme.Styles.subtitle.style)
     }
 
     @objc private func imageTapped() {
