@@ -12,7 +12,7 @@ final class FirstRun {
     let context = CoreDataHelpers.viewContext
 
     func dialog(presenter: UIViewController, callback: @escaping () -> ()) {
-        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") {
+        if !UserDefaults.standard.bool(forKey: "FirstRunComplete") || ProcessInfo().arguments.contains("isTestingFirstRun")  {
             let alert = firstRunMessage(callback: callback)
             presenter.present(alert, animated: true)
             UserDefaults.standard.set(true, forKey: "FirstRunComplete")

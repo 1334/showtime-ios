@@ -12,7 +12,8 @@
 		760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */; };
 		760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C21DD71F2400696589 /* CoreDataHelpers.swift */; };
 		760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* CoreDataProtocols.swift */; };
-		760717911DFDEC7B00D4606A /* showtimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760717901DFDEC7B00D4606A /* showtimeUITests.swift */; };
+		760717991DFF027100D4606A /* firstRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760717981DFF027100D4606A /* firstRunTests.swift */; };
+		7607179B1DFF137400D4606A /* createConcertsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607179A1DFF137400D4606A /* createConcertsTests.swift */; };
 		7617B85B1DFB4155002D606A /* CustomArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8591DFB4155002D606A /* CustomArtistCell.swift */; };
 		7617B85C1DFB4155002D606A /* CustomArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7617B85A1DFB4155002D606A /* CustomArtistCell.xib */; };
 		7617B8601DFC20FB002D606A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7617B85F1DFC20FB002D606A /* Reachability.m */; };
@@ -93,8 +94,9 @@
 		760682C21DD71F2400696589 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		760682C41DD72E1A00696589 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
 		7607178E1DFDEC7B00D4606A /* showtimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		760717901DFDEC7B00D4606A /* showtimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showtimeUITests.swift; sourceTree = "<group>"; };
 		760717921DFDEC7B00D4606A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		760717981DFF027100D4606A /* firstRunTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstRunTests.swift; sourceTree = "<group>"; };
+		7607179A1DFF137400D4606A /* createConcertsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createConcertsTests.swift; sourceTree = "<group>"; };
 		7617B8591DFB4155002D606A /* CustomArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomArtistCell.swift; sourceTree = "<group>"; };
 		7617B85A1DFB4155002D606A /* CustomArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomArtistCell.xib; sourceTree = "<group>"; };
 		7617B85D1DFC20FA002D606A /* showtime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "showtime-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -269,7 +271,8 @@
 		7607178F1DFDEC7B00D4606A /* showtimeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				760717901DFDEC7B00D4606A /* showtimeUITests.swift */,
+				760717981DFF027100D4606A /* firstRunTests.swift */,
+				7607179A1DFF137400D4606A /* createConcertsTests.swift */,
 				760717921DFDEC7B00D4606A /* Info.plist */,
 			);
 			path = showtimeUITests;
@@ -635,7 +638,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				760717911DFDEC7B00D4606A /* showtimeUITests.swift in Sources */,
+				7607179B1DFF137400D4606A /* createConcertsTests.swift in Sources */,
+				760717991DFF027100D4606A /* firstRunTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,6 +944,7 @@
 				760717961DFDEC7B00D4606A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76935F6C1D96CF17004CFDF0 /* Build configuration list for PBXProject "showtime" */ = {
 			isa = XCConfigurationList;
