@@ -24,13 +24,13 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
             tableView.reloadData()
         } else {
             SetlistFmStore().searchVenue(name: searchText) { result in
-                switch result {
-                case let .success(foundVenues):
-                    self.venues = foundVenues
-                case .failure:
-                    self.venues = []
-                }
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
+                    switch result {
+                    case let .success(foundVenues):
+                        self.venues = foundVenues
+                    case .failure:
+                        self.venues = []
+                    }
                     self.tableView.reloadData()
                 }
             }

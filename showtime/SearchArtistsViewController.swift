@@ -36,13 +36,13 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count >= 2 {
             SetlistFmStore().searchArtists(keyword: searchText) { result in
-                switch result {
-                case let .success(foundArtists):
-                    self.artists = foundArtists
-                case .failure:
-                    self.artists = []
-                }
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
+                    switch result {
+                    case let .success(foundArtists):
+                        self.artists = foundArtists
+                    case .failure:
+                        self.artists = []
+                    }
                     self.tableView.reloadData()
                 }
             }
