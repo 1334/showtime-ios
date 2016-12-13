@@ -278,6 +278,17 @@
 			path = showtimeUITests;
 			sourceTree = "<group>";
 		};
+		760717C11E008B9900D4606A /* Init/Setup */ = {
+			isa = PBXGroup;
+			children = (
+				76E4467D1DDA48B2003D258C /* App.swift */,
+				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
+				7697F2371DF42395007C30E0 /* Theme.swift */,
+				76935F801D96CF17004CFDF0 /* Info.plist */,
+			);
+			name = Init/Setup;
+			sourceTree = "<group>";
+		};
 		765652DB1DEB4E6700293E4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +347,7 @@
 		76935F731D96CF17004CFDF0 /* showtime */ = {
 			isa = PBXGroup;
 			children = (
+				760717C11E008B9900D4606A /* Init/Setup */,
 				76E16F0B1DDE236A00EC7ACE /* API */,
 				7606828D1DD4F88400696589 /* CoreData */,
 				765652DB1DEB4E6700293E4F /* Models */,
@@ -344,12 +356,8 @@
 				765936901DF1FC8B0053B3EE /* Utility */,
 				7606828C1DD4EE0B00696589 /* ViewControllers */,
 				7688B1841DE9D81F00C9B1B8 /* Views */,
-				76E4467D1DDA48B2003D258C /* App.swift */,
-				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
-				7697F2371DF42395007C30E0 /* Theme.swift */,
 				76F245761DFDE265002897FB /* SampleImages.xcassets */,
 				76935F7B1D96CF17004CFDF0 /* Assets.xcassets */,
-				76935F801D96CF17004CFDF0 /* Info.plist */,
 			);
 			path = showtime;
 			sourceTree = "<group>";
