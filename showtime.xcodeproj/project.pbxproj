@@ -31,7 +31,6 @@
 		7659368F1DF1FC790053B3EE /* ConcertScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659368E1DF1FC790053B3EE /* ConcertScope.swift */; };
 		765936921DF1FE5E0053B3EE /* ListArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765936911DF1FE5E0053B3EE /* ListArtistsViewController.swift */; };
 		765936941DF367450053B3EE /* ListConcertsByArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765936931DF367450053B3EE /* ListConcertsByArtistViewController.swift */; };
-		7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B8681DD0DC46004238EF /* SegueHandlerType.swift */; };
 		7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672B86A1DD0DCA0004238EF /* DataFormatters.swift */; };
 		7688B17D1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */; };
 		768E9E7F1DEDFBBA00FA95B0 /* SearchedVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */; };
@@ -116,7 +115,6 @@
 		7659368E1DF1FC790053B3EE /* ConcertScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcertScope.swift; sourceTree = "<group>"; };
 		765936911DF1FE5E0053B3EE /* ListArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListArtistsViewController.swift; sourceTree = "<group>"; };
 		765936931DF367450053B3EE /* ListConcertsByArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConcertsByArtistViewController.swift; sourceTree = "<group>"; };
-		7672B8681DD0DC46004238EF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		7672B86A1DD0DCA0004238EF /* DataFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatters.swift; sourceTree = "<group>"; };
 		7688B17C1DE4DE1100C9B1B8 /* SearchArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchArtistsViewController.swift; sourceTree = "<group>"; };
 		768E9E7E1DEDFBBA00FA95B0 /* SearchedVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedVenue.swift; sourceTree = "<group>"; };
@@ -228,14 +226,6 @@
 				7617B85D1DFC20FA002D606A /* showtime-Bridging-Header.h */,
 			);
 			name = Support;
-			sourceTree = "<group>";
-		};
-		7606828B1DD4EDF900696589 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				7672B8681DD0DC46004238EF /* SegueHandlerType.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		7606828C1DD4EE0B00696589 /* ViewControllers */ = {
@@ -351,7 +341,6 @@
 				76E16F0B1DDE236A00EC7ACE /* API */,
 				7606828D1DD4F88400696589 /* CoreData */,
 				765652DB1DEB4E6700293E4F /* Models */,
-				7606828B1DD4EDF900696589 /* Protocols */,
 				7606828A1DD4EDE400696589 /* Support */,
 				765936901DF1FC8B0053B3EE /* Utility */,
 				7606828C1DD4EE0B00696589 /* ViewControllers */,
@@ -692,7 +681,6 @@
 				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
 				768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
-				7672B8691DD0DC46004238EF /* SegueHandlerType.swift in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
 				76F245751DFD7FEF002897FB /* RightDetailCell.swift in Sources */,
 				7617B8601DFC20FB002D606A /* Reachability.m in Sources */,
