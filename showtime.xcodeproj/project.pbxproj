@@ -258,14 +258,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		7606828D1DD4F88400696589 /* Core Data */ = {
+		7606828D1DD4F88400696589 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				760682C21DD71F2400696589 /* CoreDataHelpers.swift */,
 				7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */,
 				760682C41DD72E1A00696589 /* CoreDataProtocols.swift */,
 			);
-			name = "Core Data";
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		7607178F1DFDEC7B00D4606A /* showtimeUITests */ = {
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				76E16F0B1DDE236A00EC7ACE /* API */,
-				7606828D1DD4F88400696589 /* Core Data */,
+				7606828D1DD4F88400696589 /* CoreData */,
 				765652DB1DEB4E6700293E4F /* Models */,
 				7606828B1DD4EDF900696589 /* Protocols */,
 				7606828A1DD4EDE400696589 /* Support */,
