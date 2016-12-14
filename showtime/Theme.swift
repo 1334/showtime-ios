@@ -75,8 +75,7 @@ struct Theme {
     }
 
     static func apply() {
-        UIWindow.appearance().backgroundColor = Theme.Colors.background.color
-        SetlistView.appearance().backgroundColor = Theme.Colors.background.color
+        styleBackgrounds()
         styleTabBars()
         styleNavBars()
         styleTableViews()
@@ -86,6 +85,11 @@ struct Theme {
         styleTextViews()
         styleImagePicker()
         styleAlert()
+    }
+
+    private static func styleBackgrounds() {
+        UIWindow.appearance().backgroundColor = Theme.Colors.background.color
+        SetlistView.appearance().backgroundColor = Theme.Colors.background.color
     }
 
     private static func styleTabBars() {
