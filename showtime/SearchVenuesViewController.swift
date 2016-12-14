@@ -12,6 +12,7 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
     var searchBar: UISearchBar!
     var venues = [SearchedVenue]()
     var didSelectVenue: (SearchedVenue) -> () = { _ in }
+    private var timer = Timer()
 
     override func viewDidLoad() {
         setupSearchBar()
@@ -19,27 +20,18 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            venues = []
-            tableView.reloadData()
+        if timer.isValid {
+            timer.invalidate()
+            timer = startTimer()
         } else {
-            SetlistFmStore().searchVenue(name: searchText) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case let .success(foundVenues):
-                        self.venues = foundVenues
-                    case .failure:
-                        self.venues = []
-                    }
-                    self.tableView.reloadData()
-                }
-            }
+            timer = startTimer()
         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return venues.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchedVenue") as! SubtitleCell
         let venue = venues[indexPath.row]
@@ -54,6 +46,8 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
         didSelectVenue(searchedVenue)
     }
 
+    // MARK: Private section
+
     private func setupSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -64,6 +58,31 @@ class SearchVenuesViewController: ShowtimeBaseTableViewController, UISearchBarDe
     private func setupTableView() {
         tableView.register(SubtitleCell.self, forCellReuseIdentifier: "searchedVenue")
         tableView.tableHeaderView = searchBar
+    }
+
+    private func startTimer() -> Timer {
+        return Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(searchVenues), userInfo: nil, repeats: false)
+    }
+
+    @objc private func searchVenues() {
+        guard let searchText = searchBar.text else { return }
+
+        if searchText.characters.count >= 2 {
+            SetlistFmStore().searchVenue(name: searchText) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case let .success(foundVenues):
+                        self.venues = foundVenues
+                    case .failure:
+                        self.venues = []
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            venues = []
+            tableView.reloadData()
+        }
     }
 }
 

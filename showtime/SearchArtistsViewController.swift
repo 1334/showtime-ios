@@ -21,6 +21,7 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
     var newArtistCell: CustomArtistCell!
     var didSelectArtist: (SearchedArtist) -> () = { _ in }
     var didCreateArtist: (String) -> () = { _ in }
+    private var timer = Timer()
 
     override func viewDidLoad() {
         setupSearchBar()
@@ -34,23 +35,12 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count >= 2 {
-            SetlistFmStore().searchArtists(keyword: searchText) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case let .success(foundArtists):
-                        self.artists = foundArtists
-                    case .failure:
-                        self.artists = []
-                    }
-                    self.tableView.reloadData()
-                }
-            }
+        if timer.isValid {
+            timer.invalidate()
+            timer = startTimer()
         } else {
-            artists = []
-            tableView.reloadData()
+            timer = startTimer()
         }
-        newArtistCell.artistName.text = searchText
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,5 +103,31 @@ class SearchArtistsViewController: ShowtimeBaseTableViewController, UISearchBarD
         tableView.register(SubtitleCell.self, forCellReuseIdentifier: "foundArtist")
         tableView.estimatedRowHeight = CGFloat(Theme.Constants.estimatedRowHeight.rawValue)
         tableView.tableHeaderView = searchBar
+    }
+
+    private func startTimer() -> Timer {
+        return Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(searchArtists), userInfo: nil, repeats: false)
+    }
+
+    @objc private func searchArtists() {
+        guard let searchText = searchBar.text else { return }
+
+        if searchText.characters.count >= 2 {
+            SetlistFmStore().searchArtists(keyword: searchText) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case let .success(foundArtists):
+                        self.artists = foundArtists
+                    case .failure:
+                        self.artists = []
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            artists = []
+            tableView.reloadData()
+        }
+        newArtistCell.artistName.text = searchText
     }
 }
