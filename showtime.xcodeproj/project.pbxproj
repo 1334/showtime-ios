@@ -155,7 +155,6 @@
 		76F245721DFD7EFD002897FB /* DefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
 		76F245741DFD7FEF002897FB /* RightDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
 		76F245761DFDE265002897FB /* SampleImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SampleImages.xcassets; sourceTree = "<group>"; };
-		76F74B211DD24F32005CEA32 /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DVR.framework; sourceTree = "<group>"; };
 		B1154AF36871128223D6D9E1 /* Pods_showtime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showtimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F1DCE78CC84402AEEC4A64 /* Pods-showtime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showtime/Pods-showtime.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,7 +207,6 @@
 			children = (
 				7617B8631DFC233E002D606A /* SystemConfiguration.framework */,
 				76CC91A01DF8797800E5FF13 /* MapKit.framework */,
-				76F74B211DD24F32005CEA32 /* DVR.framework */,
 				B1154AF36871128223D6D9E1 /* Pods_showtime.framework */,
 				D09154557729AB23B60FF804 /* Pods_showtimeTests.framework */,
 			);
