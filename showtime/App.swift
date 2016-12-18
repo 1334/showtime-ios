@@ -52,7 +52,7 @@ class App {
 
     func concertCreated(concert: Concert) {
         rootVC.selectedIndex = 1
-        concertsNC.popToRootViewController(animated: true)
+        _ = rootVC.currentNavigationController?.popToRootViewController(animated: true)
         showConcert(concert: concert)
     }
 
@@ -101,7 +101,6 @@ class App {
         concertVC.concert = concert
 
         rootVC.currentNavigationController?.pushViewController(concertVC, animated: true)
-
     }
 
     func showConcertsForArtist(artist: Artist) {
