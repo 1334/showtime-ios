@@ -16,6 +16,10 @@ struct UIElements {
 
         presenter.present(alert, animated: true, completion: nil)
     }
+
+    static func backButtonItem() -> UIBarButtonItem {
+        return UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+    }
 }
 
 extension UIView {

@@ -201,6 +201,7 @@ class App {
         vc.didSelectArtist = artistSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchArtists))
         vc.title = "Select existing artist"
+        vc.navigationItem.backBarButtonItem = UIElements.backButtonItem()
         return vc
     }
 
@@ -209,6 +210,7 @@ class App {
         vc.didSelectVenue = venueSelected
         vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushSearchVenues))
         vc.title = "Select existing venue"
+        vc.navigationItem.backBarButtonItem = UIElements.backButtonItem()
         return vc
     }
 }
