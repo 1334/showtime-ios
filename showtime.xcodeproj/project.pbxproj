@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B4B78C17B6664003F8E47F2 /* Pods_showtime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1154AF36871128223D6D9E1 /* Pods_showtime.framework */; };
+		760405471E1135D10075A220 /* SetlistFMAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760405461E1135D10075A220 /* SetlistFMAPITests.swift */; };
 		760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682881DD4D63F00696589 /* SelectArtistViewController.swift */; };
 		760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */; };
 		760682C31DD71F2400696589 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C21DD71F2400696589 /* CoreDataHelpers.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		4B1B1454EC916C90D5A2715F /* Pods-showtimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showtimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-showtimeTests/Pods-showtimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		760405461E1135D10075A220 /* SetlistFMAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFMAPITests.swift; sourceTree = "<group>"; };
 		760682881DD4D63F00696589 /* SelectArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectArtistViewController.swift; sourceTree = "<group>"; };
 		7606828F1DD4F89F00696589 /* Showtime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Showtime.xcdatamodel; sourceTree = "<group>"; };
 		760682C21DD71F2400696589 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				76D354081D98545F00723A61 /* Info.plist */,
 				76E16F061DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift */,
 				76E16F081DDE1B2C00EC7ACE /* showtimeTests-Bridging-Header.h */,
+				760405461E1135D10075A220 /* SetlistFMAPITests.swift */,
 			);
 			path = showtimeTests;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				760405471E1135D10075A220 /* SetlistFMAPITests.swift in Sources */,
 				76E16F071DDE1ACF00EC7ACE /* SetlistFmAPISpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
