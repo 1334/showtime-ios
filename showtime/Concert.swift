@@ -6,6 +6,7 @@
 //  Copyright © 2016 UOC. All rights reserved.
 //
 
+import UIKit
 import CoreData
 
 @objc(Concert)
@@ -17,6 +18,11 @@ class Concert: NSManagedObject {
     @NSManaged var notes: String?
     @NSManaged var setlist: String?
     @NSManaged var setlistUpdatedAt: Date?
+    @NSManaged var storedImage: UIImage?
+
+    var image: UIImage {
+        return storedImage ?? #imageLiteral(resourceName: "concertPlaceHolder")
+    }
 
     var formattedDate: String  {
         let df = DateFormatter()

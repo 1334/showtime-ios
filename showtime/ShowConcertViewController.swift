@@ -41,6 +41,7 @@ class ShowConcertViewController: ShowtimeBaseViewController {
 
         setupLabels()
         setupSegmentedControlView(segmentedControl: segmentedControl)
+        setupImageView()
     }
 
     // dismiss the keyboard when clicking outside
@@ -69,10 +70,6 @@ class ShowConcertViewController: ShowtimeBaseViewController {
         artistLabel.style(Theme.Styles.title.style)
         venueLabel.style(Theme.Styles.subtitle.style)
         dateLabel.style(Theme.Styles.subtitle.style)
-
-        concertImage.image = concert.artist.image
-        concertImage.layer.cornerRadius =  concertImage.frame.height / 2
-        concertImage.clipsToBounds = true
 
         notesView.backgroundColor = Theme.Colors.background.color.withAlphaComponent(0.97)
     }
@@ -117,6 +114,19 @@ class ShowConcertViewController: ShowtimeBaseViewController {
         }
     }
 
+    private func setupImageView() {
+        concertImage.image = concert.image
+        concertImage.layer.borderColor = Theme.Colors.tint.color.cgColor
+        concertImage.layer.borderWidth = 1
+        concertImage.layer.cornerRadius =  concertImage.frame.height / 2
+        concertImage.clipsToBounds = true
+
+        // add gesture recognizer
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        concertImage.isUserInteractionEnabled = true
+        concertImage.addGestureRecognizer(recognizer)
+    }
+
     @objc private func retrieveSetlist() {
         SetlistFmStore().searchSetlist(artist: concert.artist.name, date: concert.date) { result in
             switch result {
@@ -130,6 +140,19 @@ class ShowConcertViewController: ShowtimeBaseViewController {
                 self.setupSetlistView()
             }
         }
+    }
+
+    @objc private func imageTapped() {
+        let actionSheet = UIAlertController(title: "Concert Image", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+
+            self.present(picker, animated: true, completion: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
     }
 
 }
@@ -166,4 +189,29 @@ extension ShowConcertViewController: UITextViewDelegate {
         }
         context.saveIt()
     }
+}
+
+extension ShowConcertViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        DispatchQueue.main.async {
+            guard let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else { return }
+            if let image = self.resizeImage(originalImage) {
+                self.concertImage.image = image
+                self.concert.storedImage = image
+                self.context.saveIt()
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
+    private func resizeImage(_ image: UIImage) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: 128, height: 128)
+        UIGraphicsBeginImageContext(rect.size)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
+    
 }
