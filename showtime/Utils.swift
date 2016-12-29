@@ -18,7 +18,17 @@ final class Utils {
     }
 
     class func resizeImage(_ image: UIImage) -> UIImage? {
-        let rect = CGRect(x: 0, y: 0, width: 128, height: 128)
+        let imageWidth = Int(image.size.width)
+        let imageHeight = Int(image.size.height)
+        let longSize = 128
+        var rect: CGRect
+
+        if imageWidth > imageHeight {
+            rect = CGRect(x: 0, y: 0, width: longSize, height: longSize*imageHeight/imageWidth)
+        } else {
+            rect = CGRect(x: 0, y: 0, width: longSize*imageWidth/imageHeight, height: longSize*imageHeight/imageWidth)
+        }
+
         UIGraphicsBeginImageContext(rect.size)
         image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
