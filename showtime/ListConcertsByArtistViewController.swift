@@ -91,15 +91,7 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     }
 
     @objc private func imageTapped() {
-        let actionSheet = UIAlertController(title: "Artist Image", message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
-            let picker = UIImagePickerController()
-            picker.sourceType = .photoLibrary
-            picker.delegate = self
-
-            self.present(picker, animated: true, completion: nil)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let actionSheet = UIElements.concertAndArtistImagePicker(title: "Artist Image", presenter: self)
         present(actionSheet, animated: true, completion: nil)
     }
 }

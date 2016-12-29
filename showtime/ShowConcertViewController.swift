@@ -143,15 +143,7 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     }
 
     @objc private func imageTapped() {
-        let actionSheet = UIAlertController(title: "Concert Image", message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Select image from library", style: .default, handler: { action in
-            let picker = UIImagePickerController()
-            picker.sourceType = .photoLibrary
-            picker.delegate = self
-
-            self.present(picker, animated: true, completion: nil)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let actionSheet = UIElements.concertAndArtistImagePicker(title: "Concert Image", presenter: self)
         present(actionSheet, animated: true, completion: nil)
     }
 
@@ -195,7 +187,7 @@ extension ShowConcertViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         DispatchQueue.main.async {
             guard let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else { return }
-            if let image = self.resizeImage(originalImage) {
+            if let image = Utils.resizeImage(originalImage) {
                 self.concertImage.image = image
                 self.concert.storedImage = image
                 self.context.saveIt()
@@ -203,15 +195,4 @@ extension ShowConcertViewController: UIImagePickerControllerDelegate, UINavigati
         }
         dismiss(animated: true, completion: nil)
     }
-
-    private func resizeImage(_ image: UIImage) -> UIImage? {
-        let rect = CGRect(x: 0, y: 0, width: 128, height: 128)
-        UIGraphicsBeginImageContext(rect.size)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage
-    }
-    
 }
