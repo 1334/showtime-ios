@@ -7,6 +7,7 @@
 //
 
 import SystemConfiguration
+import UIKit
 
 final class Utils {
     class func isInternetAvailable() -> Bool {
@@ -14,5 +15,15 @@ final class Utils {
         let networkStatus = networkReachability?.currentReachabilityStatus()
 
         return !(networkStatus == NotReachable)
+    }
+
+    class func resizeImage(_ image: UIImage) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: 128, height: 128)
+        UIGraphicsBeginImageContext(rect.size)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
     }
 }
