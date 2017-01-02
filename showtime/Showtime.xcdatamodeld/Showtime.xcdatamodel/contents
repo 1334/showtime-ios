@@ -3,6 +3,7 @@
     <entity name="Artist" representedClassName="Artist" syncable="YES">
         <attribute name="mbid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="sortName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="storedImage" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="concerts" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="artist" inverseEntity="Concert" syncable="YES"/>
     </entity>
@@ -35,7 +36,7 @@
         <relationship name="concerts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Concert" inverseName="venue" inverseEntity="Concert" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Artist" positionX="-36" positionY="-207" width="128" height="103"/>
+        <element name="Artist" positionX="-36" positionY="-207" width="128" height="120"/>
         <element name="City" positionX="160" positionY="-36" width="128" height="103"/>
         <element name="Concert" positionX="-360" positionY="-144" width="128" height="150"/>
         <element name="Country" positionX="367" positionY="-39" width="128" height="88"/>

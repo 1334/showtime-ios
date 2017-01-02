@@ -62,7 +62,7 @@ final class FirstRun {
         _ = Artist(mbid: "8a399a51-6b93-448e-82c0-f86c83602605", name: "Hildur Guðnadóttir", image: #imageLiteral(resourceName: "hildur"))
         _ = Artist(mbid: "169c4c28-858e-497b-81a4-8bc15e0026ea", name: "Porcupine Tree")
         _ = Artist(mbid: "d9675421-ba0d-4414-af03-60d04e8ec25c", name: "Stick Men")
-        _ = Artist(mbid: "e938a15c-b17e-4e7a-9f68-ff0d536cab44", name: "The Jesus and Mary Chain")
+        _ = Artist(mbid: "e938a15c-b17e-4e7a-9f68-ff0d536cab44", name: "The Jesus and Mary Chain", sortName: "Jesus and Mary Chain, The")
         _ = Artist(mbid: "e53cf47c-b91f-4822-b35c-15416608b586", name: "Kitsch", image: #imageLiteral(resourceName: "kitsch"))
         _ = Artist(mbid: "8c076101-0410-4c64-9c49-fc806cba2dc2", name: "Kitsch a la cova", image: #imageLiteral(resourceName: "kac"))
     }

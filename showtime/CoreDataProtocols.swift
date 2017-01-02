@@ -25,8 +25,8 @@ extension ManagedObjectType where Self: NSManagedObject {
 
     static var sortedFetchRequest: NSFetchRequest<Self> {
         let request = NSFetchRequest<Self>(entityName: entityName)
-        request.sortDescriptors = defaultSortDescriptors
-        request.predicate = defaultPredicate
+        request.sortDescriptors = self.defaultSortDescriptors
+        request.predicate = self.defaultPredicate
         return request
     }
 

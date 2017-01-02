@@ -13,6 +13,7 @@ import CoreData
 class Artist: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var mbid: String?
+    @NSManaged var sortName: String
     @NSManaged var concerts: [Concert]
     @NSManaged var storedImage: UIImage?
 
@@ -27,13 +28,15 @@ extension Artist {
     func update(from searchedArtist: SearchedArtist) {
         name = searchedArtist.name
         mbid = searchedArtist.mbid
+        sortName = searchedArtist.sortName ?? searchedArtist.name
     }
 
-    convenience init(mbid: String, name: String, image: UIImage? = nil) {
+    convenience init(mbid: String, name: String, image: UIImage? = nil, sortName: String? = nil) {
         self.init(context: CoreDataHelpers.viewContext)
         self.name = name
         self.mbid = mbid
         self.storedImage = image
+        self.sortName = sortName ?? name
     }
 
     static func predicateMatching(keyword: String) -> NSPredicate {
@@ -44,5 +47,9 @@ extension Artist {
 extension Artist: NamedManagedObjectType {
     static var entityName: String {
         return "Artist"
+    }
+
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "sortName", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare))]
     }
 }
