@@ -18,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let container = NSPersistentContainer(name: "Showtime")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            // if we can't load the persisten store we better crash early, as there's nothing to do.
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                if let rvc = self.window?.rootViewController {
+                    UIElements.errorAlert(title: "Couldn't load the Persistent Store", message: "Unresolved error \(error), \(error.userInfo)", presenter: rvc)
+                }
+                fatalError("Couldn't load the Persistent Store.\nUnresolved error \(error), \(error.userInfo)")
             }
         })
         return container
