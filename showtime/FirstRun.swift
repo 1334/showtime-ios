@@ -19,6 +19,8 @@ final class FirstRun {
         }
     }
 
+    // MARK: Private section
+
     private func firstRunMessage(callback: @escaping () -> ()) -> UIAlertController {
         let alert = UIAlertController(title: "New Run", message: "We've found that there are no shows entered, what do you want to do?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Load Sample Data", style: .default) { _ in
@@ -36,11 +38,6 @@ final class FirstRun {
         alert.addAction(UIAlertAction(title: "Nothing", style: .cancel, handler: nil))
 
         return alert
-    }
-
-    struct FRArtist {
-        let mbid: String
-        let name: String
     }
 
     private func createArtists() {
