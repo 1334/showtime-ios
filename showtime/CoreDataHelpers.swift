@@ -26,7 +26,10 @@ extension NSManagedObjectContext {
             do {
                 try save()
             } catch {
-                fatalError("Error saving \(self.description) context! \(error)")
+                if let presenter = UIApplication.shared.keyWindow?.rootViewController {
+                    UIElements.errorAlert(title: "Couldn't save Core Data context", message: "Error saving \(self.description) context! \(error)", presenter: presenter)
+                }
+                NSLog("Error saving \(self.description) context! \(error)")
             }
         }
     }
