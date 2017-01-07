@@ -8,7 +8,7 @@
 
 import UIKit
 
-class App {
+class AppNavigation {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let rootVC: UITabBarController
     var dashboardNC = UINavigationController()

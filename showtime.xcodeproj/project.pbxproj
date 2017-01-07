@@ -60,7 +60,7 @@
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */; };
 		76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */; };
-		76E4467E1DDA48B2003D258C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4467D1DDA48B2003D258C /* App.swift */; };
+		76E4467E1DDA48B2003D258C /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4467D1DDA48B2003D258C /* AppNavigation.swift */; };
 		76F245701DFD7D1F002897FB /* SubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2456F1DFD7D1F002897FB /* SubtitleCell.swift */; };
 		76F245731DFD7EFD002897FB /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F245721DFD7EFD002897FB /* DefaultCell.swift */; };
 		76F245751DFD7FEF002897FB /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F245741DFD7FEF002897FB /* RightDetailCell.swift */; };
@@ -146,7 +146,7 @@
 		76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmAPI.swift; sourceTree = "<group>"; };
 		76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmStore.swift; sourceTree = "<group>"; };
 		76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedArtist.swift; sourceTree = "<group>"; };
-		76E4467D1DDA48B2003D258C /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		76E4467D1DDA48B2003D258C /* AppNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		76F2456F1DFD7D1F002897FB /* SubtitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleCell.swift; sourceTree = "<group>"; };
 		76F245721DFD7EFD002897FB /* DefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
 		76F245741DFD7FEF002897FB /* RightDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
@@ -225,6 +225,7 @@
 		7606828D1DD4F88400696589 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7659368E1DF1FC790053B3EE /* ConcertScope.swift */,
 				760682C21DD71F2400696589 /* CoreDataHelpers.swift */,
 				7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */,
 				760682C41DD72E1A00696589 /* CoreDataProtocols.swift */,
@@ -245,7 +246,7 @@
 		760717C11E008B9900D4606A /* Init/Setup */ = {
 			isa = PBXGroup;
 			children = (
-				76E4467D1DDA48B2003D258C /* App.swift */,
+				76E4467D1DDA48B2003D258C /* AppNavigation.swift */,
 				76935F741D96CF17004CFDF0 /* AppDelegate.swift */,
 				76CC91A41DF9C00B00E5FF13 /* FirstRun.swift */,
 				7697F2371DF42395007C30E0 /* Theme.swift */,
@@ -260,7 +261,6 @@
 				765652D91DEB4E3F00293E4F /* Artist.swift */,
 				7659368A1DF091AF0053B3EE /* City.swift */,
 				765652D51DEB4DD500293E4F /* Concert.swift */,
-				7659368E1DF1FC790053B3EE /* ConcertScope.swift */,
 				7659368C1DF0923C0053B3EE /* Country.swift */,
 				765652D71DEB4E1B00293E4F /* Venue.swift */,
 			);
@@ -515,7 +515,7 @@
 				765652D81DEB4E1B00293E4F /* Venue.swift in Sources */,
 				7659368B1DF091AF0053B3EE /* City.swift in Sources */,
 				76CC91A31DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift in Sources */,
-				76E4467E1DDA48B2003D258C /* App.swift in Sources */,
+				76E4467E1DDA48B2003D258C /* AppNavigation.swift in Sources */,
 				7634DFF21DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift in Sources */,
 				76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */,
 				7672B86B1DD0DCA0004238EF /* DataFormatters.swift in Sources */,

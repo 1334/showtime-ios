@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var app: App?
+    var app: AppNavigation?
     lazy var container: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "Showtime")
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         if let window = window {
-            app = App(window: window)
+            app = AppNavigation(window: window)
         }
 
 //        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
