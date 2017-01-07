@@ -21,6 +21,17 @@ class SetlistFMAPITests: XCTestCase {
         }
     }
 
+    func testSearchingForVenues_GeneratesTheCorrectURL() {
+        let searchTerm = "estadi olimpic"
+        let expectedURL = URLComponents(string: "https://api.setlist.fm/rest/0.1/search/venues.json?name=estadi%20olimpic")!
+        let url = URLComponents(url: SetlistFmAPI.searchVenuesURL(keyword: searchTerm), resolvingAgainstBaseURL: false)!
+
+        XCTAssertEqual(expectedURL.host, url.host)
+        for item in expectedURL.queryItems! {
+            XCTAssert(url.queryItems!.contains(item), "\(url.queryItems!) expected to include \(item)")
+        }
+    }
+
     func testSearchingForSetlists_GeneratesTheCorrectURL() {
         let artist = "and one"
         let venue = "bikini"
