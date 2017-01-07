@@ -37,7 +37,7 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
 
     func reloadData() {
         fetchedResultController.fetchRequest.predicate = scope.predicate
-        try! fetchedResultController.performFetch()
+        try? fetchedResultController.performFetch()
 
         tableView.reloadData()
     }
