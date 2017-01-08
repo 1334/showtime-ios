@@ -9,7 +9,7 @@
 import UIKit
 
 final class FirstRun {
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
 
     func dialog(presenter: UIViewController, callback: @escaping () -> ()) {
         if !UserDefaults.standard.bool(forKey: "FirstRunComplete") || ProcessInfo().arguments.contains("isTestingFirstRun")  {

@@ -1,5 +1,5 @@
 //
-//  CoreDataHelpers.swift
+//  CoreDataStack.swift
 //  showtime
 //
 //  Created by Iñigo Solano Pàez on 10/11/2016.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoreDataHelpers {
+class CoreDataStack {
     static var container: NSPersistentContainer = {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.container

@@ -12,7 +12,7 @@ import CoreData
 
 class ListArtistsViewController: ShowtimeBaseTableViewController {
 
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
     var fetchedResultController: NSFetchedResultsController<Artist>!
     let searchController = UISearchController(searchResultsController: nil)
     var didSelect: (Artist) -> () = { _ in }

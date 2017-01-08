@@ -21,7 +21,7 @@ class AddConcertViewController: ShowtimeBaseStaticTableViewController {
     var didCreateConcert: (Concert) -> () = { _ in }
     var pickArtist: () -> () = { }
     var pickVenue: () -> () = { }
-    var context = CoreDataHelpers.viewContext
+    var context = CoreDataStack.viewContext
     private var datePickerVisible = false
     
     // MARK: Outlets

@@ -17,7 +17,7 @@ class DashboardViewContrller: ShowtimeBaseViewController, UITableViewDelegate, U
     var upcomingShows = [Concert]()
     var recentShows = [Concert]()
     var didSelect: (Concert) -> () = { _ in }
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()

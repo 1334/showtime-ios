@@ -16,7 +16,7 @@ class ListConcertsByVenueViewController: ShowtimeBaseViewController, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
 
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
     var didSelect: (Concert) -> () = { _ in }
     var venue: Venue!

@@ -70,7 +70,7 @@ extension Concert {
             concert.venue = venue
             return concert
         } else {
-            let concert = Concert(context: CoreDataHelpers.viewContext)
+            let concert = Concert(context: CoreDataStack.viewContext)
             concert.artist = artist
             concert.venue = venue
             concert.date = date
@@ -98,13 +98,13 @@ extension Concert {
 
         request.predicate = NSPredicate(format: "date < %@", argumentArray: [Date.yesterday])
         request.fetchLimit = limit
-        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
+        return (try? CoreDataStack.viewContext.fetch(request)) ?? []
     }
 
     static func upcoming(limit:Int = 5) -> [Concert] {
         let request = sortedFetchRequest
         request.predicate = NSPredicate(format: "date >= %@", argumentArray: [Date.yesterday])
         request.fetchLimit = limit
-        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
+        return (try? CoreDataStack.viewContext.fetch(request)) ?? []
     }
 }

@@ -25,7 +25,7 @@ class ShowConcertViewController: ShowtimeBaseViewController {
     @IBOutlet weak var detailView: UIView!
     var notesView = UITextView()
     var setlistView: SetlistView?
-    var context = CoreDataHelpers.viewContext
+    var context = CoreDataStack.viewContext
     let dateFormatter = DateFormatters.mediumFormatDate
 
     // MARK: Actions

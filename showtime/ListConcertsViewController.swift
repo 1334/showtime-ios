@@ -11,7 +11,7 @@ import CoreData
 
 class ListConcertsViewController: ShowtimeBaseTableViewController, NSFetchedResultsControllerDelegate {
 
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
     let searchController = UISearchController(searchResultsController: nil)
     var didSelect: (Concert) -> () = { _ in }

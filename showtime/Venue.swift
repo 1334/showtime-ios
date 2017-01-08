@@ -51,7 +51,7 @@ class Venue: NSManagedObject {
 
 extension Venue {
     convenience init(id: String, name: String, latitude: Double, longitude: Double, cityId: String, cityName: String, countryCode: String, countryName: String) {
-        self.init(context: CoreDataHelpers.viewContext)
+        self.init(context: CoreDataStack.viewContext)
         self.id = id
         self.name = name
         self.latitude = latitude

@@ -15,7 +15,7 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
 
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
     var fetchedResultController: NSFetchedResultsController<Concert>!
     var didSelect: (Concert) -> () = { _ in }
     var artist: Artist!

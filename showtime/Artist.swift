@@ -32,7 +32,7 @@ extension Artist {
     }
 
     convenience init(mbid: String, name: String, image: UIImage? = nil, sortName: String? = nil) {
-        self.init(context: CoreDataHelpers.viewContext)
+        self.init(context: CoreDataStack.viewContext)
         self.name = name
         self.mbid = mbid
         self.storedImage = image

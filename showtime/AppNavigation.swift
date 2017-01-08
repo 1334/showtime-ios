@@ -16,7 +16,7 @@ class AppNavigation {
     var artistsNC = UINavigationController()
     var venuesNC = UINavigationController()
     var addNC = UINavigationController()
-    let context = CoreDataHelpers.viewContext
+    let context = CoreDataStack.viewContext
 
     init(window: UIWindow) {
         window.tintColor = Theme.Colors.tint.color

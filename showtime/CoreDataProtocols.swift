@@ -32,13 +32,13 @@ extension ManagedObjectType where Self: NSManagedObject {
 
     static func all() -> [Self] {
         let request = Self.sortedFetchRequest
-        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
+        return (try? CoreDataStack.viewContext.fetch(request)) ?? []
     }
 
     static func find(predicate:NSPredicate) -> [Self] {
         let request = Self.sortedFetchRequest
         request.predicate = predicate
-        return (try? CoreDataHelpers.viewContext.fetch(request)) ?? []
+        return (try? CoreDataStack.viewContext.fetch(request)) ?? []
     }
 }
 
@@ -47,7 +47,7 @@ protocol NamedManagedObjectType : ManagedObjectType {
 }
 
 extension NamedManagedObjectType where Self : NSManagedObject {
-    static func named(_ name: String, context: NSManagedObjectContext = CoreDataHelpers.viewContext) -> Self {
+    static func named(_ name: String, context: NSManagedObjectContext = CoreDataStack.viewContext) -> Self {
         let predicate = NSPredicate(format: "name =[cd] %@", name)
         let result = Self.find(predicate: predicate).first
         if let result = result {
