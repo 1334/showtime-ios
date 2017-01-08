@@ -15,7 +15,7 @@ class ListConcertsViewController: ShowtimeBaseTableViewController, NSFetchedResu
     var fetchedResultController: NSFetchedResultsController<Concert>!
     let searchController = UISearchController(searchResultsController: nil)
     var didSelect: (Concert) -> () = { _ in }
-    var scope: ConcertScope = .all
+    var scope: Concert.Scope = .all
 
     override func viewDidLoad() {
         super.viewDidLoad()

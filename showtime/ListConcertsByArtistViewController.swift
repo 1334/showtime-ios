@@ -19,7 +19,7 @@ class ListConcertsByArtistViewController: ShowtimeBaseViewController, UITableVie
     var fetchedResultController: NSFetchedResultsController<Concert>!
     var didSelect: (Concert) -> () = { _ in }
     var artist: Artist!
-    var scope: ConcertScope = .all
+    var scope: Concert.Scope = .all
 
     override func viewDidLoad() {
         super.viewDidLoad()

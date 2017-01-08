@@ -78,6 +78,23 @@ extension Concert {
             return concert
         }
     }
+
+    enum Scope {
+        case all
+        case artist(Artist)
+        case venue(Venue)
+
+        var predicate: NSPredicate {
+            switch self {
+            case .all:
+                return Concert.defaultPredicate
+            case .artist(let artist):
+                return Concert.predicateFilteredBy(artist: artist)
+            case .venue(let venue):
+                return Concert.predicateFilteredBy(venue: venue)
+            }
+        }
+    }
 }
 
 extension Concert {
