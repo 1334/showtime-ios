@@ -18,16 +18,11 @@ final class Utils {
     }
 
     class func resizeImage(_ image: UIImage) -> UIImage? {
-        let imageWidth = Int(image.size.width)
-        let imageHeight = Int(image.size.height)
-        let longSize = 128
-        var rect: CGRect
-
-        if imageWidth > imageHeight {
-            rect = CGRect(x: 0, y: 0, width: longSize, height: longSize*imageHeight/imageWidth)
-        } else {
-            rect = CGRect(x: 0, y: 0, width: longSize*imageWidth/imageHeight, height: longSize*imageHeight/imageWidth)
-        }
+        let imageWidth = image.size.width
+        let imageHeight = image.size.height
+        let longSide = [imageWidth,imageHeight].max()!
+        let scale = 512 / longSide
+        let rect = CGRect(x: 0, y: 0, width: imageWidth * scale, height: imageHeight * scale)
 
         UIGraphicsBeginImageContext(rect.size)
         image.draw(in: rect)
