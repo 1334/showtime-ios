@@ -46,22 +46,6 @@ extension SetlistFmAPI {
         }
     }
 
-    static func mbidFor(artist: String) {
-        SetlistFmStore().searchArtists(keyword: artist) { result in
-            switch result {
-            case let .success(artists):
-                let matchingArtists = artists.filter { return artist.lowercased() == $0.name.lowercased() }
-                if matchingArtists.count == 1 {
-                    print("mbid found for \(matchingArtists.first!.name): \(matchingArtists.first!.mbid)")
-                } else {
-                    print("ambiguous result for \(matchingArtists.first!.name), more than one match found")
-                }
-            case .failure:
-                print("no mbid found")
-            }
-        }
-    }
-
     private static func artistFrom(json: [String:String]) -> SearchedArtist? {
         guard let mbid = json["@mbid"],
             let name = json["@name"]
