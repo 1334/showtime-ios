@@ -14,6 +14,7 @@ class DateFormatters {
         df.dateFormat = "dd/MM/yyyy"
         return df
     }
+    
     static var mediumFormatDate: DateFormatter {
         let df = DateFormatter()
         df.dateStyle = .medium
