@@ -11,7 +11,7 @@
 		760682891DD4D63F00696589 /* SelectArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682881DD4D63F00696589 /* SelectArtistViewController.swift */; };
 		760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */; };
 		760682C31DD71F2400696589 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C21DD71F2400696589 /* CoreDataStack.swift */; };
-		760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* CoreDataProtocols.swift */; };
+		760682C51DD72E1A00696589 /* ManagedObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760682C41DD72E1A00696589 /* ManagedObjectType.swift */; };
 		760717991DFF027100D4606A /* firstRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760717981DFF027100D4606A /* firstRunTests.swift */; };
 		7607179B1DFF137400D4606A /* createConcertsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7607179A1DFF137400D4606A /* createConcertsTests.swift */; };
 		7617B85B1DFB4155002D606A /* CustomArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617B8591DFB4155002D606A /* CustomArtistCell.swift */; };
@@ -56,6 +56,7 @@
 		76CC91A51DF9C00B00E5FF13 /* FirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A41DF9C00B00E5FF13 /* FirstRun.swift */; };
 		76CC91A71DFAA51200E5FF13 /* SetlistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CC91A61DFAA51200E5FF13 /* SetlistView.xib */; };
 		76CC91A91DFAA7F400E5FF13 /* SetlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC91A81DFAA7F400E5FF13 /* SetlistView.swift */; };
+		76D7FF1E1E226DB3000681C1 /* NamedManagedObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D7FF1D1E226DB3000681C1 /* NamedManagedObjectType.swift */; };
 		76E16F051DDE14FF00EC7ACE /* SetlistFmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */; };
 		76E16F0A1DDE200800EC7ACE /* SetlistFmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */; };
 		76E16F0D1DDE24B100EC7ACE /* SearchedArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */; };
@@ -88,7 +89,7 @@
 		760682881DD4D63F00696589 /* SelectArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectArtistViewController.swift; sourceTree = "<group>"; };
 		7606828F1DD4F89F00696589 /* Showtime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Showtime.xcdatamodel; sourceTree = "<group>"; };
 		760682C21DD71F2400696589 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		760682C41DD72E1A00696589 /* CoreDataProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataProtocols.swift; sourceTree = "<group>"; };
+		760682C41DD72E1A00696589 /* ManagedObjectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectType.swift; sourceTree = "<group>"; };
 		7607178E1DFDEC7B00D4606A /* showtimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		760717921DFDEC7B00D4606A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		760717981DFF027100D4606A /* firstRunTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstRunTests.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		76CC91A81DFAA7F400E5FF13 /* SetlistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistView.swift; sourceTree = "<group>"; };
 		76D354041D98545F00723A61 /* showtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = showtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D354081D98545F00723A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76D7FF1D1E226DB3000681C1 /* NamedManagedObjectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamedManagedObjectType.swift; sourceTree = "<group>"; };
 		76E16F041DDE14FF00EC7ACE /* SetlistFmAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmAPI.swift; sourceTree = "<group>"; };
 		76E16F091DDE200800EC7ACE /* SetlistFmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetlistFmStore.swift; sourceTree = "<group>"; };
 		76E16F0C1DDE24B100EC7ACE /* SearchedArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedArtist.swift; sourceTree = "<group>"; };
@@ -225,7 +227,7 @@
 			children = (
 				760682C21DD71F2400696589 /* CoreDataStack.swift */,
 				7606828E1DD4F89F00696589 /* Showtime.xcdatamodeld */,
-				760682C41DD72E1A00696589 /* CoreDataProtocols.swift */,
+				76D7FF1F1E226DB8000681C1 /* Protocols */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -320,6 +322,15 @@
 				760405461E1135D10075A220 /* SetlistFMAPITests.swift */,
 			);
 			path = showtimeTests;
+			sourceTree = "<group>";
+		};
+		76D7FF1F1E226DB8000681C1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				760682C41DD72E1A00696589 /* ManagedObjectType.swift */,
+				76D7FF1D1E226DB3000681C1 /* NamedManagedObjectType.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		76E16F0B1DDE236A00EC7ACE /* API */ = {
@@ -512,6 +523,7 @@
 				765652D81DEB4E1B00293E4F /* Venue.swift in Sources */,
 				7659368B1DF091AF0053B3EE /* City.swift in Sources */,
 				76CC91A31DF8878E00E5FF13 /* ListConcertsByVenueViewController.swift in Sources */,
+				76D7FF1E1E226DB3000681C1 /* NamedManagedObjectType.swift in Sources */,
 				76E4467E1DDA48B2003D258C /* AppNavigation.swift in Sources */,
 				7634DFF21DFC7D43002C9158 /* ShowtimeBaseViewControllers.swift in Sources */,
 				76C424E91DD89290006D5DA5 /* SelectVenueViewController.swift in Sources */,
@@ -540,7 +552,7 @@
 				76CC91A51DF9C00B00E5FF13 /* FirstRun.swift in Sources */,
 				768E9E851DEE0A7C00FA95B0 /* SetlistFMAPI+searchVenues.swift in Sources */,
 				7617B8621DFC2158002D606A /* Utils.swift in Sources */,
-				760682C51DD72E1A00696589 /* CoreDataProtocols.swift in Sources */,
+				760682C51DD72E1A00696589 /* ManagedObjectType.swift in Sources */,
 				768E9E811DEDFF2700FA95B0 /* SetlistFMAPI+searchArtists.swift in Sources */,
 				760682901DD4F89F00696589 /* Showtime.xcdatamodeld in Sources */,
 				7642FA221DCDC2880050C9EE /* AddConcertViewController.swift in Sources */,
