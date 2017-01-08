@@ -31,7 +31,7 @@ class ListArtistsViewController: ShowtimeBaseTableViewController {
 
     func reloadData(keyword: String = "") {
         if !keyword.isEmpty {
-            let predicate = Artist.predicateMatching(keyword: keyword)
+            let predicate = Artist.Scope.matching(keyword).predicate
             fetchedResultController.fetchRequest.predicate = predicate
         } else {
             fetchedResultController.fetchRequest.predicate = Artist.defaultPredicate

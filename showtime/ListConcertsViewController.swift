@@ -37,7 +37,7 @@ class ListConcertsViewController: ShowtimeBaseTableViewController, NSFetchedResu
 
     func reloadData(keyword: String = "") {
         if !keyword.isEmpty {
-            let predicate = Concert.predicateMatching(keyword: keyword)
+            let predicate = Concert.Scope.matching(keyword).predicate
             fetchedResultController.fetchRequest.predicate = predicate
         } else {
             fetchedResultController.fetchRequest.predicate = scope.predicate

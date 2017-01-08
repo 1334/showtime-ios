@@ -83,33 +83,24 @@ extension Concert {
         case all
         case artist(Artist)
         case venue(Venue)
+        case matching(String)
 
         var predicate: NSPredicate {
             switch self {
             case .all:
                 return Concert.defaultPredicate
             case .artist(let artist):
-                return Concert.predicateFilteredBy(artist: artist)
+                return NSPredicate(format: "artist == %@", artist)
             case .venue(let venue):
-                return Concert.predicateFilteredBy(venue: venue)
+                return NSPredicate(format: "venue == %@", venue)
+            case .matching(let term):
+                return NSPredicate(format: "artist.name CONTAINS[cd] %@ OR venue.name CONTAINS[cd] %@", term, term)
             }
         }
     }
 }
 
 extension Concert {
-    static func predicateMatching(keyword: String) -> NSPredicate {
-        return NSPredicate(format: "artist.name CONTAINS[cd] %@ OR venue.name CONTAINS[cd] %@", keyword, keyword)
-    }
-
-    static func predicateFilteredBy(artist: Artist) -> NSPredicate {
-        return NSPredicate(format: "artist == %@", artist)
-    }
-
-    static func predicateFilteredBy(venue: Venue) -> NSPredicate {
-        return NSPredicate(format: "venue == %@", venue)
-    }
-
     static func recent(limit:Int = 5) -> [Concert] {
         let request = sortedFetchRequest
 

@@ -22,6 +22,20 @@ class Artist: NSManagedObject {
     }
 
     override var description: String { return name }
+
+    enum Scope {
+        case all
+        case matching(String)
+
+        var predicate: NSPredicate {
+            switch self {
+            case .all:
+                return Concert.defaultPredicate
+            case .matching(let term):
+                return NSPredicate(format: "name CONTAINS[cd] %@", term)
+            }
+        }
+    }
 }
 
 extension Artist {
@@ -37,10 +51,6 @@ extension Artist {
         self.mbid = mbid
         self.storedImage = image
         self.sortName = sortName ?? name
-    }
-
-    static func predicateMatching(keyword: String) -> NSPredicate {
-        return NSPredicate(format: "name CONTAINS[cd] %@", keyword)
     }
 }
 
