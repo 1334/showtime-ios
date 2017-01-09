@@ -31,7 +31,9 @@ extension SetlistFmAPI {
                 let sets = setlist["sets"] as? [String:Any]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
-            let updatedAt = DateFormatters.updatedAt.date(from: setlist["@lastUpdated"] as! String)!
+            guard let updatedAtString = setlist["@lastUpdated"] as? String,
+                let updatedAt = DateFormatters.updatedAt.date(from: updatedAtString)
+                else { return .failure(SetlistFmError.invalidJSONData) }
 
             var completeSet = [[String:Any]]()
 
