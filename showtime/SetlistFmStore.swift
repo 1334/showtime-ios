@@ -31,11 +31,7 @@ class SetlistFmStore {
     }
 
     func searchSetlist(artist: String, date: Date, completion: @escaping (SearchSetlistResult) -> Void) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        let dateString = formatter.string(from: date)
-
-        let url = SetlistFmAPI.searchSetlistURL(artist: artist, date: dateString)
+        let url = SetlistFmAPI.searchSetlistURL(artist: artist, date: date)
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { data, response, error in
             guard let jsonData = data else { return }

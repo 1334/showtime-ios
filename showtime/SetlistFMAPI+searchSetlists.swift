@@ -10,12 +10,16 @@ import Foundation
 
 extension SetlistFmAPI {
 
-    static func searchSetlistURL(artist: String, venue: String, date: String) -> URL {
-        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "venueName": venue, "date": date])
+    static func searchSetlistURL(artist: String, venue: String, date: Date) -> URL {
+        let stringDate = DateFormatters.searchSetlist.string(from: date)
+
+        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "venueName": venue, "date": stringDate])
     }
 
-    static func searchSetlistURL(artist: String, date: String) -> URL {
-        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "date": date])
+    static func searchSetlistURL(artist: String, date: Date) -> URL {
+        let stringDate = DateFormatters.searchSetlist.string(from: date)
+
+        return setlistFmURL(method: .searchSetlist, params: ["artistName": artist, "date": stringDate])
     }
 
     static func searchSetlist(data: Data) -> SearchSetlistResult {
@@ -27,9 +31,7 @@ extension SetlistFmAPI {
                 let sets = setlist["sets"] as? [String:Any]
                 else { return .failure(SetlistFmError.invalidJSONData) }
 
-            let updatetAtFormatter = DateFormatter()
-            updatetAtFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-            let updatedAt = updatetAtFormatter.date(from: setlist["@lastUpdated"] as! String)!
+            let updatedAt = DateFormatters.updatedAt.date(from: setlist["@lastUpdated"] as! String)!
 
             var completeSet = [[String:Any]]()
 
@@ -54,6 +56,21 @@ extension SetlistFmAPI {
         } catch let error {
             return .failure(error)
         }
+    }
+
+    private enum DateFormatters {
+        static let searchSetlist: DateFormatter = {
+            let df = DateFormatter()
+            df.dateFormat = "dd-MM-yyyy"
+
+            return df
+        }()
+        static let updatedAt: DateFormatter = {
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+
+            return df
+        }()
     }
     
 }
