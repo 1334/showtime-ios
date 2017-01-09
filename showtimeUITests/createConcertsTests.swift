@@ -21,7 +21,7 @@ class createConcertsTests: XCTestCase {
         }
     }
 
-    func testExample() {
+    func testCreateAConcert() {
 
         let tablesQuery = app.tables
         app.tabBars.buttons["Add Concert"].tap()
