@@ -35,7 +35,9 @@ class SetlistFMAPITests: XCTestCase {
     func testSearchingForSetlists_GeneratesTheCorrectURL() {
         let artist = "and one"
         let venue = "bikini"
-        let date = "30-09-2016"
+        let stringDate = "30-09-2016"
+        let date = DateFormatters.dateParser.date(from: stringDate)!
+        
         let expectedURL = URLComponents(string: "https://api.setlist.fm/rest/0.1/search/setlists.json?artistName=and%20one&venueName=bikini&date=30-09-2016")!
         let url = URLComponents(url: SetlistFmAPI.searchSetlistURL(artist: artist, venue: venue, date: date), resolvingAgainstBaseURL: false)!
 
